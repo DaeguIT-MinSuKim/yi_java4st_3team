@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import project_library.book.dto.BookDto;
+import project_library.book.dto.Book;
 import project_library.book_management.BookManagement;
 import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
@@ -105,13 +105,13 @@ public class BookButton extends JPanel implements ActionListener {
 	protected void actionPerformedBtnSave() {
 
 		// pBPanel 에서 getMember()를 이용해서 newBto
-		BookDto newBto = BookManagement.pBPanel.getBook();
+		Book newBto = BookManagement.pBPanel.getBook();
 
 		// pBPanel 에서 getCodeNo()를 이용해서 newBto2
-		BookDto newBto2 = BookManagement.pBPanel.getCodeNo();
+		Book newBto2 = BookManagement.pBPanel.getCodeNo();
 
 		// 테이블에 있는 모든 도서코드 체크
-		for (BookDto b : BookManagement.bList) {
+		for (Book b : BookManagement.bList) {
 			if (newBto2.getNo().equals(b.getNo())) {
 				JOptionPane.showMessageDialog(null, "도서코드가 중복입니다.", "오류", JOptionPane.ERROR_MESSAGE);
 				System.out.println(newBto2);
@@ -162,7 +162,7 @@ public class BookButton extends JPanel implements ActionListener {
 	}
 
 	protected void actionPerformedBtnUpdate() {
-		BookDto uptatedBoo = BookManagement.pBPanel.getItem();
+		Book uptatedBoo = BookManagement.pBPanel.getItem();
 		int idx = BookManagement.bList.indexOf(uptatedBoo);
 		BookManagement.table.updateRow(idx, uptatedBoo);
 		BookManagement.table.setRowSelectionInterval(0, idx);

@@ -15,14 +15,14 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-import project_library.book.dto.BookDto;
+import project_library.book.dto.Book;
 import project_library.book_management.BookManagement;
 
 @SuppressWarnings("serial")
 public class BookTable extends JTable implements MouseListener {
 
 	private CustomTable model;
-	private ArrayList<BookDto> bList;
+	private ArrayList<Book> bList;
 
 	public BookTable() {
 		initComponents();
@@ -38,7 +38,7 @@ public class BookTable extends JTable implements MouseListener {
 		return new String[] { "도서코드", "도서명", "저자", "출판사", "가격" };
 	}
 
-	private Object[][] getRows(ArrayList<BookDto> bList) {
+	private Object[][] getRows(ArrayList<Book> bList) {
 		Object[][] rows = new Object[bList.size()][];
 		for (int i = 0; i < rows.length; i++) {
 			rows[i] = toArray(bList.get(i));
@@ -46,16 +46,16 @@ public class BookTable extends JTable implements MouseListener {
 		return rows;
 	}
 
-	private Object[] toArray(BookDto bookDto) {
+	private Object[] toArray(Book bookDto) {
 		return new Object[] { bookDto.getNo(), bookDto.getBookName(), bookDto.getAuthor(), bookDto.getPublisher(),
 				bookDto.getPrice() };
 	}
 
-	public ArrayList<BookDto> getBList() {
+	public ArrayList<Book> getBList() {
 		return bList;
 	}
 
-	public void setBookList(ArrayList<BookDto> bList) {
+	public void setBookList(ArrayList<Book> bList) {
 		model = new CustomTable(getRows(bList), getCols());
 		setModel(model);
 
@@ -93,7 +93,7 @@ public class BookTable extends JTable implements MouseListener {
 
 	}
 
-	public void addBookDto(BookDto newBto) {
+	public void addBookDto(Book newBto) {
 		// model 추가
 		model.addRow(toArray(newBto));
 	}
@@ -103,7 +103,7 @@ public class BookTable extends JTable implements MouseListener {
 		model.removeRow(idx);
 	}
 
-	public void updateRow(int idx, BookDto uptatedBom) {
+	public void updateRow(int idx, Book uptatedBom) {
 		model.removeRow(idx);
 		model.insertRow(idx, toArray(uptatedBom));
 	}
@@ -112,7 +112,7 @@ public class BookTable extends JTable implements MouseListener {
 		BookManagement.pBPanel.setEditalbeTableTrueTf();
 
 		int idx = BookManagement.table.getSelectedRow();
-		BookDto bdt = BookManagement.bList.get(idx);
+		Book bdt = BookManagement.bList.get(idx);
 
 		BookPanel bp = new BookPanel();
 		bp.setBookDto(bdt);

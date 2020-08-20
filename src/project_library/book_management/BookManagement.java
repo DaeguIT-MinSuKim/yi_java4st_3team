@@ -13,7 +13,7 @@ import javax.swing.border.TitledBorder;
 import project_library.book.component.BookButton;
 import project_library.book.component.BookPanel;
 import project_library.book.component.BookTable;
-import project_library.book.dto.BookDto;
+import project_library.book.dto.Book;
 
 @SuppressWarnings("serial")
 public class BookManagement extends JFrame {
@@ -24,20 +24,20 @@ public class BookManagement extends JFrame {
 	private JPanel pBTable;
 	private JScrollPane scrollPane;
 	public static BookTable table;
-	public static ArrayList<BookDto> bList = new ArrayList<BookDto>();
+	public static ArrayList<Book> bList = new ArrayList<Book>();
 
 	public BookManagement() {
 
-		bList = new ArrayList<BookDto>();
-		bList.add(new BookDto("B001", "리눅스 시스템 구축", "신윤환", "북수홀릭", 33000, true, 0));
-		bList.add(new BookDto("B002", "HTML5 + CSS3", "고경희", "이지스퍼블리싱", 25000, true, 0));
-		bList.add(new BookDto("B003", "자바스크립트 기본 편", "고경희", "이지스퍼블리싱", 25000, true, 0));
-		bList.add(new BookDto("B004", "자바스크립트 + 제이쿼리 입문", "정인용", "이지스퍼블리싱", 20000, true, 0));
-		bList.add(new BookDto("B005", "Java의 정석", "남궁성", "도우출판", 25000, true, 0));
-		bList.add(new BookDto("B006", "오라클로 배우는 데이터베이스", "이지훈", "이지스퍼블리싱", 25000, true, 0));
-		bList.add(new BookDto("B007", "자바 프로젝트 필수 유틸리티", "전민수", "한빛미디어", 35000, true, 0));
-		bList.add(new BookDto("B008", "자바 프로그래밍 입문", "박은종", "이지스퍼블리싱", 25000, true, 0));
-		bList.add(new BookDto("B009", "C 언어 입문", "김성엽", "이지스퍼블리싱", 25000, true, 0));
+		bList = new ArrayList<Book>();
+		bList.add(new Book("B001", "리눅스 시스템 구축", "신윤환", "북수홀릭", 33000, true, 0));
+		bList.add(new Book("B002", "HTML5 + CSS3", "고경희", "이지스퍼블리싱", 25000, true, 0));
+		bList.add(new Book("B003", "자바스크립트 기본 편", "고경희", "이지스퍼블리싱", 25000, true, 0));
+		bList.add(new Book("B004", "자바스크립트 + 제이쿼리 입문", "정인용", "이지스퍼블리싱", 20000, true, 0));
+		bList.add(new Book("B005", "Java의 정석", "남궁성", "도우출판", 25000, true, 0));
+		bList.add(new Book("B006", "오라클로 배우는 데이터베이스", "이지훈", "이지스퍼블리싱", 25000, true, 0));
+		bList.add(new Book("B007", "자바 프로젝트 필수 유틸리티", "전민수", "한빛미디어", 35000, true, 0));
+		bList.add(new Book("B008", "자바 프로그래밍 입문", "박은종", "이지스퍼블리싱", 25000, true, 0));
+		bList.add(new Book("B009", "C 언어 입문", "김성엽", "이지스퍼블리싱", 25000, true, 0));
 
 		initComponents();
 
