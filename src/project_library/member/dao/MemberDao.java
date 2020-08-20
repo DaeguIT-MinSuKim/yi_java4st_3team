@@ -16,4 +16,3 @@ public interface MemberDao {
 	int deleteMember(Member mdto);
 
 }
-
