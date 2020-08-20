@@ -3,21 +3,15 @@ package project_library.breturn;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import project_library.breturn.component.BReturnPanel;
-import javax.swing.BoxLayout;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import java.awt.Component;
-import javax.swing.JSplitPane;
-import java.awt.CardLayout;
-import project_library.breturn.component.BReturnPanel2;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+
+import project_library.breturn.component.BReturnPanel;
 
 public class BReturnManagement extends JFrame {
 
