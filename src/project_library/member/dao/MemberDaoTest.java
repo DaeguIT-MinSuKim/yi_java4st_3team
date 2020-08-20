@@ -71,7 +71,5 @@ public class MemberDaoTest {
 
 		System.out.printf("%s%n%n", delMember);
 	}
-	
-	test
 
 }
