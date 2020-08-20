@@ -111,7 +111,7 @@ public class BookButton extends JPanel implements ActionListener {
 		Book newBto2 = BookManagement.pBPanel.getCodeNo();
 
 		// 테이블에 있는 모든 도서코드 체크
-		for (Book b : BookManagement.bList) {
+		for (Book b : BookManagement.bookList) {
 			if (newBto2.getNo().equals(b.getNo())) {
 				JOptionPane.showMessageDialog(null, "도서코드가 중복입니다.", "오류", JOptionPane.ERROR_MESSAGE);
 				System.out.println(newBto2);
@@ -127,7 +127,7 @@ public class BookButton extends JPanel implements ActionListener {
 		BookManagement.table.addBookDto(newBto);
 
 		// bList add
-		BookManagement.bList.add(newBto);
+		BookManagement.bookList.add(newBto);
 
 		// pBPanel clear
 		BookManagement.pBPanel.clearTf();
@@ -142,7 +142,7 @@ public class BookButton extends JPanel implements ActionListener {
 		// 도서 코드 비활성화
 		BookManagement.pBPanel.getTf().setEditable(false);
 
-		int idx = BookManagement.bList.indexOf(newBto);
+		int idx = BookManagement.bookList.indexOf(newBto);
 		BookManagement.table.setRowSelectionInterval(0, idx);
 		System.out.println(idx);
 
@@ -163,7 +163,7 @@ public class BookButton extends JPanel implements ActionListener {
 
 	protected void actionPerformedBtnUpdate() {
 		Book uptatedBoo = BookManagement.pBPanel.getItem();
-		int idx = BookManagement.bList.indexOf(uptatedBoo);
+		int idx = BookManagement.bookList.indexOf(uptatedBoo);
 		BookManagement.table.updateRow(idx, uptatedBoo);
 		BookManagement.table.setRowSelectionInterval(0, idx);
 		BookManagement.pBPanel.clearTf();

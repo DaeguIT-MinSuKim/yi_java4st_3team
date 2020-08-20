@@ -14,6 +14,7 @@ import project_library.book.component.BookButton;
 import project_library.book.component.BookPanel;
 import project_library.book.component.BookTable;
 import project_library.book.dto.Book;
+import project_library.book.service.BookService;
 
 @SuppressWarnings("serial")
 public class BookManagement extends JFrame {
@@ -24,10 +25,13 @@ public class BookManagement extends JFrame {
 	private JPanel pBTable;
 	private JScrollPane scrollPane;
 	public static BookTable table;
-	public static ArrayList<Book> bList = new ArrayList<Book>();
+	public static ArrayList<Book> bookList;
 
 	public BookManagement() {
-
+		BookService bService = new BookService();
+		bookList = (ArrayList<Book>) bService.getBookDtoList();
+		
+/*
 		bList = new ArrayList<Book>();
 		bList.add(new Book("B001", "리눅스 시스템 구축", "신윤환", "북수홀릭", 33000, true, 0));
 		bList.add(new Book("B002", "HTML5 + CSS3", "고경희", "이지스퍼블리싱", 25000, true, 0));
@@ -38,11 +42,11 @@ public class BookManagement extends JFrame {
 		bList.add(new Book("B007", "자바 프로젝트 필수 유틸리티", "전민수", "한빛미디어", 35000, true, 0));
 		bList.add(new Book("B008", "자바 프로그래밍 입문", "박은종", "이지스퍼블리싱", 25000, true, 0));
 		bList.add(new Book("B009", "C 언어 입문", "김성엽", "이지스퍼블리싱", 25000, true, 0));
-
+*/
 		initComponents();
 
 		table = new BookTable();
-		table.setBookList(bList);
+		table.setBookList(bookList);
 		scrollPane.setViewportView(table);
 
 		pBPanel.setEditalbeFalseTf();
@@ -74,8 +78,6 @@ public class BookManagement extends JFrame {
 		scrollPane = new JScrollPane();
 		pBTable.add(scrollPane, BorderLayout.CENTER);
 
-		table = new BookTable();
-		table.setBorder(null);
 		scrollPane.setViewportView(table);
 	}
 

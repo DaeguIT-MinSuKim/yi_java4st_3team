@@ -9,10 +9,6 @@ public class Book {
 	private boolean rent;
 	private int totalRent;
 
-	public Book() {
-		
-	}
-
 	public Book(String no) {
 		this.no = no;
 	}
@@ -25,8 +21,7 @@ public class Book {
 		this.price = price;
 	}
 
-	public Book(String no, String bookName, String author, String publisher, int price, boolean rent,
-			int totalRent) {
+	public Book(String no, String bookName, String author, String publisher, int price, boolean rent, int totalRent) {
 		this.no = no;
 		this.bookName = bookName;
 		this.author = author;
