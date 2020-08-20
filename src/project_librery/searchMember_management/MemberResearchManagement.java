@@ -15,8 +15,9 @@ import project_librery.searchMember.component.MemberResearchPanel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import project_librery.searchMember.component.SearchMemberButton;
 
-public class MemberResearch extends JFrame {
+public class MemberResearchManagement extends JFrame {
 
 	private JPanel contentPane;
 
@@ -27,7 +28,7 @@ public class MemberResearch extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MemberResearch frame = new MemberResearch();
+					MemberResearchManagement frame = new MemberResearchManagement();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +40,7 @@ public class MemberResearch extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MemberResearch() {
+	public MemberResearchManagement() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 810	, 500);
 		contentPane = new JPanel();
@@ -51,7 +52,7 @@ public class MemberResearch extends JFrame {
 		pInput.setBorder(new EmptyBorder(0, 20, 0, 20));
 		contentPane.add(pInput);
 		
-		JPanel pBtns = new JPanel();
+		SearchMemberButton pBtns = new SearchMemberButton();
 		contentPane.add(pBtns);
 		
 		MemberPanel pMemberInfo = new MemberPanel();
