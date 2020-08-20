@@ -12,11 +12,7 @@ public class TitleMainBM {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
 			}
-
 		});
-
 	}
-
 }
