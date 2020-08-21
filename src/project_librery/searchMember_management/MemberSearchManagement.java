@@ -16,11 +16,14 @@ import project_librery.searchMember.component.MemberSearchPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import project_librery.searchMember.component.MemberSearchButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class MemberSearchManagement extends JFrame {
 
 	private JPanel contentPane;
 	public static MemberSearchPanel pInput;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -43,7 +46,7 @@ public class MemberSearchManagement extends JFrame {
 	 */
 	public MemberSearchManagement() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 810	, 500);
+		setBounds(100, 100, 810	, 582);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -61,6 +64,15 @@ public class MemberSearchManagement extends JFrame {
 		
 		JPanel pRentInfo = new JPanel();
 		contentPane.add(pRentInfo);
+		pRentInfo.setLayout(new BorderLayout(0, 0));
+		
+		JScrollPane scrollPane = new JScrollPane();
+		pRentInfo.add(scrollPane, BorderLayout.CENTER);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		
+		//table에 가지고 온 회원의 대여정보 + 총계를 가지고 오기 
 	}
 
 }
