@@ -16,7 +16,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import project_library.member.dto.Member;
-import project_library.member_management.MemberManagement;
+import project_library.member.management.MemberManagement;
 
 @SuppressWarnings("serial")
 public class MemberTable extends JTable implements MouseListener {

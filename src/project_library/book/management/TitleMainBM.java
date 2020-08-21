@@ -1,22 +1,18 @@
-package project_library.member_management;
+package project_library.book.management;
 
 import java.awt.EventQueue;
 
-public class TitleMainMM {
+public class TitleMainBM {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MemberManagement frame = new MemberManagement();
+					BookManagement frame = new BookManagement();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
 			}
-
 		});
-
 	}
-
 }

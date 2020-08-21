@@ -1,4 +1,4 @@
-package project_library.searchMember.component;
+package project_librery.searchMember.component;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -20,12 +20,13 @@ import javax.swing.border.LineBorder;
 import project_library.exception.EmptyTfException;
 import project_library.exception.InValidationException;
 import project_library.member.dto.Member;
+import project_library.member.management.MemberManagement;
 
 @SuppressWarnings("serial")
-public class MemberSearchPanel extends JPanel implements KeyListener {
+public class MemberResearchPanel extends JPanel implements KeyListener {
 	public JTextField tfName;
 
-	public MemberSearchPanel() {
+	public MemberResearchPanel() {
 		initComponents();
 	}
 

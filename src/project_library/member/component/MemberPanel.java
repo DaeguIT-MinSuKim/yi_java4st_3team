@@ -21,7 +21,7 @@ import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
 import project_library.member.dto.Member;
-import project_library.member_management.MemberManagement;
+import project_library.member.management.MemberManagement;
 
 @SuppressWarnings("serial")
 public class MemberPanel extends JPanel implements KeyListener {

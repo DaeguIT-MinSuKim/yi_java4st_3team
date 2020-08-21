@@ -16,7 +16,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import project_library.book.dto.Book;
-import project_library.book_management.BookManagement;
+import project_library.book.management.BookManagement;
 
 @SuppressWarnings("serial")
 public class BookTable extends JTable implements MouseListener {
