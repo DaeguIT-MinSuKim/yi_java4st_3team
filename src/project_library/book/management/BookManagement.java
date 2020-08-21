@@ -1,4 +1,4 @@
-package project_library.book_management;
+package project_library.book.management;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
@@ -70,8 +70,7 @@ public class BookManagement extends JFrame {
 		contentPane.add(pBBtns);
 
 		pBTable = new JPanel();
-		pBTable.setBorder(new TitledBorder(new EmptyBorder(5, 5, 5, 5), "[ 도서 목록 ]", TitledBorder.LEADING,
-				TitledBorder.TOP, null, null));
+		pBTable.setBorder(new TitledBorder(new EmptyBorder(5, 5, 5, 5), "[ 도서 목록 ]", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		contentPane.add(pBTable);
 		pBTable.setLayout(new BorderLayout(0, 0));
 

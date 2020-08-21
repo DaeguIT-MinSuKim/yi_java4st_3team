@@ -1,4 +1,4 @@
-package project_library.member_management;
+package project_library.member.management;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

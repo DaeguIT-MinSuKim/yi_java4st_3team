@@ -1,4 +1,4 @@
-package project_librery.searchMember_management;
+package project_librery.searchMember.management;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
