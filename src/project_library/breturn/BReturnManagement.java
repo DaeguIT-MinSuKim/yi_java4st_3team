@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 import project_library.breturn.component.BReturnPanel;
 
+@SuppressWarnings("serial")
 public class BReturnManagement extends JFrame {
 
 	private JPanel contentPane;

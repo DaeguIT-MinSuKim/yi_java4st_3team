@@ -1,4 +1,4 @@
-package project_librery.searchMember_management;
+package project_library.searchMember_management;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -11,14 +11,16 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import project_library.member.component.MemberPanel;
-import project_librery.searchMember.component.MemberSearchPanel;
+import project_library.searchMember.component.MemberSearchButton;
+import project_library.searchMember.component.MemberSearchPanel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import project_librery.searchMember.component.MemberSearchButton;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+@SuppressWarnings("serial")
 public class MemberSearchManagement extends JFrame {
 
 	private JPanel contentPane;

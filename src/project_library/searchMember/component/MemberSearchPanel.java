@@ -1,4 +1,4 @@
-package project_librery.searchMember.component;
+package project_library.searchMember.component;
 
 import java.awt.Color;
 import java.awt.Font;

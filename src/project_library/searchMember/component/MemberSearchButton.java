@@ -1,4 +1,4 @@
-package project_librery.searchMember.component;
+package project_library.searchMember.component;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,8 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import project_library.member.dto.Member;
-import project_librery.searchMember_management.MemberSearchManagement;
+import project_library.searchMember_management.MemberSearchManagement;
 
+@SuppressWarnings("serial")
 public class MemberSearchButton extends JPanel {
 
 	public MemberSearchButton() {

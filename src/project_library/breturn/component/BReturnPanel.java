@@ -14,6 +14,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.border.EmptyBorder;
 
+@SuppressWarnings("serial")
 public class BReturnPanel extends JPanel {
 	private JTextField tfBno;
 	private JTextField tfBname;
