@@ -58,7 +58,7 @@ public class BReturnPanel extends JPanel {
 		tfBno.setHorizontalAlignment(SwingConstants.CENTER);
 		tfBno.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		GridBagConstraints gbc_tfBno = new GridBagConstraints();
-		gbc_tfBno.fill = GridBagConstraints.BOTH;
+		gbc_tfBno.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tfBno.insets = new Insets(0, 0, 5, 0);
 		gbc_tfBno.gridx = 1;
 		gbc_tfBno.gridy = 0;
@@ -79,7 +79,7 @@ public class BReturnPanel extends JPanel {
 		tfBname.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		tfBname.setColumns(10);
 		GridBagConstraints gbc_tfBname = new GridBagConstraints();
-		gbc_tfBname.fill = GridBagConstraints.BOTH;
+		gbc_tfBname.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tfBname.insets = new Insets(0, 0, 5, 0);
 		gbc_tfBname.gridx = 1;
 		gbc_tfBname.gridy = 1;
@@ -99,7 +99,7 @@ public class BReturnPanel extends JPanel {
 		tfBau.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		tfBau.setColumns(10);
 		GridBagConstraints gbc_tfBau = new GridBagConstraints();
-		gbc_tfBau.fill = GridBagConstraints.BOTH;
+		gbc_tfBau.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tfBau.insets = new Insets(0, 0, 5, 0);
 		gbc_tfBau.gridx = 1;
 		gbc_tfBau.gridy = 2;
@@ -119,7 +119,7 @@ public class BReturnPanel extends JPanel {
 		tfBpu.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		tfBpu.setColumns(10);
 		GridBagConstraints gbc_tfBpu = new GridBagConstraints();
-		gbc_tfBpu.fill = GridBagConstraints.BOTH;
+		gbc_tfBpu.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tfBpu.insets = new Insets(0, 0, 5, 0);
 		gbc_tfBpu.gridx = 1;
 		gbc_tfBpu.gridy = 3;
@@ -139,7 +139,7 @@ public class BReturnPanel extends JPanel {
 		tfBpr.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		tfBpr.setColumns(10);
 		GridBagConstraints gbc_tfBpr = new GridBagConstraints();
-		gbc_tfBpr.fill = GridBagConstraints.BOTH;
+		gbc_tfBpr.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tfBpr.insets = new Insets(0, 0, 5, 0);
 		gbc_tfBpr.gridx = 1;
 		gbc_tfBpr.gridy = 4;
@@ -159,7 +159,7 @@ public class BReturnPanel extends JPanel {
 		tfBcnt.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		tfBcnt.setColumns(10);
 		GridBagConstraints gbc_tfBcnt = new GridBagConstraints();
-		gbc_tfBcnt.fill = GridBagConstraints.BOTH;
+		gbc_tfBcnt.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tfBcnt.gridx = 1;
 		gbc_tfBcnt.gridy = 5;
 		panel01.add(tfBcnt, gbc_tfBcnt);
@@ -167,57 +167,111 @@ public class BReturnPanel extends JPanel {
 		JPanel panel02 = new JPanel();
 		panel02.setBorder(new EmptyBorder(5, 5, 5, 5));
 		add(panel02);
-		panel02.setLayout(new GridLayout(0, 2, 0, 0));
+		GridBagLayout gbl_panel02 = new GridBagLayout();
+		gbl_panel02.columnWidths = new int[]{102, 102, 0};
+		gbl_panel02.rowHeights = new int[]{54, 54, 54, 54, 54, 0};
+		gbl_panel02.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel02.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel02.setLayout(gbl_panel02);
 		
 		JLabel lblNo = new JLabel("회원코드 :");
 		lblNo.setFont(new Font("맑은 고딕", Font.BOLD, 14));
-		panel02.add(lblNo);
+		GridBagConstraints gbc_lblNo = new GridBagConstraints();
+		gbc_lblNo.fill = GridBagConstraints.BOTH;
+		gbc_lblNo.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNo.gridx = 0;
+		gbc_lblNo.gridy = 0;
+		panel02.add(lblNo, gbc_lblNo);
 		
 		tfNo = new JTextField();
 		tfNo.setHorizontalAlignment(SwingConstants.CENTER);
 		tfNo.setFont(new Font("맑은 고딕", Font.BOLD, 14));
-		panel02.add(tfNo);
+		GridBagConstraints gbc_tfNo = new GridBagConstraints();
+		gbc_tfNo.fill = GridBagConstraints.HORIZONTAL;
+		gbc_tfNo.insets = new Insets(0, 0, 5, 0);
+		gbc_tfNo.gridx = 1;
+		gbc_tfNo.gridy = 0;
+		panel02.add(tfNo, gbc_tfNo);
 		tfNo.setColumns(10);
 		
 		JLabel lblName = new JLabel("성     명 : ");
 		lblName.setFont(new Font("맑은 고딕", Font.BOLD, 14));
-		panel02.add(lblName);
+		GridBagConstraints gbc_lblName = new GridBagConstraints();
+		gbc_lblName.fill = GridBagConstraints.BOTH;
+		gbc_lblName.insets = new Insets(0, 0, 5, 5);
+		gbc_lblName.gridx = 0;
+		gbc_lblName.gridy = 1;
+		panel02.add(lblName, gbc_lblName);
 		
 		tfName = new JTextField();
 		tfName.setHorizontalAlignment(SwingConstants.CENTER);
 		tfName.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		tfName.setColumns(10);
-		panel02.add(tfName);
+		GridBagConstraints gbc_tfName = new GridBagConstraints();
+		gbc_tfName.fill = GridBagConstraints.HORIZONTAL;
+		gbc_tfName.insets = new Insets(0, 0, 5, 0);
+		gbc_tfName.gridx = 1;
+		gbc_tfName.gridy = 1;
+		panel02.add(tfName, gbc_tfName);
 		
 		JLabel lblTel = new JLabel("전화번호  : ");
 		lblTel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
-		panel02.add(lblTel);
+		GridBagConstraints gbc_lblTel = new GridBagConstraints();
+		gbc_lblTel.fill = GridBagConstraints.BOTH;
+		gbc_lblTel.insets = new Insets(0, 0, 5, 5);
+		gbc_lblTel.gridx = 0;
+		gbc_lblTel.gridy = 2;
+		panel02.add(lblTel, gbc_lblTel);
 		
 		tfTel = new JTextField();
 		tfTel.setHorizontalAlignment(SwingConstants.CENTER);
 		tfTel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		tfTel.setColumns(10);
-		panel02.add(tfTel);
+		GridBagConstraints gbc_tfTel = new GridBagConstraints();
+		gbc_tfTel.fill = GridBagConstraints.HORIZONTAL;
+		gbc_tfTel.insets = new Insets(0, 0, 5, 0);
+		gbc_tfTel.gridx = 1;
+		gbc_tfTel.gridy = 2;
+		panel02.add(tfTel, gbc_tfTel);
 		
 		JLabel lblBDate = new JLabel("대 여 일 : ");
 		lblBDate.setFont(new Font("맑은 고딕", Font.BOLD, 14));
-		panel02.add(lblBDate);
+		GridBagConstraints gbc_lblBDate = new GridBagConstraints();
+		gbc_lblBDate.fill = GridBagConstraints.BOTH;
+		gbc_lblBDate.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBDate.gridx = 0;
+		gbc_lblBDate.gridy = 3;
+		panel02.add(lblBDate, gbc_lblBDate);
 		
 		tfBDate = new JTextField();
 		tfBDate.setHorizontalAlignment(SwingConstants.CENTER);
 		tfBDate.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		tfBDate.setColumns(10);
-		panel02.add(tfBDate);
+		GridBagConstraints gbc_tfBDate = new GridBagConstraints();
+		gbc_tfBDate.fill = GridBagConstraints.HORIZONTAL;
+		gbc_tfBDate.insets = new Insets(0, 0, 5, 0);
+		gbc_tfBDate.gridx = 1;
+		gbc_tfBDate.gridy = 3;
+		panel02.add(tfBDate, gbc_tfBDate);
 		
 		JLabel lblRDate = new JLabel("반 납 일 : ");
 		lblRDate.setFont(new Font("맑은 고딕", Font.BOLD, 14));
-		panel02.add(lblRDate);
+		GridBagConstraints gbc_lblRDate = new GridBagConstraints();
+		gbc_lblRDate.fill = GridBagConstraints.BOTH;
+		gbc_lblRDate.insets = new Insets(0, 0, 0, 5);
+		gbc_lblRDate.gridx = 0;
+		gbc_lblRDate.gridy = 4;
+		panel02.add(lblRDate, gbc_lblRDate);
 		
 		tfRDate = new JTextField();
 		tfRDate.setHorizontalAlignment(SwingConstants.CENTER);
 		tfRDate.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		tfRDate.setColumns(10);
-		panel02.add(tfRDate);
+		GridBagConstraints gbc_tfRDate = new GridBagConstraints();
+		gbc_tfRDate.fill = GridBagConstraints.HORIZONTAL;
+		gbc_tfRDate.gridx = 1;
+		gbc_tfRDate.gridy = 4;
+		panel02.add(tfRDate, gbc_tfRDate);
 
 	}
 
