@@ -23,10 +23,10 @@ import project_library.member.dto.Member;
 import project_library.member_management.MemberManagement;
 
 @SuppressWarnings("serial")
-public class MemberResearchPanel extends JPanel implements KeyListener {
+public class MemberSearchPanel extends JPanel implements KeyListener {
 	public JTextField tfName;
 
-	public MemberResearchPanel() {
+	public MemberSearchPanel() {
 		initComponents();
 	}
 

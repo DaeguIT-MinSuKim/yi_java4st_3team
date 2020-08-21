@@ -11,15 +11,19 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import project_library.member.component.MemberPanel;
-import project_librery.searchMember.component.MemberResearchPanel;
+import project_librery.searchMember.component.MemberSearchPanel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import project_librery.searchMember.component.SearchMemberButton;
+import project_librery.searchMember.component.MemberSearchButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
-public class MemberResearchManagement extends JFrame {
+public class MemberSearchManagement extends JFrame {
 
 	private JPanel contentPane;
+	public static MemberSearchPanel pInput;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -28,7 +32,7 @@ public class MemberResearchManagement extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MemberResearchManagement frame = new MemberResearchManagement();
+					MemberSearchManagement frame = new MemberSearchManagement();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,19 +44,19 @@ public class MemberResearchManagement extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MemberResearchManagement() {
+	public MemberSearchManagement() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 810	, 500);
+		setBounds(100, 100, 810	, 582);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		
-		MemberResearchPanel pInput = new MemberResearchPanel();
+		pInput = new MemberSearchPanel();
 		pInput.setBorder(new EmptyBorder(0, 20, 0, 20));
 		contentPane.add(pInput);
 		
-		SearchMemberButton pBtns = new SearchMemberButton();
+		MemberSearchButton pBtns = new MemberSearchButton();
 		contentPane.add(pBtns);
 		
 		MemberPanel pMemberInfo = new MemberPanel();
@@ -60,6 +64,15 @@ public class MemberResearchManagement extends JFrame {
 		
 		JPanel pRentInfo = new JPanel();
 		contentPane.add(pRentInfo);
+		pRentInfo.setLayout(new BorderLayout(0, 0));
+		
+		JScrollPane scrollPane = new JScrollPane();
+		pRentInfo.add(scrollPane, BorderLayout.CENTER);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		
+		//table에 가지고 온 회원의 대여정보 + 총계를 가지고 오기 
 	}
 
 }
