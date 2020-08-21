@@ -12,11 +12,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import project_library.breturn.component.BReturnPanel;
+import project_library.breturn.component.BReturnButton;
+import project_library.breturn.component.BReturnTable;
+import javax.swing.border.TitledBorder;
 
 public class BReturnManagement extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private BReturnTable table;
 
 	/**
 	 * Launch the application.
@@ -39,34 +42,27 @@ public class BReturnManagement extends JFrame {
 	 */
 	public BReturnManagement() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 852, 400);
+		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		
-		BReturnPanel panel = new BReturnPanel();
-		contentPane.add(panel);
+		BReturnPanel pRPanel = new BReturnPanel();
+		contentPane.add(pRPanel);
 		
-		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1);
+		BReturnButton pRBtns = new BReturnButton();
+		contentPane.add(pRBtns);
 		
-		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2);
-		panel_2.setLayout(new BorderLayout(0, 0));
+		JPanel pRTable = new JPanel();
+		pRTable.setBorder(new TitledBorder(null, "\uBC18\uB0A9\uD544\uC694 \uB3C4\uC11C\uBAA9\uB85D", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		contentPane.add(pRTable);
+		pRTable.setLayout(new BorderLayout(0, 0));
 		
 		JScrollPane scrollPane = new JScrollPane();
-		panel_2.add(scrollPane, BorderLayout.CENTER);
+		pRTable.add(scrollPane, BorderLayout.CENTER);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null},
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column"
-			}
-		));
+		table = new BReturnTable();
 		scrollPane.setViewportView(table);
 	}
 

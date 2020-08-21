@@ -1,34 +1,56 @@
 package project_library.breturn.component;
 
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.border.EmptyBorder;
-import java.awt.event.ActionListener;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class BReturnButton extends JPanel {
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
-	/**
-	 * Create the panel.
-	 */
+public class BReturnButton extends JPanel implements ActionListener {
+	private JButton btnReturn;
+	private JButton btnExit;
+	
+
 	public BReturnButton() {
+		initComponents();
+
+	}
+
+	private void initComponents() {
+		
 		setBorder(new EmptyBorder(0, 10, 0, 10));
 		
-		JButton btnReturn = new JButton("반납");
-		btnReturn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		
+		btnReturn = new JButton("반납");
+		btnReturn.addActionListener(this);
+		btnReturn.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		add(btnReturn);
 		
-		JButton btnExit = new JButton("닫기");
-		btnExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
+		btnExit = new JButton("닫기");
+		btnExit.addActionListener(this);
+		btnExit.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		add(btnExit);
+		
+	}
 
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == btnReturn) {
+			actionPerformedBtnReturn();
+		}
+		
+		if(e.getSource() == btnExit) {
+			actionPerformedBtnExit();
+		}
+	}
+
+	protected void actionPerformedBtnReturn() {
+		
+	}
+	
+	protected void actionPerformedBtnExit() {
+		System.exit(0);
 	}
 
 }
