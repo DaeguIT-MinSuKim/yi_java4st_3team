@@ -11,15 +11,16 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import project_library.member.component.MemberPanel;
-import project_librery.searchMember.component.MemberResearchPanel;
+import project_librery.searchMember.component.MemberSearchPanel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import project_librery.searchMember.component.SearchMemberButton;
+import project_librery.searchMember.component.MemberSearchButton;
 
-public class MemberResearchManagement extends JFrame {
+public class MemberSearchManagement extends JFrame {
 
 	private JPanel contentPane;
+	public static MemberSearchPanel pInput;
 
 	/**
 	 * Launch the application.
@@ -28,7 +29,7 @@ public class MemberResearchManagement extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MemberResearchManagement frame = new MemberResearchManagement();
+					MemberSearchManagement frame = new MemberSearchManagement();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +41,7 @@ public class MemberResearchManagement extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MemberResearchManagement() {
+	public MemberSearchManagement() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 810	, 500);
 		contentPane = new JPanel();
@@ -48,11 +49,11 @@ public class MemberResearchManagement extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		
-		MemberResearchPanel pInput = new MemberResearchPanel();
+		pInput = new MemberSearchPanel();
 		pInput.setBorder(new EmptyBorder(0, 20, 0, 20));
 		contentPane.add(pInput);
 		
-		SearchMemberButton pBtns = new SearchMemberButton();
+		MemberSearchButton pBtns = new MemberSearchButton();
 		contentPane.add(pBtns);
 		
 		MemberPanel pMemberInfo = new MemberPanel();
