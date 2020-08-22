@@ -26,14 +26,13 @@
 					"@dbeaver-connection-type@": "BASIC",
 					"@dbeaver-sid-service@": "SERVICE"
 				},
-				"auth-model": "oracle_native",
-				"handlers": {}
+				"auth-model": "oracle_native"
 			}
 		},
 		"oracle_thin-1741445247b-6586d9b8b6d2255a": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "orcl",
+			"name": "USER_LIB",
 			"save-password": true,
 			"show-system-objects": true,
 			"read-only": false,
