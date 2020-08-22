@@ -1,4 +1,4 @@
-package project_library.ui;
+package project_library.ui.component;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;

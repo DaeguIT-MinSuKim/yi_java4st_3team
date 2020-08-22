@@ -1,4 +1,4 @@
-package project_library.ui;
+package project_library.ui.component;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package project_library.main;
+package project_library.ui.frame;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -13,12 +13,12 @@ import javax.swing.border.TitledBorder;
 
 import project_library.dto.BookManagement;
 import project_library.service.BookManagementService;
-import project_library.ui.BookManagementButton;
-import project_library.ui.BookManagementPanel;
-import project_library.ui.BookManagementTable;
+import project_library.ui.component.BookManagementButton;
+import project_library.ui.component.BookManagementPanel;
+import project_library.ui.component.BookManagementTable;
 
 @SuppressWarnings("serial")
-public class BookManagementMain extends JFrame {
+public class BookManagementFrame extends JFrame {
 
 	private JPanel contentPane;
 	public static BookManagementPanel pBPanel;
@@ -32,7 +32,7 @@ public class BookManagementMain extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BookManagementMain frame = new BookManagementMain();
+					BookManagementFrame frame = new BookManagementFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +41,7 @@ public class BookManagementMain extends JFrame {
 		});
 	}
 	
-	public BookManagementMain() {
+	public BookManagementFrame() {
 		BookManagementService bService = new BookManagementService();
 		bookList = (ArrayList<BookManagement>) bService.getBookDtoList();
 		

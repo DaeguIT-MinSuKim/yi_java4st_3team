@@ -1,4 +1,4 @@
-package project_library.ui;
+package project_library.ui.component;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -14,7 +14,7 @@ import project_library.dto.BookManagement;
 import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
-import project_library.main.BookManagementMain;
+import project_library.ui.frame.BookManagementFrame;
 
 @SuppressWarnings("serial")
 public class BookManagementButton extends JPanel implements ActionListener {
@@ -105,13 +105,13 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	protected void actionPerformedBtnSave() {
 
 		// pBPanel 에서 getMember()를 이용해서 newBto
-		BookManagement newBto = BookManagementMain.pBPanel.getBook();
+		BookManagement newBto = BookManagementFrame.pBPanel.getBook();
 
 		// pBPanel 에서 getCodeNo()를 이용해서 newBto2
-		BookManagement newBto2 = BookManagementMain.pBPanel.getCodeNo();
+		BookManagement newBto2 = BookManagementFrame.pBPanel.getCodeNo();
 
 		// 테이블에 있는 모든 도서코드 체크
-		for (BookManagement b : BookManagementMain.bookList) {
+		for (BookManagement b : BookManagementFrame.bookList) {
 			if (newBto2.getNo().equals(b.getNo())) {
 				JOptionPane.showMessageDialog(null, "도서코드가 중복입니다.", "오류", JOptionPane.ERROR_MESSAGE);
 				System.out.println(newBto2);
@@ -124,13 +124,13 @@ public class BookManagementButton extends JPanel implements ActionListener {
 		JOptionPane.showMessageDialog(null, message);
 
 		// newBto를 Book에 add
-		BookManagementMain.table.addBookDto(newBto);
+		BookManagementFrame.table.addBookDto(newBto);
 
 		// bList add
-		BookManagementMain.bookList.add(newBto);
+		BookManagementFrame.bookList.add(newBto);
 
 		// pBPanel clear
-		BookManagementMain.pBPanel.clearTf();
+		BookManagementFrame.pBPanel.clearTf();
 
 		// 저장 성공 - 수정, 삭제 버튼 활성화
 		btnUpdate.setEnabled(true);
@@ -140,20 +140,20 @@ public class BookManagementButton extends JPanel implements ActionListener {
 		btnSave.setEnabled(false);
 
 		// 도서 코드 비활성화
-		BookManagementMain.pBPanel.getTf().setEditable(false);
+		BookManagementFrame.pBPanel.getTf().setEditable(false);
 
-		int idx = BookManagementMain.bookList.indexOf(newBto);
-		BookManagementMain.table.setRowSelectionInterval(0, idx);
+		int idx = BookManagementFrame.bookList.indexOf(newBto);
+		BookManagementFrame.table.setRowSelectionInterval(0, idx);
 		System.out.println(idx);
 
 	}
 
 	protected void actionPerformedBtnAdd() {
 		// 입력창 활성화
-		BookManagementMain.pBPanel.setEditalbeTrueTf();
+		BookManagementFrame.pBPanel.setEditalbeTrueTf();
 
 		// Clear
-		BookManagementMain.pBPanel.clearTf();
+		BookManagementFrame.pBPanel.clearTf();
 
 		// 저장, 수정, 삭제 버튼 비활성화
 		btnSave.setEnabled(false);
@@ -162,26 +162,26 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	}
 
 	protected void actionPerformedBtnUpdate() {
-		BookManagement uptatedBoo = BookManagementMain.pBPanel.getItem();
-		int idx = BookManagementMain.bookList.indexOf(uptatedBoo);
-		BookManagementMain.table.updateRow(idx, uptatedBoo);
-		BookManagementMain.table.setRowSelectionInterval(0, idx);
-		BookManagementMain.pBPanel.clearTf();
+		BookManagement uptatedBoo = BookManagementFrame.pBPanel.getItem();
+		int idx = BookManagementFrame.bookList.indexOf(uptatedBoo);
+		BookManagementFrame.table.updateRow(idx, uptatedBoo);
+		BookManagementFrame.table.setRowSelectionInterval(0, idx);
+		BookManagementFrame.pBPanel.clearTf();
 		JOptionPane.showMessageDialog(null, "수정 되었습니다.");
 	}
 
 	protected void actionPerformedBtnDelete() {
 		// 선택된 인덱스
-		int idx = BookManagementMain.table.getSelectedRow();
+		int idx = BookManagementFrame.table.getSelectedRow();
 
 		// 삭제 여부 메시지
 		int result = JOptionPane.showConfirmDialog(null, "정말 삭제 하시겠습니까?", "경고", JOptionPane.OK_CANCEL_OPTION);
 		if (result == JOptionPane.OK_OPTION) {
 			// table 에서 삭제
-			BookManagementMain.table.delBookDto(idx);
+			BookManagementFrame.table.delBookDto(idx);
 
 			// pMember clear
-			BookManagementMain.pBPanel.clearTf();
+			BookManagementFrame.pBPanel.clearTf();
 
 			// 삭제 성공 - 수정, 삭제 버튼 비활성화
 			btnUpdate.setEnabled(false);

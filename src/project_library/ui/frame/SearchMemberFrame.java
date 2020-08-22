@@ -1,4 +1,4 @@
-package project_library.main;
+package project_library.ui.frame;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -10,11 +10,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
-import project_library.ui.SearchMemberButton;
-import project_library.ui.SearchMemberPanel;
+import project_library.ui.component.SearchMemberButton;
+import project_library.ui.component.SearchMemberPanel;
 
 @SuppressWarnings("serial")
-public class SearchMemberMain extends JFrame {
+public class SearchMemberFrame extends JFrame {
 
 	private JPanel contentPane;
 	public static SearchMemberPanel pInput;
@@ -27,7 +27,7 @@ public class SearchMemberMain extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SearchMemberMain frame = new SearchMemberMain();
+					SearchMemberFrame frame = new SearchMemberFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class SearchMemberMain extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SearchMemberMain() {
+	public SearchMemberFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 810	, 582);
 		contentPane = new JPanel();

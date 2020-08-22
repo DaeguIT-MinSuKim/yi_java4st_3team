@@ -1,4 +1,4 @@
-package project_library.main;
+package project_library.ui.frame;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -11,14 +11,14 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import project_library.ui.ReturnManagementButton;
-import project_library.ui.ReturnManagementPanel;
-import project_library.ui.ReturnManagementTable;
+import project_library.ui.component.ReturnManagementButton;
+import project_library.ui.component.ReturnManagementPanel;
+import project_library.ui.component.ReturnManagementTable;
 
 import javax.swing.border.TitledBorder;
 
 @SuppressWarnings("serial")
-public class ReturnManagementMain extends JFrame {
+public class ReturnManagementFrame extends JFrame {
 
 	private JPanel contentPane;
 	private ReturnManagementTable table;
@@ -30,7 +30,7 @@ public class ReturnManagementMain extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ReturnManagementMain frame = new ReturnManagementMain();
+					ReturnManagementFrame frame = new ReturnManagementFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class ReturnManagementMain extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ReturnManagementMain() {
+	public ReturnManagementFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();

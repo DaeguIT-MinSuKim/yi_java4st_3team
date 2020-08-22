@@ -1,4 +1,4 @@
-package project_library.ui;
+package project_library.ui.component;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -16,7 +16,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import project_library.dto.SearchMember;
-import project_library.main.MemberManagementMain;
+import project_library.ui.frame.MemberManagementFrame;
 
 @SuppressWarnings("serial")
 public class SearchMemberTable extends JTable implements MouseListener {
@@ -104,17 +104,17 @@ public class SearchMemberTable extends JTable implements MouseListener {
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		MemberManagementMain.pMember.setEditalbeTableTrueTf();
+		MemberManagementFrame.pMember.setEditalbeTableTrueTf();
 
-		int idx = MemberManagementMain.memberTable.getSelectedRow();
-		SearchMember mdt = MemberManagementMain.memberDtoList.get(idx);
+		int idx = MemberManagementFrame.memberTable.getSelectedRow();
+		SearchMember mdt = MemberManagementFrame.memberDtoList.get(idx);
 
 		SearchMemberPanel mp = new SearchMemberPanel();
 		mp.setMemberDto(mdt);
 
 		// 삭제 취소 - 수정, 삭제 버튼 활성화
-		MemberManagementMain.btnUpdate.setEnabled(true);
-		MemberManagementMain.btnDelete.setEnabled(true);
+		MemberManagementFrame.btnUpdate.setEnabled(true);
+		MemberManagementFrame.btnDelete.setEnabled(true);
 	}
 
 	public void mouseEntered(MouseEvent e) {

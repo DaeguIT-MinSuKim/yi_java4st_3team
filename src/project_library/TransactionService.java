@@ -5,12 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import project_library.conn.JdbcUtil;
-import project_library.main.RentalManagementMain;
+import project_library.ui.frame.RentalManagementFrame;
 
 public class TransactionService {
 	/* 트랜잭션을 위해  */
 	public void transAddTtileAndDepartment(
-			RentalManagementMain rentalManagementFrame // 대여관리 
+			RentalManagementFrame rentalManagementFrame // 대여관리 
 		) {
 		
 		String tSql = "INSERT INTO TITLE VALUES(?, ?)";
@@ -60,7 +60,7 @@ public class TransactionService {
 	}
 	
 	public void transRemoveTtileAndDepartment(
-			RentalManagementMain rentalManagementFrame // 대여관리 
+			RentalManagementFrame rentalManagementFrame // 대여관리 
 		) {
 		
 		String tSql = "DELETE FROM TITLE WHERE TITLE_NO = ?";

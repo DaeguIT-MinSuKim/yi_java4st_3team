@@ -1,4 +1,4 @@
-package project_library.main;
+package project_library.ui.frame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -23,11 +23,11 @@ import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
 import project_library.service.MemberManagementService;
-import project_library.ui.SearchMemberPanel;
-import project_library.ui.SearchMemberTable;
+import project_library.ui.component.SearchMemberPanel;
+import project_library.ui.component.SearchMemberTable;
 
 @SuppressWarnings("serial")
-public class MemberManagementMain extends JFrame implements ActionListener {
+public class MemberManagementFrame extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	public static SearchMemberPanel pMember;
 	public static JPanel pBtns;
@@ -46,7 +46,7 @@ public class MemberManagementMain extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MemberManagementMain frame = new MemberManagementMain();
+					MemberManagementFrame frame = new MemberManagementFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +55,7 @@ public class MemberManagementMain extends JFrame implements ActionListener {
 		});
 	}
 	
-	public MemberManagementMain() {
+	public MemberManagementFrame() {
 		mService = new MemberManagementService();
 		memberDtoList = (ArrayList<SearchMember>) mService.getMemberDtoList();
 

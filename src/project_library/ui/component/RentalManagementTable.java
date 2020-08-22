@@ -1,4 +1,4 @@
-package project_library.ui;
+package project_library.ui.component;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -16,15 +16,14 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import project_library.dto.BookManagement;
-import project_library.main.BookManagementMain;
+import project_library.dto.RentalManagement;
 
 @SuppressWarnings("serial")
-public class BookManagementTable extends JTable implements MouseListener {
-
+public class RentalManagementTable extends JTable implements MouseListener {
 	private CustomTable model;
-	private ArrayList<BookManagement> bList;
-
-	public BookManagementTable() {
+	private ArrayList<RentalManagement> rentalList;
+	
+	public RentalManagementTable() {
 		initComponents();
 	}
 
@@ -33,30 +32,33 @@ public class BookManagementTable extends JTable implements MouseListener {
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		addMouseListener(this);
 	}
-
-	private String[] getCols() {
-		return new String[] { "도서코드", "도서명", "저자", "출판사", "가격" };
-	}
-
-	private Object[][] getRows(ArrayList<BookManagement> bList) {
-		Object[][] rows = new Object[bList.size()][];
+	private Object[][] getRows(ArrayList<RentalManagement> rentalList) {
+		Object[][] rows = new Object[rentalList.size()][];
 		for (int i = 0; i < rows.length; i++) {
-			rows[i] = toArray(bList.get(i));
+			rows[i] = toArray(rentalList.get(i));
 		}
 		return rows;
 	}
-
-	private Object[] toArray(BookManagement bookDto) {
-		return new Object[] { bookDto.getNo(), bookDto.getBookName(), bookDto.getAuthor(), bookDto.getPublisher(),
-				bookDto.getPrice() };
+	private Object[] toArray(RentalManagement rentalManagement) {
+		return new Object[] { 
+			rentalManagement.getBookCode(), 
+			rentalManagement.getBookName(), 
+			rentalManagement.getAuthor(), 
+			rentalManagement.getPublisher(), 
+			rentalManagement.getPrice(), 
+			rentalManagement.getTotalRental()
+		};
 	}
-
-	public ArrayList<BookManagement> getBList() {
-		return bList;
+	private String[] getCols() {
+		return new String[] { "도서코드", "도서명", "저자", "출판사", "가격", "총대여 횟수" };
 	}
-
-	public void setBookList(ArrayList<BookManagement> bList) {
-		model = new CustomTable(getRows(bList), getCols());
+	
+	public ArrayList<RentalManagement> getBList() {
+		return rentalList;
+	}
+	
+	public void setRentalManagementList(ArrayList<RentalManagement> rentalList) {
+		model = new CustomTable(getRows(rentalList), getCols());
 		setModel(model);
 
 		// column의 폭 설정
@@ -80,7 +82,7 @@ public class BookManagementTable extends JTable implements MouseListener {
 		setRowSorter(sorter);
 
 	}
-
+	
 	private class CustomTable extends DefaultTableModel {
 		public CustomTable(Object[][] data, Object[] columnNames) {
 			super(data, columnNames);
@@ -93,53 +95,37 @@ public class BookManagementTable extends JTable implements MouseListener {
 
 	}
 
-	public void addBookDto(BookManagement newBto) {
-		// model 추가
-		model.addRow(toArray(newBto));
+
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public void delBookDto(int idx) {
-		// model 삭제
-		model.removeRow(idx);
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public void updateRow(int idx, BookManagement uptatedBom) {
-		model.removeRow(idx);
-		model.insertRow(idx, toArray(uptatedBom));
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public void mouseClicked(MouseEvent e) {
-		BookManagementMain.pBPanel.setEditalbeTableTrueTf();
-
-		int idx = BookManagementMain.table.getSelectedRow();
-		BookManagement bdt = BookManagementMain.bookList.get(idx);
-
-		BookManagementPanel bp = new BookManagementPanel();
-		bp.setBookDto(bdt);
-
-		// 삭제 취소 - 수정, 삭제 버튼 활성화
-		BookManagementButton.btnUpdate.setEnabled(true);
-		BookManagementButton.btnDelete.setEnabled(true);
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public void mouseEntered(MouseEvent e) {
-
-	}
-
-	public void mouseExited(MouseEvent e) {
-
-	}
-
-	public void mousePressed(MouseEvent e) {
-
-	}
-
-	public void mouseReleased(MouseEvent e) {
-
-	}
-
-	protected void mouseClickedThis(MouseEvent e) {
-
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
+  

@@ -1,4 +1,4 @@
-package project_library.main;
+package project_library.ui.frame;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -15,15 +15,15 @@ import project_library.dto.BookManagement;
 import project_library.dto.RentalManagement;
 import project_library.service.BookManagementService;
 import project_library.service.RentalManagementService;
-import project_library.ui.BookManagementButton;
-import project_library.ui.BookManagementPanel;
-import project_library.ui.BookManagementTable;
-import project_library.ui.RentalManagementTable;
+import project_library.ui.component.BookManagementButton;
+import project_library.ui.component.BookManagementPanel;
+import project_library.ui.component.BookManagementTable;
+import project_library.ui.component.RentalManagementTable;
 
 
 @SuppressWarnings("serial")
-public class RentalManagementMain extends JFrame {
-
+public class RentalManagementFrame extends JFrame {
+	
 	private JPanel contentPane;
 	public static BookManagementPanel pBPanel;
 	private BookManagementButton pBBtns;
@@ -36,7 +36,7 @@ public class RentalManagementMain extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RentalManagementMain frame = new RentalManagementMain();
+					RentalManagementFrame frame = new RentalManagementFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class RentalManagementMain extends JFrame {
 		});
 	}
 	
-	public RentalManagementMain() {
+	public RentalManagementFrame() {
 		RentalManagementService bService = new RentalManagementService();
 		rentalManagementList = (ArrayList<RentalManagement>) bService.getRentalManagementList();
 		/*

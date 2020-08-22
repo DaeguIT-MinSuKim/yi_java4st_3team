@@ -1,4 +1,4 @@
-package project_library.ui;
+package project_library.ui.component;
 
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -18,7 +18,7 @@ import project_library.dto.BookManagement;
 import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
-import project_library.main.BookManagementMain;
+import project_library.ui.frame.BookManagementFrame;
 
 @SuppressWarnings("serial")
 public class BookManagementPanel extends JPanel implements KeyListener {
@@ -270,7 +270,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 	}
 
 	protected void setBookDto(BookManagement bdt) {
-		BookManagementMain.pBPanel.setItem(bdt);
+		BookManagementFrame.pBPanel.setItem(bdt);
 	}
 
 	/* 첫번째 필드 회원/도서코드 중복 확인 ↓ */

@@ -1,4 +1,4 @@
-package project_library.ui;
+package project_library.ui.component;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -21,7 +21,7 @@ import project_library.dto.SearchMember;
 import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
-import project_library.main.MemberManagementMain;
+import project_library.ui.frame.MemberManagementFrame;
 
 @SuppressWarnings("serial")
 public class SearchMemberPanel extends JPanel implements KeyListener {
@@ -219,57 +219,57 @@ public class SearchMemberPanel extends JPanel implements KeyListener {
 			if (e.getSource() == tfNo) { // 저장할 경우
 				String no = tfNo.getText().trim();
 				if (no.length() != 0) {
-					MemberManagementMain.btnAdd.setEnabled(true);
+					MemberManagementFrame.btnAdd.setEnabled(true);
 					// System.out.println(no);
 				} else {
-					MemberManagementMain.btnSave.setEnabled(false);
+					MemberManagementFrame.btnSave.setEnabled(false);
 					if (tfNo.getText().trim().length() != 0 || tfName.getText().trim().length() != 0
 							|| tfTel.getText().trim().length() != 0) {
 						return;
 					}
-					MemberManagementMain.btnSave.setEnabled(false);
+					MemberManagementFrame.btnSave.setEnabled(false);
 				}
 			} else if (e.getSource() == tfName) {
 				String name = tfName.getText().trim();
 				if (name.length() != 0) {
-					MemberManagementMain.btnAdd.setEnabled(true);
+					MemberManagementFrame.btnAdd.setEnabled(true);
 					// System.out.println(name);
 				} else {
-					MemberManagementMain.btnUpdate.setEnabled(false);
+					MemberManagementFrame.btnUpdate.setEnabled(false);
 				}
 			} else if (e.getSource() == tfTel) {
 				String tel = tfTel.getText().trim();
 				if (tel.length() != 0) {
-					MemberManagementMain.btnSave.setEnabled(true);
+					MemberManagementFrame.btnSave.setEnabled(true);
 					// System.out.println(tel);
 				} else {
-					MemberManagementMain.btnSave.setEnabled(false);
+					MemberManagementFrame.btnSave.setEnabled(false);
 					if (tfName.getText().trim().length() != 0 || tfTel.getText().trim().length() != 0) {
 						return;
 					}
-					MemberManagementMain.btnUpdate.setEnabled(true);
+					MemberManagementFrame.btnUpdate.setEnabled(true);
 				}
 			}
 		} else { // 수정할 경우
-			MemberManagementMain.btnSave.setEnabled(false);
+			MemberManagementFrame.btnSave.setEnabled(false);
 			if (e.getSource() == tfName) {
 				String name = tfName.getText().trim();
 				if (name.length() != 0) {
-					MemberManagementMain.btnAdd.setEnabled(true);
+					MemberManagementFrame.btnAdd.setEnabled(true);
 					// System.out.println(name);
 				} else {
-					MemberManagementMain.btnUpdate.setEnabled(false);
+					MemberManagementFrame.btnUpdate.setEnabled(false);
 				}
 			} else if (e.getSource() == tfTel) {
 				String tel = tfTel.getText().trim();
 				if (tel.length() != 0) {
 					// System.out.println(tel);
 				} else {
-					MemberManagementMain.btnSave.setEnabled(false);
+					MemberManagementFrame.btnSave.setEnabled(false);
 					if (tfName.getText().trim().length() != 0 || tfTel.getText().trim().length() != 0) {
 						return;
 					}
-					MemberManagementMain.btnUpdate.setEnabled(true);
+					MemberManagementFrame.btnUpdate.setEnabled(true);
 				}
 			}
 		}
@@ -292,7 +292,7 @@ public class SearchMemberPanel extends JPanel implements KeyListener {
 	}
 
 	protected void setMemberDto(SearchMember mdt) {
-		MemberManagementMain.pMember.setItem(mdt);
+		MemberManagementFrame.pMember.setItem(mdt);
 	}
 
 	/* 첫번째 필드 회원/도서코드 중복 확인 ↓ */
