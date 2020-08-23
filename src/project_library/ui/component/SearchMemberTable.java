@@ -107,7 +107,7 @@ public class SearchMemberTable extends JTable implements MouseListener {
 		MemberManagementFrame.pMember.setEditalbeTableTrueTf();
 
 		int idx = MemberManagementFrame.memberTable.getSelectedRow();
-		Member mdt = MemberManagementFrame.memberDtoList.get(idx);
+		Member mdt = MemberManagementFrame.memberList.get(idx);
 
 		SearchMemberPanel mp = new SearchMemberPanel();
 		mp.setMemberDto(mdt);

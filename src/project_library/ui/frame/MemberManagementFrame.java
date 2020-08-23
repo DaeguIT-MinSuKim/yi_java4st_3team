@@ -36,8 +36,8 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 	public static JButton btnUpdate;
 	public static JButton btnDelete;
 	public static JButton btnExit;
-	public static ArrayList<Member> memberDtoList;
 	private JPanel pMemberl;
+	public static ArrayList<Member> memberList;
 	private JScrollPane scrollPane;
 	public static SearchMemberTable memberTable;
 	private MemberManagementService mService;
@@ -54,11 +54,11 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 			}
 		});
 	}
-	
+
 	public MemberManagementFrame() {
 		mService = new MemberManagementService();
-		memberDtoList = (ArrayList<Member>) mService.getMemberDtoList();
-		
+		memberList = (ArrayList<Member>) mService.getMemberDtoList();
+
 		/*		mList = new ArrayList<MemberDto>();
 				mList.add(new MemberDto("M001", "김자바", "010-1234-1234", 0));
 				mList.add(new MemberDto("M002", "이자바", "010-2341-2341", 0));
@@ -68,7 +68,8 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 				mList.add(new MemberDto("M006", "박바자", "010-6785-6785", 0));
 				mList.add(new MemberDto("M007", "김자자", "010-7856-7856", 0));
 				mList.add(new MemberDto("M008", "이자자", "010-8567-8567", 0));
-				mList.add(new MemberDto("M009", "박자자", "010-0000-0000", 0));*/
+				mList.add(new MemberDto("M009", "박자자", "010-0000-0000", 0));
+		*/
 
 		initComponents();
 
@@ -82,7 +83,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		pMemberl.add(scrollPane, BorderLayout.CENTER);
 
 		memberTable = new SearchMemberTable();
-		memberTable.setMemberList(memberDtoList);
+		memberTable.setMemberList(memberList);
 		scrollPane.setViewportView(memberTable);
 
 		pMember.setEditalbeFalseTf();
@@ -201,7 +202,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		Member newMto2 = pMember.getCodeNo();
 
 		// 테이블에 있는 모든 회원코드 체크
-		for (Member m : memberDtoList) {
+		for (Member m : memberList) {
 			if (newMto2.getNo().equals(m.getNo())) {
 				JOptionPane.showMessageDialog(null, "회원코드가 중복입니다.", "오류", JOptionPane.ERROR_MESSAGE);
 				return;
@@ -212,12 +213,12 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		JOptionPane.showMessageDialog(null, message);
 
 		mService.insertMember(newMto);
-		
+
 		// newMto를 Member에 add
 		memberTable.addMemberDto(newMto);
 
 		// mList add
-		memberDtoList.add(newMto);
+		memberList.add(newMto);
 
 		// pMember clear
 		pMember.clearTf();
@@ -232,17 +233,18 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		// 회원 코드 비활성화
 		pMember.getTf().setEditable(false);
 
-		int idx = memberDtoList.indexOf(newMto);
+		int idx = memberList.indexOf(newMto);
 		memberTable.setRowSelectionInterval(0, idx);
+		System.out.println(idx);
 
 	}
 
 	protected void actionPerformedBtnUpdate() {
 		Member uptatedMem = pMember.getItem();
-		
+
 		mService.modifyMember(uptatedMem);
-		
-		int idx = memberDtoList.indexOf(uptatedMem);
+
+		int idx = memberList.indexOf(uptatedMem);
 		memberTable.updateRow(idx, uptatedMem);
 		memberTable.setRowSelectionInterval(0, idx);
 		pMember.clearTf();
@@ -252,9 +254,9 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 	protected void actionPerformedBtnDelete() {
 		// 선택된 인덱스
 		int idx = memberTable.getSelectedRow();
-		
+
 		Member deleteMem = pMember.getItem();
-		
+
 		mService.removeMember(deleteMem);
 
 		// 삭제 여부 메시지

@@ -14,6 +14,7 @@ import project_library.dto.Book;
 import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
+import project_library.service.BookManagementService;
 import project_library.ui.frame.BookManagementFrame;
 
 @SuppressWarnings("serial")
@@ -23,7 +24,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	public static JButton btnUpdate;
 	public static JButton btnDelete;
 	public static JButton btnExit;
-	public static BookManagementTable table;
+	private BookManagementService bService;
 
 	public BookManagementButton() {
 		initComponents();
@@ -34,7 +35,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	}
 
 	private void initComponents() {
-		
+
 		setBorder(new EmptyBorder(0, 10, 0, 10));
 		setLayout(new FlowLayout(FlowLayout.RIGHT, 50, 0));
 
@@ -104,7 +105,6 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	}
 
 	protected void actionPerformedBtnSave() {
-
 		// pBPanel 에서 getMember()를 이용해서 newBto
 		Book newBto = BookManagementFrame.pBPanel.getBook();
 
@@ -123,8 +123,12 @@ public class BookManagementButton extends JPanel implements ActionListener {
 		String message = String.format("%s 도서가 저장 되었습니다.", newBto.getBookName());
 		JOptionPane.showMessageDialog(null, message);
 
+		bService = new BookManagementService();
+		bService.insertBook(newBto);
+		System.out.println(newBto);
+
 		// newBto를 Book에 add
-		BookManagementFrame.table.addBookDto(newBto);
+		BookManagementFrame.bookTable.addBookDto(newBto);
 
 		// bList add
 		BookManagementFrame.bookList.add(newBto);
@@ -143,7 +147,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 		BookManagementFrame.pBPanel.getTf().setEditable(false);
 		
 		int idx = BookManagementFrame.bookList.indexOf(newBto);
-		BookManagementFrame.table.setRowSelectionInterval(0, idx);
+		BookManagementFrame.bookTable.setRowSelectionInterval(0, idx);
 		System.out.println(idx);
 
 	}
@@ -164,21 +168,21 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	protected void actionPerformedBtnUpdate() {
 		Book uptatedBoo = BookManagementFrame.pBPanel.getItem();
 		int idx = BookManagementFrame.bookList.indexOf(uptatedBoo);
-		BookManagementFrame.table.updateRow(idx, uptatedBoo);
-		BookManagementFrame.table.setRowSelectionInterval(0, idx);
+		BookManagementFrame.bookTable.updateRow(idx, uptatedBoo);
+		BookManagementFrame.bookTable.setRowSelectionInterval(0, idx);
 		BookManagementFrame.pBPanel.clearTf();
 		JOptionPane.showMessageDialog(null, "수정 되었습니다.");
 	}
 
 	protected void actionPerformedBtnDelete() {
 		// 선택된 인덱스
-		int idx = BookManagementFrame.table.getSelectedRow();
+		int idx = BookManagementFrame.bookTable.getSelectedRow();
 
 		// 삭제 여부 메시지
 		int result = JOptionPane.showConfirmDialog(null, "정말 삭제 하시겠습니까?", "경고", JOptionPane.OK_CANCEL_OPTION);
 		if (result == JOptionPane.OK_OPTION) {
 			// table 에서 삭제
-			BookManagementFrame.table.delBookDto(idx);
+			BookManagementFrame.bookTable.delBookDto(idx);
 
 			// pMember clear
 			BookManagementFrame.pBPanel.clearTf();
