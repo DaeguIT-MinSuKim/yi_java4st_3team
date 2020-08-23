@@ -15,15 +15,13 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-import project_library.dto.BookManagement;
-import project_library.dto.RentalManagement;
-import project_library.ui.frame.BookManagementFrame;
+import project_library.dto.Rent;
 import project_library.ui.frame.RentalManagementFrame;
 
 @SuppressWarnings("serial")
 public class RentalManagementTable extends JTable implements MouseListener {
 	private CustomTable model;
-	private ArrayList<RentalManagement> rentalList;
+	private ArrayList<Rent> rentalList;
 	
 	public RentalManagementTable() {
 		initComponents();
@@ -34,14 +32,14 @@ public class RentalManagementTable extends JTable implements MouseListener {
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		addMouseListener(this);
 	}
-	private Object[][] getRows(ArrayList<RentalManagement> rentalList) {
+	private Object[][] getRows(ArrayList<Rent> rentalList) {
 		Object[][] rows = new Object[rentalList.size()][];
 		for (int i = 0; i < rows.length; i++) {
 			rows[i] = toArray(rentalList.get(i));
 		}
 		return rows;
 	}
-	private Object[] toArray(RentalManagement rentalManagement) {
+	private Object[] toArray(Rent rentalManagement) {
 		return new Object[] { 
 			rentalManagement.getBookCode(), 
 			rentalManagement.getBookName(), 
@@ -55,11 +53,11 @@ public class RentalManagementTable extends JTable implements MouseListener {
 		return new String[] { "도서코드", "도서명", "저자", "출판사", "가격", "총대여 횟수" };
 	}
 	
-	public ArrayList<RentalManagement> getBList() {
+	public ArrayList<Rent> getBList() {
 		return rentalList;
 	}
 	
-	public void setRentalManagementList(ArrayList<RentalManagement> rentalList) {
+	public void setRentalManagementList(ArrayList<Rent> rentalList) {
 		model = new CustomTable(getRows(rentalList), getCols());
 		setModel(model);
 
@@ -98,15 +96,24 @@ public class RentalManagementTable extends JTable implements MouseListener {
 		}
 
 	}
+	
+	public void delRentManagementDto(int idx) {
+		// model 삭제
+		model.removeRow(idx);
+	}
 
 	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		RentalManagementFrame.pPanel.setEditalbeTableTrueTf();
 		
+		// Table 클릭 시 01. 텍스트필드 활성화/비활성화.
+		RentalManagementFrame.pPanel.setEditalbeTableTrueTf(); 
+		
+		// Table 클릭 시 02. 선택한 값을 가져옴
 		int idx = RentalManagementFrame.table.getSelectedRow();
-		RentalManagement bdt = RentalManagementFrame.rentalManagementList.get(idx);
+		Rent bdt = RentalManagementFrame.rentalManagementList.get(idx);
 		
+		// Table 클릭 시 03. 텍스트필드에 클릭한 데이터정보 넣어줌.
 		RentalManagementPanel rp = new RentalManagementPanel();
 		rp.setRentalManagementDto(bdt);
 	}

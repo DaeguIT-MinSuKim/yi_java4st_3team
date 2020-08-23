@@ -1,27 +1,27 @@
 package project_library.dto;
 
-public class SearchMember {
+public class Member {
 	private String no;
 	private String name;
 	private String tel;
 	private int rent;
 
-	public SearchMember() {
+	public Member() {
 
 	}
 
-	public SearchMember(String no) {
+	public Member(String no) {
 		this.no = no;
 	}
 
-	public SearchMember(String no, String name, String tel, int rent) {
+	public Member(String no, String name, String tel, int rent) {
 		this.no = no;
 		this.name = name;
 		this.tel = tel;
 		this.rent = rent;
 	}
 
-	public SearchMember(String no, String name, String tel) {
+	public Member(String no, String name, String tel) {
 		this.no = no;
 		this.name = name;
 		this.tel = tel;
@@ -75,7 +75,7 @@ public class SearchMember {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		SearchMember other = (SearchMember) obj;
+		Member other = (Member) obj;
 		if (no == null) {
 			if (other.no != null)
 				return false;

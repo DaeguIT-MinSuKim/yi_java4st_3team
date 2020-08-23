@@ -1,6 +1,6 @@
 package project_library.dto;
 
-public class RentalManagement {
+public class Rent {
 	private String bookCode;
 	private String bookName;
 	private String author;
@@ -11,12 +11,17 @@ public class RentalManagement {
 	private String memberName;
 	private String phone;
 	
-	public RentalManagement() {
+	public Rent() {
 	}
-	public RentalManagement(String memberCode) {
+	
+	
+	public Rent(String bookCode, String memberCode) {
+		this.bookCode = bookCode;
 		this.memberCode = memberCode;
 	}
-	public RentalManagement(String bookCode, String bookName, String author, String publisher, int price, int totalRental) {
+
+
+	public Rent(String bookCode, String bookName, String author, String publisher, int price, int totalRental) {
 		this.bookCode = bookCode;
 		this.bookName = bookName;
 		this.author = author;
@@ -84,15 +89,23 @@ public class RentalManagement {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
+		result = prime * result + ((bookCode == null) ? 0 : bookCode.hashCode());
 		result = prime * result + ((bookName == null) ? 0 : bookName.hashCode());
 		result = prime * result + ((memberCode == null) ? 0 : memberCode.hashCode());
 		result = prime * result + ((memberName == null) ? 0 : memberName.hashCode());
-		result = prime * result + ((bookCode == null) ? 0 : bookCode.hashCode());
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
 		result = prime * result + price;
 		result = prime * result + ((publisher == null) ? 0 : publisher.hashCode());
 		result = prime * result + totalRental;
 		return result;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return String.format(
+				"rent [no=%s, bookName=%s, author=%s, publisher=%s, price=%s, totalRental=%s, memberCode=%s, memberName=%s, phone=%s]",
+				bookCode, bookName, author, publisher, price, totalRental, memberCode, memberName, phone);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -102,19 +115,6 @@ public class RentalManagement {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		RentalManagement other = (RentalManagement) obj;
-		if (bookCode == null) {
-			if (other.bookCode != null)
-				return false;
-		} else if (!bookCode.equals(other.bookCode))
-			return false;
-		return false;
+		return true;
 	}
-	@Override
-	public String toString() {
-		return String.format(
-				"rentalManagement [no=%s, bookName=%s, author=%s, publisher=%s, price=%s, totalRental=%s, memberCode=%s, memberName=%s, phone=%s]",
-				bookCode, bookName, author, publisher, price, totalRental, memberCode, memberName, phone);
-	}
-	
 }

@@ -15,13 +15,13 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-import project_library.dto.SearchMember;
+import project_library.dto.Member;
 import project_library.ui.frame.MemberManagementFrame;
 
 @SuppressWarnings("serial")
 public class SearchMemberTable extends JTable implements MouseListener {
 	private CustomTable model;
-	private ArrayList<SearchMember> memberDtoList;
+	private ArrayList<Member> memberDtoList;
 
 	public SearchMemberTable() {
 		initComponents();
@@ -37,7 +37,7 @@ public class SearchMemberTable extends JTable implements MouseListener {
 		return new String[] { "회원코드", "성명", "전화번호", "총 대여 권수" };
 	}
 
-	private Object[][] getRows(ArrayList<SearchMember> memberDtoList) {
+	private Object[][] getRows(ArrayList<Member> memberDtoList) {
 		Object[][] rows = new Object[memberDtoList.size()][];
 		for (int i = 0; i < rows.length; i++) {
 			rows[i] = toArray(memberDtoList.get(i));
@@ -45,15 +45,15 @@ public class SearchMemberTable extends JTable implements MouseListener {
 		return rows;
 	}
 
-	private Object[] toArray(SearchMember memberDto) {
+	private Object[] toArray(Member memberDto) {
 		return new Object[] { memberDto.getNo(), memberDto.getName(), memberDto.getTel(), memberDto.getRent() };
 	}
 
-	public ArrayList<SearchMember> getMemberDtoList() {
+	public ArrayList<Member> getMemberDtoList() {
 		return memberDtoList;
 	}
 
-	public void setMemberList(ArrayList<SearchMember> memberDtoList) {
+	public void setMemberList(ArrayList<Member> memberDtoList) {
 		model = new CustomTable(getRows(memberDtoList), getCols());
 		setModel(model);
 
@@ -88,7 +88,7 @@ public class SearchMemberTable extends JTable implements MouseListener {
 
 	}
 
-	public void addMemberDto(SearchMember newMto) {
+	public void addMemberDto(Member newMto) {
 		// model 추가
 		model.addRow(toArray(newMto));
 	}
@@ -98,7 +98,7 @@ public class SearchMemberTable extends JTable implements MouseListener {
 		model.removeRow(idx);
 	}
 
-	public void updateRow(int idx, SearchMember uptatedMem) {
+	public void updateRow(int idx, Member uptatedMem) {
 		model.removeRow(idx);
 		model.insertRow(idx, toArray(uptatedMem));
 	}
@@ -107,7 +107,7 @@ public class SearchMemberTable extends JTable implements MouseListener {
 		MemberManagementFrame.pMember.setEditalbeTableTrueTf();
 
 		int idx = MemberManagementFrame.memberTable.getSelectedRow();
-		SearchMember mdt = MemberManagementFrame.memberDtoList.get(idx);
+		Member mdt = MemberManagementFrame.memberDtoList.get(idx);
 
 		SearchMemberPanel mp = new SearchMemberPanel();
 		mp.setMemberDto(mdt);

@@ -9,7 +9,8 @@ import java.util.List;
 
 import project_library.conn.JdbcUtil;
 import project_library.dao.RentalManagementDao;
-import project_library.dto.RentalManagement;
+import project_library.dto.Book;
+import project_library.dto.Rent;
 
 public class RentalManagementDaoImpl implements RentalManagementDao {
 
@@ -21,13 +22,13 @@ public class RentalManagementDaoImpl implements RentalManagementDao {
 	}
 
 	@Override
-	public List<RentalManagement> selectRentalManagementByAll() {
+	public List<Rent> selectRentalManagementByAll() {
 		String sql = "SELECT * FROM BOOK WHERE IS_RENT = 1";
 		try (Connection con = JdbcUtil.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
 			if (rs.next()) {
-				List<RentalManagement> list = new ArrayList<>();
+				List<Rent> list = new ArrayList<>();
 				do {
 					list.add(getRentalManagement(rs));
 					//System.out.println(list);
@@ -40,34 +41,62 @@ public class RentalManagementDaoImpl implements RentalManagementDao {
 		return null;
 	}
 
-	private RentalManagement getRentalManagement(ResultSet rs) throws SQLException {
+	private Rent getRentalManagement(ResultSet rs) throws SQLException {
 		String BOOK_NO = rs.getString("BOOK_NO");
 		String BOOK_NAME = rs.getString("BOOK_NAME");
 		String AUTHOR = rs.getString("AUTHOR");
 		String PUBLISHER = rs.getString("PUBLISHER");
 		int PRICE = Integer.parseInt(rs.getString("PRICE"));
 		int TOTAL_COUNT = Integer.parseInt(rs.getString("TOTAL_COUNT"));
-		return new RentalManagement(BOOK_NO, BOOK_NAME, AUTHOR, PUBLISHER, PRICE, TOTAL_COUNT);
+		return new Rent(BOOK_NO, BOOK_NAME, AUTHOR, PUBLISHER, PRICE, TOTAL_COUNT);
 	}
 
 	@Override
-	public RentalManagement selectRentalManagementByNo(RentalManagement dto) {
+	public Rent selectRentalManagementByNo(Rent dto) {
 		return null;
 	}
 
 	@Override
-	public int insertRentalManagement(RentalManagement dto) {
-		return 0;
+	public int insertRentalManagement(Rent dto) {
+		String sql = "INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, ?, ?, SYSDATE, NULL)";
+		
+		try(Connection con = JdbcUtil.getConnection();
+    			PreparedStatement pstmt = con.prepareStatement(sql)){
+    			pstmt.setString(1, dto.getMemberCode());
+    			pstmt.setString(2, dto.getBookCode());
+    		return pstmt.executeUpdate();
+    	} catch (SQLException e) {
+    		throw new RuntimeException(e);
+    	}
 	}
 
 	@Override
-	public int updateRentalManagement(RentalManagement dto) {
-		return 0;
+	public int updateRentalManagement(Rent dto) {
+		String bNo = dto.getBookCode();
+		String mNo = dto.getMemberCode();
+		
+		String sql_book = "UPDATE BOOK" + 
+				"SET TOTAL_COUNT = TOTAL_COUNT + 1, IS_RENT = 0" + 
+				"WHERE BOOK_NO = ?";
+		String sql_member = "UPDATE MEMBER" + 
+				"SET TOTAL_RENT = TOTAL_RENT + 1" + 
+				"WHERE MEMBER_NO = ?";
+		
+    	try(Connection con = JdbcUtil.getConnection();
+    			PreparedStatement pstmt = con.prepareStatement(sql_book)){
+    			pstmt.setString(1, bNo);
+    		return pstmt.executeUpdate();
+    	} catch (SQLException e) {
+    		throw new RuntimeException(e);
+    	}
+    	
+    	
 	}
-
+	
+	/*
 	@Override
-	public int deleteRentalManagement(RentalManagement dto) {
+	public int deleteRentalManagement(Rent dto) {
 		return 0;
-	}
+	}*/
 
 }

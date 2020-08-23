@@ -1,6 +1,6 @@
 package project_library.dto;
 
-public class BookManagement {
+public class Book {
 	private String no;
 	private String bookName;
 	private String author;
@@ -9,11 +9,11 @@ public class BookManagement {
 	private boolean rent;
 	private int totalRent;
 
-	public BookManagement(String no) {
+	public Book(String no) {
 		this.no = no;
 	}
 
-	public BookManagement(String no, String bookName, String author, String publisher, int price) {
+	public Book(String no, String bookName, String author, String publisher, int price) {
 		this.no = no;
 		this.bookName = bookName;
 		this.author = author;
@@ -21,7 +21,7 @@ public class BookManagement {
 		this.price = price;
 	}
 
-	public BookManagement(String no, String bookName, String author, String publisher, int price, boolean rent, int totalRent) {
+	public Book(String no, String bookName, String author, String publisher, int price, boolean rent, int totalRent) {
 		this.no = no;
 		this.bookName = bookName;
 		this.author = author;

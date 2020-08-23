@@ -9,7 +9,7 @@ import java.util.List;
 
 import project_library.conn.JdbcUtil;
 import project_library.dao.MemberManagementDao;
-import project_library.dto.SearchMember;
+import project_library.dto.Member;
 
 public class MemberManagementDaoImpl implements MemberManagementDao {
 
@@ -24,13 +24,13 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 	}
 
 	@Override
-	public List<SearchMember> selectMemberByAll() {
+	public List<Member> selectMemberByAll() {
 		String sql = "SELECT MEMBER_NO , MEMBER_NAME , TEL , TOTAL_RENT FROM MEMBER";
 		try (Connection con = JdbcUtil.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
 			if (rs.next()) {
-				List<SearchMember> list = new ArrayList<>();
+				List<Member> list = new ArrayList<>();
 				do {
 					list.add(getMember(rs));
 				} while (rs.next());
@@ -43,21 +43,21 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 		return null;
 	}
 
-	private SearchMember getMember(ResultSet rs) throws SQLException {
+	private Member getMember(ResultSet rs) throws SQLException {
 		String no = rs.getString("MEMBER_NO");
 		String name = rs.getString("MEMBER_NAME");
 		String tel = rs.getString("TEL");
-		return new SearchMember(no, name, tel);
+		return new Member(no, name, tel);
 	}
 
 	@Override
-	public SearchMember selectMemberByNo(SearchMember mdto) {
+	public Member selectMemberByNo(Member mdto) {
 
 		return null;
 	}
 
 	@Override
-	public int insertMember(SearchMember mdto) {
+	public int insertMember(Member mdto) {
 		String sql = "INSERT INTO MEMBER values(?, ?, ?, ?)";
 		try (Connection con = JdbcUtil.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 			pstmt.setString(1, mdto.getNo());
@@ -72,7 +72,7 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 	}
 
 	@Override
-	public int updateMember(SearchMember mdto) {
+	public int updateMember(Member mdto) {
 		String sql = "UPDATE MEMBER SET MEMBER_NAME = ?, TEL = ?, TOTAL_RENT = ? WHERE MEMBER_NO = ?";
 		try (Connection con = JdbcUtil.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 			pstmt.setString(1, mdto.getName());
@@ -83,11 +83,10 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-
 	}
 
 	@Override
-	public int deleteMember(SearchMember mdto) {
+	public int deleteMember(Member mdto) {
 		String sql = "DELETE FROM MEMBER WHERE MEMBER_NO = ?";
 		try (Connection con = JdbcUtil.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 			pstmt.setString(1, mdto.getNo());

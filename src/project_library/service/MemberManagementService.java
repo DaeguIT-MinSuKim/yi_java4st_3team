@@ -4,24 +4,24 @@ import java.util.List;
 
 import project_library.dao.MemberManagementDao;
 import project_library.dao.impl.MemberManagementDaoImpl;
-import project_library.dto.SearchMember;
+import project_library.dto.Member;
 
 public class MemberManagementService {
 	private MemberManagementDao dao = MemberManagementDaoImpl.getInstance();
 
-	public List<SearchMember> getMemberDtoList() {
+	public List<Member> getMemberDtoList() {
 		return dao.selectMemberByAll();
 	}
 
-	public void insertMember(SearchMember mdto) {
+	public void insertMember(Member mdto) {
 		dao.insertMember(mdto);
 	}
 
-	public void modifyMember(SearchMember mdto) {
+	public void modifyMember(Member mdto) {
 		dao.updateMember(mdto);
 	}
 
-	public void removeMember(SearchMember mdto) {
+	public void removeMember(Member mdto) {
 		dao.deleteMember(mdto);
 	}
 

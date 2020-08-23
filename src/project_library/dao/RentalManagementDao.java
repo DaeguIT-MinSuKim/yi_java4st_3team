@@ -2,16 +2,16 @@ package project_library.dao;
 
 import java.util.List;
 
-import project_library.dto.RentalManagement;
+import project_library.dto.Rent;
 
 public interface RentalManagementDao {
-	List<RentalManagement> selectRentalManagementByAll();
+	List<Rent> selectRentalManagementByAll();
 
-	RentalManagement selectRentalManagementByNo(RentalManagement dto);
+	Rent selectRentalManagementByNo(Rent dto);
 
-	int insertRentalManagement(RentalManagement dto);
+	int insertRentalManagement(Rent dto);
 
-	int updateRentalManagement(RentalManagement dto);
+	int updateRentalManagement(Rent dto);
 
-	int deleteRentalManagement(RentalManagement dto);
+	//int deleteRentalManagement(Rent dto);
 }

@@ -4,24 +4,24 @@ import java.util.List;
 
 import project_library.dao.RentalManagementDao;
 import project_library.dao.impl.RentalManagementDaoImpl;
-import project_library.dto.RentalManagement;
+import project_library.dto.Rent;
 
 public class RentalManagementService {
 	private RentalManagementDao dao = RentalManagementDaoImpl.getInstance();
 
-	public List<RentalManagement> getRentalManagementList() {
+	public List<Rent> getRentalManagementList() {
 		return dao.selectRentalManagementByAll();
 	}
 
-	public void insertBook(RentalManagement dto) {
+	public void insertBook(Rent dto) {
 		dao.insertRentalManagement(dto);
 	}
 
-	public void modifyBook(RentalManagement dto) {
+	public void modifyBook(Rent dto) {
 		dao.updateRentalManagement(dto);
 	}
-
-	public void removeBook(RentalManagement dto) {
+/*
+	public void removeBook(Rent dto) {
 		dao.deleteRentalManagement(dto);
-	}
+	}*/
 }

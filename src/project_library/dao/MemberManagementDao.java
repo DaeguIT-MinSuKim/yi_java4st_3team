@@ -2,17 +2,17 @@ package project_library.dao;
 
 import java.util.List;
 
-import project_library.dto.SearchMember;
+import project_library.dto.Member;
 
 public interface MemberManagementDao {
-	List<SearchMember> selectMemberByAll();
+	List<Member> selectMemberByAll();
 
-	SearchMember selectMemberByNo(SearchMember mdto);
+	Member selectMemberByNo(Member mdto);
 
-	int insertMember(SearchMember mdto);
+	int insertMember(Member mdto);
 
-	int updateMember(SearchMember mdto);
+	int updateMember(Member mdto);
 
-	int deleteMember(SearchMember mdto);
+	int deleteMember(Member mdto);
 
 }
