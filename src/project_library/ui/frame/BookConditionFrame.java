@@ -1,19 +1,14 @@
 package project_library.ui.frame;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.BoxLayout;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import java.awt.GridLayout;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
+
 import project_library.ui.component.BookConditionPanel;
-import java.awt.FlowLayout;
 
 public class BookConditionFrame extends JFrame {
 
@@ -40,18 +35,23 @@ public class BookConditionFrame extends JFrame {
 	 */
 	public BookConditionFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 810	, 500);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new TitledBorder(null, "\uB3C4\uC11C \uD604\uD669", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		
-		BookConditionPanel pTotalRentedBookCount = new BookConditionPanel();
-		contentPane.add(pTotalRentedBookCount);
-		pTotalRentedBookCount.setLayout(new GridLayout(0, 3, 0, 0));
+		JLabel label = new JLabel("");
 		
-		JPanel pTRBCasGraph = new JPanel();
-		contentPane.add(pTRBCasGraph);
+		JLabel label_1 = new JLabel("");
+		
+		JLabel label_2 = new JLabel("");
+		
+		BookConditionPanel pBookCondition = new BookConditionPanel();
+		contentPane.add(pBookCondition);
+		
+		JPanel pTRBCGraph = new JPanel();
+		contentPane.add(pTRBCGraph);
 	}
 
 	//jtable morph --> //총 보유 권수 /총 연체권수 //총 대여 횟수 

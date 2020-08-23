@@ -37,7 +37,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 	public static JButton btnDelete;
 	public static JButton btnExit;
 	public static ArrayList<SearchMember> memberDtoList;
-	private JPanel pMemberl;
+	private JPanel pMember_1;
 	private JScrollPane scrollPane;
 	public static SearchMemberTable memberTable;
 	private MemberManagementService mService;
@@ -72,14 +72,14 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 
 		initComponents();
 
-		pMemberl = new JPanel();
-		pMemberl.setBorder(new TitledBorder(new EmptyBorder(10, 10, 10, 10), "[ 회원 목록 ]", TitledBorder.LEFT,
+		pMember_1 = new JPanel();
+		pMember_1.setBorder(new TitledBorder(new EmptyBorder(10, 10, 10, 10), "[ 회원 목록 ]", TitledBorder.LEFT,
 				TitledBorder.TOP, null, Color.BLACK));
-		contentPane.add(pMemberl);
-		pMemberl.setLayout(new BorderLayout(0, 0));
+		contentPane.add(pMember_1);
+		pMember_1.setLayout(new BorderLayout(0, 0));
 
 		scrollPane = new JScrollPane();
-		pMemberl.add(scrollPane, BorderLayout.CENTER);
+		pMember_1.add(scrollPane, BorderLayout.CENTER);
 
 		memberTable = new SearchMemberTable();
 		memberTable.setMemberList(memberDtoList);

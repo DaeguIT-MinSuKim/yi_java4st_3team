@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 
 import project_library.ui.component.SearchMemberButton;
 import project_library.ui.component.SearchMemberPanel;
+import project_library.ui.component.SearchMemberTotalCountPanel;
 
 @SuppressWarnings("serial")
 public class SearchMemberFrame extends JFrame {
@@ -41,7 +42,7 @@ public class SearchMemberFrame extends JFrame {
 	 */
 	public SearchMemberFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 810	, 582);
+		setBounds(100, 100, 810	, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -66,6 +67,12 @@ public class SearchMemberFrame extends JFrame {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		
+		SearchMemberTotalCountPanel pRentInfoTotal = new SearchMemberTotalCountPanel();
+		contentPane.add(pRentInfoTotal);
+		
+		JPanel pTotalCount = new JPanel();
+		contentPane.add(pTotalCount);
 		
 		//table에 가지고 온 회원의 대여정보 + 총계를 가지고 오기 
 	}
