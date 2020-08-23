@@ -25,8 +25,9 @@ public class BookManagementFrame extends JFrame {
 	private BookManagementButton pBBtns;
 	private JPanel pBTable;
 	private JScrollPane scrollPane;
-	public static BookManagementTable table;
+	public static BookManagementTable bookTable;
 	public static ArrayList<BookManagement> bookList;
+	private BookManagementService bService;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -42,9 +43,8 @@ public class BookManagementFrame extends JFrame {
 	}
 	
 	public BookManagementFrame() {
-		BookManagementService bService = new BookManagementService();
+		bService = new BookManagementService();
 		bookList = (ArrayList<BookManagement>) bService.getBookDtoList();
-		
 /*		
 		bList = new ArrayList<Book>();
 		bList.add(new Book("B001", "리눅스 시스템 구축", "신윤환", "북수홀릭", 33000, true, 0));
@@ -56,13 +56,12 @@ public class BookManagementFrame extends JFrame {
 		bList.add(new Book("B007", "자바 프로젝트 필수 유틸리티", "전민수", "한빛미디어", 35000, true, 0));
 		bList.add(new Book("B008", "자바 프로그래밍 입문", "박은종", "이지스퍼블리싱", 25000, true, 0));
 		bList.add(new Book("B009", "C 언어 입문", "김성엽", "이지스퍼블리싱", 25000, true, 0));
-*/
-		
+*/	
 		initComponents();
 		
-		table = new BookManagementTable();
-		table.setBookList(bookList);
-		scrollPane.setViewportView(table);
+		bookTable = new BookManagementTable();
+		bookTable.setBookList(bookList);
+		scrollPane.setViewportView(bookTable);
 		
 		pBPanel.setEditalbeFalseTf();
 	}
@@ -92,7 +91,7 @@ public class BookManagementFrame extends JFrame {
 		scrollPane = new JScrollPane();
 		pBTable.add(scrollPane, BorderLayout.CENTER);
 
-		scrollPane.setViewportView(table);
+		scrollPane.setViewportView(bookTable);
 	}
 
 }

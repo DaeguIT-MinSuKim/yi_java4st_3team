@@ -111,7 +111,7 @@ public class BookManagementTable extends JTable implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		BookManagementFrame.pBPanel.setEditalbeTableTrueTf();
 
-		int idx = BookManagementFrame.table.getSelectedRow();
+		int idx = BookManagementFrame.bookTable.getSelectedRow();
 		BookManagement bdt = BookManagementFrame.bookList.get(idx);
 
 		BookManagementPanel bp = new BookManagementPanel();

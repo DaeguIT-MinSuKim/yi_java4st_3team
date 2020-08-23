@@ -36,7 +36,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 	public static JButton btnUpdate;
 	public static JButton btnDelete;
 	public static JButton btnExit;
-	public static ArrayList<SearchMember> memberDtoList;
+	public static ArrayList<SearchMember> memberList;
 	private JPanel pMember_1;
 	private JScrollPane scrollPane;
 	public static SearchMemberTable memberTable;
@@ -57,7 +57,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 	
 	public MemberManagementFrame() {
 		mService = new MemberManagementService();
-		memberDtoList = (ArrayList<SearchMember>) mService.getMemberDtoList();
+		memberList = (ArrayList<SearchMember>) mService.getMemberDtoList();
 
 		/*		mList = new ArrayList<MemberDto>();
 				mList.add(new MemberDto("M001", "김자바", "010-1234-1234", 0));
@@ -82,7 +82,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		pMember_1.add(scrollPane, BorderLayout.CENTER);
 
 		memberTable = new SearchMemberTable();
-		memberTable.setMemberList(memberDtoList);
+		memberTable.setMemberList(memberList);
 		scrollPane.setViewportView(memberTable);
 
 		pMember.setEditalbeFalseTf();
@@ -201,7 +201,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		SearchMember newMto2 = pMember.getCodeNo();
 
 		// 테이블에 있는 모든 회원코드 체크
-		for (SearchMember m : memberDtoList) {
+		for (SearchMember m : memberList) {
 			if (newMto2.getNo().equals(m.getNo())) {
 				JOptionPane.showMessageDialog(null, "회원코드가 중복입니다.", "오류", JOptionPane.ERROR_MESSAGE);
 				return;
@@ -217,7 +217,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		memberTable.addMemberDto(newMto);
 
 		// mList add
-		memberDtoList.add(newMto);
+		memberList.add(newMto);
 
 		// pMember clear
 		pMember.clearTf();
@@ -232,8 +232,9 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		// 회원 코드 비활성화
 		pMember.getTf().setEditable(false);
 
-		int idx = memberDtoList.indexOf(newMto);
+		int idx = memberList.indexOf(newMto);
 		memberTable.setRowSelectionInterval(0, idx);
+		System.out.println(idx);
 
 	}
 
@@ -242,7 +243,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		
 		mService.modifyMember(uptatedMem);
 		
-		int idx = memberDtoList.indexOf(uptatedMem);
+		int idx = memberList.indexOf(uptatedMem);
 		memberTable.updateRow(idx, uptatedMem);
 		memberTable.setRowSelectionInterval(0, idx);
 		pMember.clearTf();
