@@ -11,7 +11,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-import project_library.dto.BookManagement;
+import project_library.dto.Book;
 import project_library.service.BookManagementService;
 import project_library.ui.component.BookManagementButton;
 import project_library.ui.component.BookManagementPanel;
@@ -26,7 +26,7 @@ public class BookManagementFrame extends JFrame {
 	private JPanel pBTable;
 	private JScrollPane scrollPane;
 	public static BookManagementTable table;
-	public static ArrayList<BookManagement> bookList;
+	public static ArrayList<Book> bookList;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -43,7 +43,7 @@ public class BookManagementFrame extends JFrame {
 	
 	public BookManagementFrame() {
 		BookManagementService bService = new BookManagementService();
-		bookList = (ArrayList<BookManagement>) bService.getBookDtoList();
+		bookList = (ArrayList<Book>) bService.getBookDtoList();
 		
 /*		
 		bList = new ArrayList<Book>();

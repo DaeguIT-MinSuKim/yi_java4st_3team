@@ -9,7 +9,7 @@ import java.util.List;
 
 import project_library.conn.JdbcUtil;
 import project_library.dao.BookManagementDao;
-import project_library.dto.BookManagement;
+import project_library.dto.Book;
 
 public class BookManagementDaoImpl implements BookManagementDao {
 
@@ -24,13 +24,13 @@ public class BookManagementDaoImpl implements BookManagementDao {
 	}
 
 	@Override
-	public List<BookManagement> selectBookByAll() {
+	public List<Book> selectBookByAll() {
 		String sql = "SELECT BOOK_NO, BOOK_NAME, AUTHOR, PUBLISHER, PRICE, IS_RENT, TOTAL_COUNT FROM BOOK";
 		try (Connection con = JdbcUtil.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
 			if (rs.next()) {
-				List<BookManagement> list = new ArrayList<>();
+				List<Book> list = new ArrayList<>();
 				do {
 					list.add(getBook(rs));
 				} while (rs.next());
@@ -43,7 +43,7 @@ public class BookManagementDaoImpl implements BookManagementDao {
 		return null;
 	}
 
-	private BookManagement getBook(ResultSet rs) throws SQLException {
+	private Book getBook(ResultSet rs) throws SQLException {
 		String no = rs.getString("BOOK_NO");
 		String name = rs.getString("BOOK_NAME");
 		String aut = rs.getString("AUTHOR");
@@ -51,29 +51,29 @@ public class BookManagementDaoImpl implements BookManagementDao {
 		Integer pri = rs.getInt("PRICE");
 		boolean rent = rs.getBoolean("IS_RENT");
 		Integer count = rs.getInt("TOTAL_COUNT");
-		return new BookManagement(no, name, aut, pub, pri, rent, count);
+		return new Book(no, name, aut, pub, pri, rent, count);
 	}
 
 	@Override
-	public BookManagement selectBookByNo(BookManagement bdto) {
+	public Book selectBookByNo(Book bdto) {
 
 		return null;
 	}
 
 	@Override
-	public int insertBook(BookManagement bdto) {
+	public int insertBook(Book bdto) {
 
 		return 0;
 	}
 
 	@Override
-	public int updateBook(BookManagement bdto) {
+	public int updateBook(Book bdto) {
 
 		return 0;
 	}
 
 	@Override
-	public int deleteBook(BookManagement bdto) {
+	public int deleteBook(Book bdto) {
 
 		return 0;
 	}

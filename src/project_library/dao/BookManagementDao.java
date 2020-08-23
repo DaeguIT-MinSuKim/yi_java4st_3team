@@ -2,17 +2,17 @@ package project_library.dao;
 
 import java.util.List;
 
-import project_library.dto.BookManagement;
+import project_library.dto.Book;
 
 public interface BookManagementDao {
-	List<BookManagement> selectBookByAll();
+	List<Book> selectBookByAll();
 
-	BookManagement selectBookByNo(BookManagement bdto);
+	Book selectBookByNo(Book bdto);
 
-	int insertBook(BookManagement bdto);
+	int insertBook(Book bdto);
 
-	int updateBook(BookManagement bdto);
+	int updateBook(Book bdto);
 
-	int deleteBook(BookManagement bdto);
+	int deleteBook(Book bdto);
 
 }

@@ -2,6 +2,10 @@ SELECT * FROM RENT;
 SELECT * FROM BOOK;
 SELECT * FROM MEMBER;
 
+UPDATE RENT 
+SET MEMBER_NO = 'M007'
+WHERE IDX = 2;
+
 /* 대여관리 */
 -- 도서 대여가능 목록
 SELECT *
@@ -19,12 +23,14 @@ FROM MEMBER
 WHERE MEMBER_NO = '땡겨온값';
 
 -- 대여눌렀을 때
--- 총대여횟수 1증가
+-- 도서테이블에 총대여횟수 1증가, 회원테이블에 총대여권수1증가 (참조키가 없어서 따로 업데이트 해야하네..)
 UPDATE BOOK
 SET TOTAL_COUNT = TOTAL_COUNT + 1, IS_RENT = 0
-WHERE BOOK_NO = 'B001';
+WHERE BOOK_NO = 'B002';
 
-
+UPDATE MEMBER
+SET TOTAL_RENT = TOTAL_RENT + 1
+WHERE MEMBER_NO = 'M002';
 
 -- 출납테이블에 대여한 목록 추가
 INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, '땡겨온값', '땡겨온값', SYSDATE, NULL);

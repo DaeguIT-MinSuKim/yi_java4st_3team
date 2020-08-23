@@ -17,7 +17,7 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import project_library.dto.SearchMember;
+import project_library.dto.Member;
 import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
@@ -118,13 +118,13 @@ public class SearchMemberPanel extends JPanel implements KeyListener {
 
 	}
 
-	protected void setItem(SearchMember idx) {
+	protected void setItem(Member idx) {
 		tfNo.setText(idx.getNo() + "");
 		tfName.setText(idx.getName());
 		tfTel.setText(idx.getTel());
 	}
 
-	public SearchMember getItem() {
+	public Member getItem() {
 		// 공란
 		if (isEmpty()) {
 			throw new EmptyTfException("공란 존재");
@@ -138,7 +138,7 @@ public class SearchMemberPanel extends JPanel implements KeyListener {
 		String no = tfNo.getText().trim();
 		String name = tfName.getText().trim();
 		String tel = tfTel.getText().trim();
-		return new SearchMember(no, name, tel);
+		return new Member(no, name, tel);
 	}
 
 	// Clear
@@ -148,7 +148,7 @@ public class SearchMemberPanel extends JPanel implements KeyListener {
 		tfTel.setText("");
 	}
 
-	public SearchMember getMember() {
+	public Member getMember() {
 
 		// 공란
 		if (isEmpty()) {
@@ -163,7 +163,7 @@ public class SearchMemberPanel extends JPanel implements KeyListener {
 		String no = tfNo.getText().trim();
 		String name = tfName.getText().trim();
 		String tel = tfTel.getText().trim();
-		return new SearchMember(no, name, tel);
+		return new Member(no, name, tel);
 	}
 
 	private boolean isInvalid() {
@@ -291,12 +291,12 @@ public class SearchMemberPanel extends JPanel implements KeyListener {
 
 	}
 
-	protected void setMemberDto(SearchMember mdt) {
+	protected void setMemberDto(Member mdt) {
 		MemberManagementFrame.pMember.setItem(mdt);
 	}
 
 	/* 첫번째 필드 회원/도서코드 중복 확인 ↓ */
-	public SearchMember getCodeNo() {
+	public Member getCodeNo() {
 		// 공란
 		if (isEmptyNo()) {
 			throw new EmptyTfException("공란 존재");
@@ -312,7 +312,7 @@ public class SearchMemberPanel extends JPanel implements KeyListener {
 		}
 
 		String no = tfNo.getText().trim();
-		return new SearchMember(no);
+		return new Member(no);
 	}
 
 	private boolean isEmptyNo() {

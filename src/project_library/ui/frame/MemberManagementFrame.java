@@ -18,7 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-import project_library.dto.SearchMember;
+import project_library.dto.Member;
 import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
@@ -36,8 +36,8 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 	public static JButton btnUpdate;
 	public static JButton btnDelete;
 	public static JButton btnExit;
-	public static ArrayList<SearchMember> memberDtoList;
-	private JPanel pMember_1;
+	public static ArrayList<Member> memberDtoList;
+	private JPanel pMemberl;
 	private JScrollPane scrollPane;
 	public static SearchMemberTable memberTable;
 	private MemberManagementService mService;
@@ -57,8 +57,8 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 	
 	public MemberManagementFrame() {
 		mService = new MemberManagementService();
-		memberDtoList = (ArrayList<SearchMember>) mService.getMemberDtoList();
-
+		memberDtoList = (ArrayList<Member>) mService.getMemberDtoList();
+		
 		/*		mList = new ArrayList<MemberDto>();
 				mList.add(new MemberDto("M001", "김자바", "010-1234-1234", 0));
 				mList.add(new MemberDto("M002", "이자바", "010-2341-2341", 0));
@@ -72,14 +72,14 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 
 		initComponents();
 
-		pMember_1 = new JPanel();
-		pMember_1.setBorder(new TitledBorder(new EmptyBorder(10, 10, 10, 10), "[ 회원 목록 ]", TitledBorder.LEFT,
+		pMemberl = new JPanel();
+		pMemberl.setBorder(new TitledBorder(new EmptyBorder(10, 10, 10, 10), "[ 회원 목록 ]", TitledBorder.LEFT,
 				TitledBorder.TOP, null, Color.BLACK));
-		contentPane.add(pMember_1);
-		pMember_1.setLayout(new BorderLayout(0, 0));
+		contentPane.add(pMemberl);
+		pMemberl.setLayout(new BorderLayout(0, 0));
 
 		scrollPane = new JScrollPane();
-		pMember_1.add(scrollPane, BorderLayout.CENTER);
+		pMemberl.add(scrollPane, BorderLayout.CENTER);
 
 		memberTable = new SearchMemberTable();
 		memberTable.setMemberList(memberDtoList);
@@ -195,13 +195,13 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 	protected void actionPerformedBtnSave() {
 
 		// pMember 에서 getMember()를 이용해서 newMto
-		SearchMember newMto = pMember.getMember();
+		Member newMto = pMember.getMember();
 
 		// pMember 에서 getCodeNo()를 이용해서 newMto2
-		SearchMember newMto2 = pMember.getCodeNo();
+		Member newMto2 = pMember.getCodeNo();
 
 		// 테이블에 있는 모든 회원코드 체크
-		for (SearchMember m : memberDtoList) {
+		for (Member m : memberDtoList) {
 			if (newMto2.getNo().equals(m.getNo())) {
 				JOptionPane.showMessageDialog(null, "회원코드가 중복입니다.", "오류", JOptionPane.ERROR_MESSAGE);
 				return;
@@ -212,7 +212,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		JOptionPane.showMessageDialog(null, message);
 
 		mService.insertMember(newMto);
-
+		
 		// newMto를 Member에 add
 		memberTable.addMemberDto(newMto);
 
@@ -238,7 +238,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 	}
 
 	protected void actionPerformedBtnUpdate() {
-		SearchMember uptatedMem = pMember.getItem();
+		Member uptatedMem = pMember.getItem();
 		
 		mService.modifyMember(uptatedMem);
 		
@@ -253,7 +253,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		// 선택된 인덱스
 		int idx = memberTable.getSelectedRow();
 		
-		SearchMember deleteMem = pMember.getItem();
+		Member deleteMem = pMember.getItem();
 		
 		mService.removeMember(deleteMem);
 

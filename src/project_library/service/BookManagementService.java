@@ -4,24 +4,24 @@ import java.util.List;
 
 import project_library.dao.BookManagementDao;
 import project_library.dao.impl.BookManagementDaoImpl;
-import project_library.dto.BookManagement;
+import project_library.dto.Book;
 
 public class BookManagementService {
 	private BookManagementDao dao = BookManagementDaoImpl.getInstance();
 
-	public List<BookManagement> getBookDtoList() {
+	public List<Book> getBookDtoList() {
 		return dao.selectBookByAll();
 	}
 
-	public void insertBook(BookManagement bdto) {
+	public void insertBook(Book bdto) {
 		dao.insertBook(bdto);
 	}
 
-	public void modifyBook(BookManagement bdto) {
+	public void modifyBook(Book bdto) {
 		dao.updateBook(bdto);
 	}
 
-	public void removeBook(BookManagement bdto) {
+	public void removeBook(Book bdto) {
 		dao.deleteBook(bdto);
 	}
 }

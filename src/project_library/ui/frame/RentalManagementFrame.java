@@ -12,17 +12,18 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-import project_library.dto.RentalManagement;
+import project_library.dto.Rent;
 import project_library.service.RentalManagementService;
 import project_library.ui.component.RentalManagementButton;
 import project_library.ui.component.RentalManagementPanel;
 import project_library.ui.component.RentalManagementTable;
+import javax.swing.JButton;
 
 @SuppressWarnings("serial")
 public class RentalManagementFrame extends JFrame {
 	
 	private JPanel contentPane;
-	public static ArrayList<RentalManagement> rentalManagementList;
+	public static ArrayList<Rent> rentalManagementList;
 	public static RentalManagementPanel pPanel;
 	private RentalManagementButton pBtns;
 	private JPanel pBTable;
@@ -44,7 +45,7 @@ public class RentalManagementFrame extends JFrame {
 	
 	public RentalManagementFrame() {
 		RentalManagementService bService = new RentalManagementService();
-		rentalManagementList = (ArrayList<RentalManagement>) bService.getRentalManagementList();
+		rentalManagementList = (ArrayList<Rent>) bService.getRentalManagementList();
 
 		initComponents();
 		

@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import project_library.dto.BookManagement;
+import project_library.dto.Book;
 import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
@@ -106,18 +106,17 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	protected void actionPerformedBtnSave() {
 
 		// pBPanel 에서 getMember()를 이용해서 newBto
-		BookManagement newBto = BookManagementFrame.pBPanel.getBook();
+		Book newBto = BookManagementFrame.pBPanel.getBook();
 
 		// pBPanel 에서 getCodeNo()를 이용해서 newBto2
-		BookManagement newBto2 = BookManagementFrame.pBPanel.getCodeNo();
+		Book newBto2 = BookManagementFrame.pBPanel.getCodeNo();
 
 		// 테이블에 있는 모든 도서코드 체크
-		for (BookManagement b : BookManagementFrame.bookList) {
+		for (Book b : BookManagementFrame.bookList) {
 			if (newBto2.getNo().equals(b.getNo())) {
 				JOptionPane.showMessageDialog(null, "도서코드가 중복입니다.", "오류", JOptionPane.ERROR_MESSAGE);
 				System.out.println(newBto2);
 				return;
-
 			}
 
 		}
@@ -142,7 +141,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 
 		// 도서 코드 비활성화
 		BookManagementFrame.pBPanel.getTf().setEditable(false);
-
+		
 		int idx = BookManagementFrame.bookList.indexOf(newBto);
 		BookManagementFrame.table.setRowSelectionInterval(0, idx);
 		System.out.println(idx);
@@ -163,7 +162,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	}
 
 	protected void actionPerformedBtnUpdate() {
-		BookManagement uptatedBoo = BookManagementFrame.pBPanel.getItem();
+		Book uptatedBoo = BookManagementFrame.pBPanel.getItem();
 		int idx = BookManagementFrame.bookList.indexOf(uptatedBoo);
 		BookManagementFrame.table.updateRow(idx, uptatedBoo);
 		BookManagementFrame.table.setRowSelectionInterval(0, idx);

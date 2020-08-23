@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import project_library.dto.BookManagement;
+import project_library.dto.Book;
 import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
@@ -157,7 +157,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 		add(tfBpr, gbc_tfBpr);
 	}
 
-	protected void setItem(BookManagement idx) {
+	protected void setItem(Book idx) {
 		tfBno.setText(idx.getNo());
 		tfBname.setText(idx.getBookName());
 		tfBau.setText(idx.getAuthor());
@@ -165,7 +165,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 		tfBpr.setText(idx.getPrice() + "");
 	}
 
-	public BookManagement getItem() {
+	public Book getItem() {
 		// 공란
 		if (isEmpty()) {
 			throw new EmptyTfException("공란 존재");
@@ -181,7 +181,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 		String aut = tfBau.getText();
 		String pub = tfBpu.getText();
 		int pri = Integer.parseInt(tfBpr.getText().trim());
-		return new BookManagement(no, name, aut, pub, pri);
+		return new Book(no, name, aut, pub, pri);
 	}
 
 	// Clear
@@ -193,7 +193,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 		tfBpr.setText("");
 	}
 
-	public BookManagement getBook() {
+	public Book getBook() {
 
 		// 공란
 		if (isEmpty()) {
@@ -210,7 +210,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 		String aut = tfBau.getText();
 		String pub = tfBpu.getText();
 		int pri = Integer.parseInt(tfBpr.getText().trim());
-		return new BookManagement(no, name, aut, pub, pri);
+		return new Book(no, name, aut, pub, pri);
 	}
 
 	private boolean isInvalid() {
@@ -269,12 +269,12 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 		tfBpr.setEditable(true);
 	}
 
-	protected void setBookDto(BookManagement bdt) {
+	protected void setBookDto(Book bdt) {
 		BookManagementFrame.pBPanel.setItem(bdt);
 	}
 
 	/* 첫번째 필드 회원/도서코드 중복 확인 ↓ */
-	public BookManagement getCodeNo() {
+	public Book getCodeNo() {
 		// 공란
 		if (isEmptyNo()) {
 			throw new EmptyTfException("공란 존재");
@@ -288,7 +288,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 		}
 
 		String no = tfBno.getText().trim();
-		return new BookManagement(no);
+		return new Book(no);
 	}
 
 	private boolean isEmptyNo() {
