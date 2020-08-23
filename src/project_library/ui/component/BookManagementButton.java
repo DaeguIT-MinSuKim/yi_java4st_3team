@@ -34,6 +34,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	}
 
 	private void initComponents() {
+		
 		setBorder(new EmptyBorder(0, 10, 0, 10));
 		setLayout(new FlowLayout(FlowLayout.RIGHT, 50, 0));
 
