@@ -3,10 +3,8 @@ SELECT * FROM BOOK;
 SELECT * FROM MEMBER;
 
 /* 대여관리 */
--- 도서 대여가능 목록
-SELECT *
-FROM BOOK
-WHERE IS_RENT = 1;
+-- 도서 대여가능 목록 (IS_RENT = 대여가능여부)
+SELECT * FROM BOOK WHERE IS_RENT = 1;
 
 -- 테이블 클릭시
 SELECT * 

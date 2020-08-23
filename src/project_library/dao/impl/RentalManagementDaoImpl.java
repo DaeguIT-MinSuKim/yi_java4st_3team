@@ -22,7 +22,7 @@ public class RentalManagementDaoImpl implements RentalManagementDao {
 
 	@Override
 	public List<RentalManagement> selectRentalManagementByAll() {
-		String sql = "SELECT BOOK_NO, BOOK_NAME, AUTHOR, PUBLISHER, PRICE, IS_RENT, TOTAL_COUNT FROM BOOK";
+		String sql = "SELECT * FROM BOOK WHERE IS_RENT = 1";
 		try (Connection con = JdbcUtil.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
@@ -30,10 +30,10 @@ public class RentalManagementDaoImpl implements RentalManagementDao {
 				List<RentalManagement> list = new ArrayList<>();
 				do {
 					list.add(getRentalManagement(rs));
+					//System.out.println(list);
 				} while (rs.next());
 				return list;
 			}
-
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -41,11 +41,13 @@ public class RentalManagementDaoImpl implements RentalManagementDao {
 	}
 
 	private RentalManagement getRentalManagement(ResultSet rs) throws SQLException {
-		String MEMBER_NO = rs.getString("MEMBER_NO");
 		String BOOK_NO = rs.getString("BOOK_NO");
-		String RENT_DATE = rs.getString("RENT_DATE");
-		String RETURN_DATE = rs.getString("RETURN_DATE");
-		return new RentalManagement(MEMBER_NO, BOOK_NO, RENT_DATE, RETURN_DATE, 0, 0);
+		String BOOK_NAME = rs.getString("BOOK_NAME");
+		String AUTHOR = rs.getString("AUTHOR");
+		String PUBLISHER = rs.getString("PUBLISHER");
+		int PRICE = Integer.parseInt(rs.getString("PRICE"));
+		int TOTAL_COUNT = Integer.parseInt(rs.getString("TOTAL_COUNT"));
+		return new RentalManagement(BOOK_NO, BOOK_NAME, AUTHOR, PUBLISHER, PRICE, TOTAL_COUNT);
 	}
 
 	@Override
