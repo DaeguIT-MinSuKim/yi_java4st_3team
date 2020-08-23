@@ -11,8 +11,8 @@ import javax.swing.border.EmptyBorder;
 
 @SuppressWarnings("serial")
 public class ReturnManagementButton extends JPanel implements ActionListener {
-	private JButton btnReturn;
-	private JButton btnExit;
+	public JButton btnReturn;
+	public JButton btnExit;
 	
 
 	public ReturnManagementButton() {
@@ -38,6 +38,7 @@ public class ReturnManagementButton extends JPanel implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		
 		if(e.getSource() == btnReturn) {
 			actionPerformedBtnReturn();
 		}
