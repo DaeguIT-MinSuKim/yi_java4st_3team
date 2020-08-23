@@ -17,6 +17,8 @@ import javax.swing.table.TableRowSorter;
 
 import project_library.dto.BookManagement;
 import project_library.dto.RentalManagement;
+import project_library.ui.frame.BookManagementFrame;
+import project_library.ui.frame.RentalManagementFrame;
 
 @SuppressWarnings("serial")
 public class RentalManagementTable extends JTable implements MouseListener {
@@ -64,10 +66,11 @@ public class RentalManagementTable extends JTable implements MouseListener {
 		// column의 폭 설정
 		TableColumnModel tcm = getColumnModel();
 		tcm.getColumn(0).setPreferredWidth(100);
-		tcm.getColumn(1).setPreferredWidth(450);
+		tcm.getColumn(1).setPreferredWidth(200);
 		tcm.getColumn(2).setPreferredWidth(150);
 		tcm.getColumn(3).setPreferredWidth(200);
 		tcm.getColumn(4).setPreferredWidth(100);
+		tcm.getColumn(5).setPreferredWidth(100);
 
 		// column의 내용 정렬
 		DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
@@ -77,6 +80,7 @@ public class RentalManagementTable extends JTable implements MouseListener {
 		tcm.getColumn(2).setCellRenderer(dtcr);
 		tcm.getColumn(3).setCellRenderer(dtcr);
 		tcm.getColumn(4).setCellRenderer(dtcr);
+		tcm.getColumn(5).setCellRenderer(dtcr);
 
 		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
 		setRowSorter(sorter);
@@ -95,12 +99,16 @@ public class RentalManagementTable extends JTable implements MouseListener {
 
 	}
 
-
-
+	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		RentalManagementFrame.pPanel.setEditalbeTableTrueTf();
 		
+		int idx = RentalManagementFrame.table.getSelectedRow();
+		RentalManagement bdt = RentalManagementFrame.rentalManagementList.get(idx);
+		
+		RentalManagementPanel rp = new RentalManagementPanel();
+		rp.setRentalManagementDto(bdt);
 	}
 
 	@Override
