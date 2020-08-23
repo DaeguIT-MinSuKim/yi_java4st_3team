@@ -29,7 +29,7 @@ INSERT INTO BOOK VALUES('B010', '책이름', '저자', '출판사', 25000, 1, 0)
 
 SELECT * FROM BOOK;
 
-/*  */
+/* Book 삭제 버튼 기능 */
 DELETE FROM BOOK WHERE BOOK_NO = 'B010';
 
 SELECT * FROM RENT;
