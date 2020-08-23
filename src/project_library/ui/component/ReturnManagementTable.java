@@ -1,6 +1,5 @@
 package project_library.ui.component;
 
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.JTable;
@@ -14,9 +13,7 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-import project_library.dto.RentalManagement;
 import project_library.dto.ReturnManagement;
-import project_library.ui.frame.ReturnManagementFrame;
 
 @SuppressWarnings("serial")
 public class ReturnManagementTable extends JTable {
