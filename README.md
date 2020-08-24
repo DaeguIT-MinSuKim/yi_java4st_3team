@@ -4,9 +4,15 @@
 
 <p align="center">
 화이팅!!!!!!!!
+  
+---
+## 프로젝트 환경
+> 운영체제 : Windows 10   
+> 개발환경 : Eclipse,  DBeaver   
+> 프로그래밍 언어 : JAVA(Swing)   
 
 ---
-### 패키지 구성 설명
+## 패키지 구성 설명
 ###### 작성 : 대현 20/08/22
 
 project_library
@@ -36,8 +42,6 @@ project_library.ui.component
 > 패키지.ui.frame안에 들어가는 모든 구성 요소
 ---
 project_library.ui.frame
----
 > 실제 사용자단 프레임 /
 > 각 main 들어있음 /
 > 패키지.dto, 패키지.service, 패키지.ui.component와 연결되어 있음
-
