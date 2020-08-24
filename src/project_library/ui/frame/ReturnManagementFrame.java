@@ -11,7 +11,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
-import project_library.dto.ReturnManagement;
+import project_library.dto.Rent;
 import project_library.service.ReturnManagementService;
 import project_library.ui.component.ReturnManagementButton;
 import project_library.ui.component.ReturnManagementPanel;
@@ -26,7 +26,7 @@ public class ReturnManagementFrame extends JFrame {
 	private ReturnManagementButton pRBtns;
 	private JPanel pRTable;
 	private JScrollPane scrollPane;
-	public static ArrayList<ReturnManagement> returnManagementList;
+	public static ArrayList<Rent> returnManagementList;
 
 	/**
 	 * Launch the application.
@@ -49,13 +49,13 @@ public class ReturnManagementFrame extends JFrame {
 	 */
 	public ReturnManagementFrame() {
 		ReturnManagementService bService = new ReturnManagementService();
-		returnManagementList = (ArrayList<ReturnManagement>) bService.getReturnManagementList();
+		returnManagementList = (ArrayList<Rent>) bService.getReturnManagementList();
 		
 		initComponents();
 		
 		
 		table = new ReturnManagementTable();
-		table.setReturnManagementList(returnManagementList);
+		//table.setReturnManagementList(returnManagementList);
 		scrollPane.setViewportView(table);
 	}
 

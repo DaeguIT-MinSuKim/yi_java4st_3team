@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import project_library.dto.ReturnManagement;
+import project_library.dto.Rent;
 import project_library.ui.frame.ReturnManagementFrame;
 
 @SuppressWarnings("serial")
@@ -276,11 +276,11 @@ public class ReturnManagementPanel extends JPanel {
 
 	}
 
-	protected void setReturnManagementDto(ReturnManagement bdt) {
+	protected void setReturnManagementDto(Rent bdt) {
 		ReturnManagementFrame.pRPanel.setItem(bdt);
 	}
 
-	private void setItem(ReturnManagement bdt) {
+	private void setItem(Rent bdt) {
 		tfBno.setText(bdt.getBookCode());
 		tfBname.setText(bdt.getBookName());
 		tfBau.setText(bdt.getAuthor());

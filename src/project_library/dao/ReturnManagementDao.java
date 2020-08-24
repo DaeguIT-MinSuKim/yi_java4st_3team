@@ -6,11 +6,12 @@ import project_library.dto.Rent;
 public interface ReturnManagementDao {
 	List<Rent> selectReturnManagementByAll();
 
-	Rent selectRentByNo(Rent dto);
+	Rent selectReturnManagementByNo(Rent dto);
 
 	int insertReturnManagement(Rent dto);
 
 	int updateReturnManagement(Rent dto);
 
 	int deleteReturnManagement(Rent dto);
+
 }

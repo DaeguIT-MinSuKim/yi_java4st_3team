@@ -16,16 +16,15 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import project_library.dto.Rent;
-import project_library.dto.Rent;
 import project_library.ui.frame.ReturnManagementFrame;
 
 @SuppressWarnings("serial")
-public class RentTable extends JTable implements MouseListener {
+public class ReturnManagementTable extends JTable implements MouseListener {
 	
 	private CustomTable model;
 	private ArrayList<Rent> returnList;
 	
-	public RentTable() {
+	public ReturnManagementTable() {
 		initComponents();
 		
 	}
@@ -66,7 +65,7 @@ public class RentTable extends JTable implements MouseListener {
 				Rent.getBookName(),
 				Rent.getMemberCode(),
 				Rent.getMemberName(),
-				Rent.getRentalDate()
+				Rent.getRentDate()
 			};
 	}
 
@@ -110,12 +109,12 @@ public class RentTable extends JTable implements MouseListener {
 		  
 		// Table 클릭 시 02. 선택한 값을 가져옴
 		  int idx = ReturnManagementFrame.table.getSelectedRow();
-		  Rent bdt= ReturnManagementFrame.RentList.get(idx);
+		  Rent bdt= ReturnManagementFrame.returnManagementList.get(idx);
 		  
 		  
 			// Table 클릭 시 03. 텍스트필드에 클릭한 데이터정보 넣어줌.
 		  ReturnManagementPanel rp = new ReturnManagementPanel();
-		  rp.setRentDto(bdt);
+		  //rp.setRentDto(bdt);
 	}
 
 	@Override

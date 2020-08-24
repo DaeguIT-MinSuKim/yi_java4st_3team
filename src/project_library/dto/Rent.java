@@ -12,8 +12,8 @@ public class Rent {
 	private String memberCode;
 	private String memberName;
 	private String phone;
-	private Date RENT_DATE;
-	private Date RETURN_DATE;
+	private Date rentDate;
+	private Date returnDate;
 	private int isRent;
 	
 	
@@ -23,7 +23,7 @@ public class Rent {
 	
 	
 	public Rent(String bookCode, String bookName, String author, String publisher, int price, int totalRental,
-			String memberCode, String memberName, String phone, Date rENT_DATE, Date rETURN_DATE, int isRent) {
+			String memberCode, String memberName, String phone, Date rentDate, Date returnDate, int isRent) {
 		super();
 		this.bookCode = bookCode;
 		this.bookName = bookName;
@@ -34,8 +34,8 @@ public class Rent {
 		this.memberCode = memberCode;
 		this.memberName = memberName;
 		this.phone = phone;
-		RENT_DATE = rENT_DATE;
-		RETURN_DATE = rETURN_DATE;
+		this.rentDate = rentDate;
+		this.returnDate = returnDate;
 		this.isRent = isRent;
 	}
 
@@ -54,59 +54,126 @@ public class Rent {
 		this.price = price;
 		this.totalRental = totalRental;
 	}
-	public String getBookCode() {
-		return bookCode;
-	}
-	public void setBookCode(String bookCode) {
-		this.bookCode = bookCode;
-	}
-	public String getBookName() {
-		return bookName;
-	}
-	public void setBookName(String bookName) {
-		this.bookName = bookName;
-	}
+
+	
+
 	public String getAuthor() {
 		return author;
 	}
+
+
 	public void setAuthor(String author) {
 		this.author = author;
 	}
+
+
+	public String getBookCode() {
+		return bookCode;
+	}
+
+
+	public void setBookCode(String bookCode) {
+		this.bookCode = bookCode;
+	}
+
+
+	public String getBookName() {
+		return bookName;
+	}
+
+
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+
+
 	public String getPublisher() {
 		return publisher;
 	}
+
+
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
+
+
 	public int getPrice() {
 		return price;
 	}
+
+
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
+
 	public int getTotalRental() {
 		return totalRental;
 	}
+
+
 	public void setTotalRental(int totalRental) {
 		this.totalRental = totalRental;
 	}
+
+
 	public String getMemberCode() {
 		return memberCode;
 	}
+
+
 	public void setMemberCode(String memberCode) {
 		this.memberCode = memberCode;
 	}
+
+
 	public String getMemberName() {
 		return memberName;
 	}
+
+
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
 	}
+
+
 	public String getPhone() {
 		return phone;
 	}
+
+
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+
+	public Date getRentDate() {
+		return rentDate;
+	}
+
+
+	public void setRentDate(Date rentDate) {
+		this.rentDate = rentDate;
+	}
+
+
+	public Date getReturnDate() {
+		return returnDate;
+	}
+
+
+	public void setReturnDate(Date returnDate) {
+		this.returnDate = returnDate;
+	}
+
+
+	public int getIsRent() {
+		return isRent;
+	}
+
+
+	public void setIsRent(int isRent) {
+		this.isRent = isRent;
 	}
 
 
@@ -114,8 +181,6 @@ public class Rent {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((RENT_DATE == null) ? 0 : RENT_DATE.hashCode());
-		result = prime * result + ((RETURN_DATE == null) ? 0 : RETURN_DATE.hashCode());
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + ((bookCode == null) ? 0 : bookCode.hashCode());
 		result = prime * result + ((bookName == null) ? 0 : bookName.hashCode());
@@ -125,10 +190,11 @@ public class Rent {
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
 		result = prime * result + price;
 		result = prime * result + ((publisher == null) ? 0 : publisher.hashCode());
+		result = prime * result + ((rentDate == null) ? 0 : rentDate.hashCode());
+		result = prime * result + ((returnDate == null) ? 0 : returnDate.hashCode());
 		result = prime * result + totalRental;
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -142,14 +208,11 @@ public class Rent {
 		return true;
 	}
 
-
 	@Override
 	public String toString() {
 		return String.format(
-				"Rent [bookCode=%s, bookName=%s, author=%s, publisher=%s, price=%s, totalRental=%s, memberCode=%s, memberName=%s, phone=%s, RENT_DATE=%s, RETURN_DATE=%s, isRent=%s]",
-				bookCode, bookName, author, publisher, price, totalRental, memberCode, memberName, phone, RENT_DATE,
-				RETURN_DATE, isRent);
+				"Rent [bookCode=%s, bookName=%s, author=%s, publisher=%s, price=%s, totalRental=%s, memberCode=%s, memberName=%s, phone=%s, rentDate=%s, returnDate=%s, isRent=%s]",
+				bookCode, bookName, author, publisher, price, totalRental, memberCode, memberName, phone, rentDate, returnDate, isRent);
 	}
-	
 	
 }

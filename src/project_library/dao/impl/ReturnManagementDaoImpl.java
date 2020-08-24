@@ -10,7 +10,6 @@ import java.util.List;
 import project_library.conn.JdbcUtil;
 import project_library.dao.ReturnManagementDao;
 import project_library.dto.Rent;
-import project_library.dto.ReturnManagement;
 
 public class ReturnManagementDaoImpl implements ReturnManagementDao {
 
