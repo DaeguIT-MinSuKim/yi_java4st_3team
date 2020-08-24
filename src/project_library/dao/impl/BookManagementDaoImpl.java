@@ -86,8 +86,16 @@ public class BookManagementDaoImpl implements BookManagementDao {
 
 	@Override
 	public int deleteBook(Book bdto) {
+		String sql = "DELETE FROM BOOK WHERE BOOK_NO = ?";
+		try (Connection con = JdbcUtil.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				) {
+			pstmt.setString(1, bdto.getNo());
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 
-		return 0;
 	}
 
 }

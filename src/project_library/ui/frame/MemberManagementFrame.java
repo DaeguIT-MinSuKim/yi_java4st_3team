@@ -261,7 +261,6 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		int idx = memberTable.getSelectedRow();
 
 		Member deleteMem = pMember.getItem();
-
 		mService.removeMember(deleteMem);
 
 		// 삭제 여부 메시지

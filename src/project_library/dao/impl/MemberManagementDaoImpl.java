@@ -88,7 +88,8 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 	@Override
 	public int deleteMember(Member mdto) {
 		String sql = "DELETE FROM MEMBER WHERE MEMBER_NO = ?";
-		try (Connection con = JdbcUtil.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+		try (Connection con = JdbcUtil.getConnection(); 
+				PreparedStatement pstmt = con.prepareStatement(sql);) {
 			pstmt.setString(1, mdto.getNo());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -96,4 +97,5 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 		}
 
 	}
+	
 }

@@ -27,6 +27,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	private BookManagementService bService;
 
 	public BookManagementButton() {
+		
 		initComponents();
 
 		btnSave.setEnabled(false);
@@ -145,7 +146,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 
 		// 도서 코드 비활성화
 		BookManagementFrame.pBPanel.getTf().setEditable(false);
-		
+
 		int idx = BookManagementFrame.bookList.indexOf(newBto);
 		BookManagementFrame.bookTable.setRowSelectionInterval(0, idx);
 		System.out.println(idx);
@@ -175,8 +176,12 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	}
 
 	protected void actionPerformedBtnDelete() {
+
 		// 선택된 인덱스
 		int idx = BookManagementFrame.bookTable.getSelectedRow();
+		
+		Book delBook = BookManagementFrame.pBPanel.getItem();
+		bService.removeBook(delBook);
 
 		// 삭제 여부 메시지
 		int result = JOptionPane.showConfirmDialog(null, "정말 삭제 하시겠습니까?", "경고", JOptionPane.OK_CANCEL_OPTION);

@@ -176,11 +176,11 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 			throw new InValidationException("형식이 맞지 않습니다.");
 		}
 
-		String no = tfBno.getText().trim();
+		String no = tfBno.getText();
 		String name = tfBname.getText();
 		String aut = tfBau.getText();
 		String pub = tfBpu.getText();
-		int pri = Integer.parseInt(tfBpr.getText().trim());
+		int pri = Integer.parseInt(tfBpr.getText());
 		return new Book(no, name, aut, pub, pri);
 	}
 
@@ -205,22 +205,22 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 			throw new InValidationException("형식이 맞지 않습니다.");
 		}
 
-		String no = tfBno.getText().trim();
+		String no = tfBno.getText();
 		String name = tfBname.getText();
 		String aut = tfBau.getText();
 		String pub = tfBpu.getText();
-		int pri = Integer.parseInt(tfBpr.getText().trim());
+		int pri = Integer.parseInt(tfBpr.getText());
 		return new Book(no, name, aut, pub, pri);
 	}
 
 	private boolean isInvalid() {
 
 		// 정규식 표현식
-		String no = tfBno.getText().trim();
+		String no = tfBno.getText();
 		String name = tfBname.getText();
 		String aut = tfBau.getText();
 		String pub = tfBpu.getText();
-		String pri = tfBpr.getText().trim();
+		String pri = tfBpr.getText();
 
 		// 정규표현식 적용
 		boolean noCheck = Pattern.matches("[a-zA-Z]{1}\\d{3}", no);
