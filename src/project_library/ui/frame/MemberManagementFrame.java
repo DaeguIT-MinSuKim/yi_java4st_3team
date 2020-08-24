@@ -51,24 +51,29 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+
 			}
+
 		});
+
 	}
 
 	public MemberManagementFrame() {
+
 		mService = new MemberManagementService();
 		memberList = (ArrayList<Member>) mService.getMemberDtoList();
 
-		/*		mList = new ArrayList<MemberDto>();
-				mList.add(new MemberDto("M001", "김자바", "010-1234-1234", 0));
-				mList.add(new MemberDto("M002", "이자바", "010-2341-2341", 0));
-				mList.add(new MemberDto("M003", "박자바", "010-3412-3412", 0));
-				mList.add(new MemberDto("M004", "김바자", "010-4123-4123", 0));
-				mList.add(new MemberDto("M005", "이바자", "010-5678-5678", 0));
-				mList.add(new MemberDto("M006", "박바자", "010-6785-6785", 0));
-				mList.add(new MemberDto("M007", "김자자", "010-7856-7856", 0));
-				mList.add(new MemberDto("M008", "이자자", "010-8567-8567", 0));
-				mList.add(new MemberDto("M009", "박자자", "010-0000-0000", 0));
+		/*		
+			mList = new ArrayList<MemberDto>();
+			mList.add(new MemberDto("M001", "김자바", "010-1234-1234", 0));
+			mList.add(new MemberDto("M002", "이자바", "010-2341-2341", 0));
+			mList.add(new MemberDto("M003", "박자바", "010-3412-3412", 0));
+			mList.add(new MemberDto("M004", "김바자", "010-4123-4123", 0));
+			mList.add(new MemberDto("M005", "이바자", "010-5678-5678", 0));
+			mList.add(new MemberDto("M006", "박바자", "010-6785-6785", 0));
+			mList.add(new MemberDto("M007", "김자자", "010-7856-7856", 0));
+			mList.add(new MemberDto("M008", "이자자", "010-8567-8567", 0));
+			mList.add(new MemberDto("M009", "박자자", "010-0000-0000", 0));
 		*/
 
 		initComponents();
