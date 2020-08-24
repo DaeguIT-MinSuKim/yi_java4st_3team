@@ -1,5 +1,7 @@
 package project_library.ui.component;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.JTable;
@@ -13,24 +15,25 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-import project_library.dto.ReturnManagement;
+import project_library.dto.Rent;
+import project_library.dto.Rent;
+import project_library.ui.frame.ReturnManagementFrame;
 
 @SuppressWarnings("serial")
-public class ReturnManagementTable extends JTable {
+public class RentTable extends JTable implements MouseListener {
 	
 	private CustomTable model;
-	private ArrayList<ReturnManagement> returnList;
+	private ArrayList<Rent> returnList;
 	
-	public ReturnManagementTable() {
+	public RentTable() {
 		initComponents();
 		
-		//setModel(new DefaultTableModel(getRows(), getCols()));
 	}
 
 	private void initComponents() {
 		setBorder(new EmptyBorder(0, 10, 0, 10));
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		/* addMouseListener(this); */
+		addMouseListener(this);
 	}
 
 	private class CustomTable extends DefaultTableModel {
@@ -49,7 +52,7 @@ public class ReturnManagementTable extends JTable {
 		return new String[] { "도서코드", "도서명", "회원코드", "회원명", "대여일" };
 	}
 
-	private Object[][] getRows(ArrayList<ReturnManagement> returnList) {
+	private Object[][] getRows(ArrayList<Rent> returnList) {
 		Object[][] rows = new Object[returnList.size()][];
 		for (int i = 0; i < rows.length; i++) {
 			rows[i] = toArray(returnList.get(i));
@@ -57,21 +60,21 @@ public class ReturnManagementTable extends JTable {
 		return rows;
 	}
 
-	private Object[] toArray(ReturnManagement returnManagement) {
+	private Object[] toArray(Rent Rent) {
 		return new Object[] { 
-				returnManagement.getBookCode(),
-				returnManagement.getBookName(),
-				returnManagement.getMemberCode(),
-				returnManagement.getMemberName(),
-				returnManagement.getRentalDate()
+				Rent.getBookCode(),
+				Rent.getBookName(),
+				Rent.getMemberCode(),
+				Rent.getMemberName(),
+				Rent.getRentalDate()
 			};
 	}
 
-	public ArrayList<ReturnManagement> getBList() {
+	public ArrayList<Rent> getBList() {
 		return returnList;
 	}
 
-	public void setReturnManagementList(ArrayList<ReturnManagement> returnList) {
+	public void setRentList(ArrayList<Rent> returnList) {
 		model = new CustomTable(getRows(returnList), getCols());
 		setModel(model);
 
@@ -98,34 +101,44 @@ public class ReturnManagementTable extends JTable {
 		setRowSorter(sorter);
 
 }
-/*
- * @Override public void mouseClicked(MouseEvent arg0) {
- * ReturnManagementFrame.pRPanel.setEditalbeTableTrueTf();
- * 
- * int idx = ReturnManagementFrame.table.getSelectedRow(); RentalManagement bdt
- * = ReturnManagementFrame.returnManagementList.get(idx);
- * 
- * RentalManagementPanel rp = new RentalManagementPanel();
- * rp.setRentalManagementDto(bdt); }
- * 
- * @Override public void mouseEntered(MouseEvent arg0) { // TODO Auto-generated
- * method stub
- * 
- * }
- * 
- * @Override public void mouseExited(MouseEvent arg0) { // TODO Auto-generated
- * method stub
- * 
- * }
- * 
- * @Override public void mousePressed(MouseEvent arg0) { // TODO Auto-generated
- * method stub
- * 
- * }
- * 
- * @Override public void mouseReleased(MouseEvent arg0) { // TODO Auto-generated
- * method stub
- * 
- * }
- */
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// Table 클릭 시 01. 텍스트필드 활성화/비활성화.
+		ReturnManagementFrame.pRPanel.setEditalbeTableTrueTf();
+		  
+		// Table 클릭 시 02. 선택한 값을 가져옴
+		  int idx = ReturnManagementFrame.table.getSelectedRow();
+		  Rent bdt= ReturnManagementFrame.RentList.get(idx);
+		  
+		  
+			// Table 클릭 시 03. 텍스트필드에 클릭한 데이터정보 넣어줌.
+		  ReturnManagementPanel rp = new ReturnManagementPanel();
+		  rp.setRentDto(bdt);
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }	

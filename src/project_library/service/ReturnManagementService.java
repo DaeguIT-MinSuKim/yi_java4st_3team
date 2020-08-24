@@ -5,24 +5,25 @@ import java.util.List;
 import project_library.dao.ReturnManagementDao;
 import project_library.dao.impl.RentalManagementDaoImpl;
 import project_library.dao.impl.ReturnManagementDaoImpl;
+import project_library.dto.Rent;
 import project_library.dto.ReturnManagement;
 
 public class ReturnManagementService {
 	private ReturnManagementDao dao = ReturnManagementDaoImpl.getInstance();
 
-	public List<ReturnManagement> getReturnManagementList() {
+	public List<Rent> getReturnManagementList() {
 		return dao.selectReturnManagementByAll();
 	}
 
-	public void insertBook(ReturnManagement dto) {
+	public void insertBook(Rent dto) {
 		dao.insertReturnManagement(dto);
 	}
 
-	public void modifyBook(ReturnManagement dto) {
+	public void modifyBook(Rent dto) {
 		dao.updateReturnManagement(dto);
 	}
 
-	public void removeBook(ReturnManagement dto) {
+	public void removeBook(Rent dto) {
 		dao.deleteReturnManagement(dto);
 	}
 }

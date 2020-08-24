@@ -9,6 +9,7 @@ import java.util.List;
 
 import project_library.conn.JdbcUtil;
 import project_library.dao.ReturnManagementDao;
+import project_library.dto.Rent;
 import project_library.dto.ReturnManagement;
 
 public class ReturnManagementDaoImpl implements ReturnManagementDao {
@@ -21,13 +22,15 @@ public class ReturnManagementDaoImpl implements ReturnManagementDao {
 	}
 
 	@Override
-	public List<ReturnManagement> selectReturnManagementByAll() {
-		String sql = "SELECT * FROM BOOK WHERE IS_RENT = 1";
+	public List<Rent> selectReturnManagementByAll() {
+		String sql = "SELECT M.*, B.*, R.*" + 
+				"FROM MEMBER M, BOOK B, RENT R" + 
+				"WHERE M.MEMBER_NO = R.MEMBER_NO AND B.BOOK_NO = R.BOOK_NO;";
 		try (Connection con = JdbcUtil.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
 			if (rs.next()) {
-				List<ReturnManagement> list = new ArrayList<>();
+				List<Rent> list = new ArrayList<>();
 				do {
 					list.add(getReturnManagement(rs));
 					//System.out.println(list);
@@ -40,7 +43,7 @@ public class ReturnManagementDaoImpl implements ReturnManagementDao {
 		return null;
 	}
 
-	private ReturnManagement getReturnManagement(ResultSet rs) throws SQLException {
+	private Rent getReturnManagement(ResultSet rs) throws SQLException {
 		String BOOK_NO = rs.getString("BOOK_NO");
 		String BOOK_NAME = rs.getString("BOOK_NAME");
 		String MEMBER_CODE = rs.getString("MEMBER_CODE");
@@ -50,22 +53,22 @@ public class ReturnManagementDaoImpl implements ReturnManagementDao {
 	}
 
 	@Override
-	public ReturnManagement selectReturnManagementByNo(ReturnManagement dto) {
+	public Rent selectReturnManagementByNo(Rent dto) {
 		return null;
 	}
 
 	@Override
-	public int insertReturnManagement(ReturnManagement dto) {
+	public int insertReturnManagement(Rent dto) {
 		return 0;
 	}
 
 	@Override
-	public int updateReturnManagement(ReturnManagement dto) {
+	public int updateReturnManagement(Rent dto) {
 		return 0;
 	}
 
 	@Override
-	public int deleteReturnManagement(ReturnManagement dto) {
+	public int deleteReturnManagement(Rent dto) {
 		return 0;
 	}
 
