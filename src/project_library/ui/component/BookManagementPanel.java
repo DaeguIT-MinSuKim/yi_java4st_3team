@@ -220,21 +220,19 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 
 	private boolean isInvalid() {
 
-		// 정규식 표현식
-		String no = tfBno.getText();
+		// 정규표현식
 		String name = tfBname.getText();
 		String aut = tfBau.getText();
 		String pub = tfBpu.getText();
 		String pri = tfBpr.getText();
 
 		// 정규표현식 적용
-		boolean noCheck = Pattern.matches("[a-zA-Z]{1}\\d{3}", no);
 		boolean nameCheck = Pattern.matches("^[가-힣A-Za-z\s]+$", name);
 		boolean autCheck = Pattern.matches("^[가-힣A-Za-z\s]+$", aut);
 		boolean pubCheck = Pattern.matches("^[가-힣A-Za-z\s]+$", pub);
 		boolean priCheck = Pattern.matches("^[0-9]*$", pri);
 
-		return noCheck && nameCheck && autCheck && pubCheck && priCheck;
+		return nameCheck && autCheck && pubCheck && priCheck;
 	}
 
 	private boolean isEmpty() {
@@ -291,7 +289,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 			throw new FristCharException("코드의 첫문자는 영문입니다.");
 		} else if (!isInvalidNo()) { // 형식
 			throw new InValidationException("형식이 맞지 않습니다.");
-		}
+		} 
 
 		String no = tfBno.getText().trim();
 		return new Book(no);
@@ -303,7 +301,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 
 	private boolean isFristChar() {
 		
-		// 정규식 표현식
+		// 정규표현식
 		String no = tfBno.getText().trim();
 		String str = no.substring(0, 1);
 
@@ -318,7 +316,8 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 		String no = tfBno.getText().trim();
 
 		// 정규표현식 적용
-		boolean noCheck = Pattern.matches("[B]{1}\\d{3}", no);
+		boolean noCheck = Pattern.matches("^[B]{1}\\d{3}", no);
+
 		return noCheck;
 	}
 

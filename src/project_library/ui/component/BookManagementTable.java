@@ -2,8 +2,6 @@ package project_library.ui.component;
 
 import static project_library.ui.component.BookManagementButton.btnDelete;
 import static project_library.ui.component.BookManagementButton.btnUpdate;
-import static project_library.ui.frame.BookManagementFrame.bookList;
-import static project_library.ui.frame.BookManagementFrame.bookTable;
 import static project_library.ui.frame.BookManagementFrame.pBPanel;
 
 import java.awt.event.MouseEvent;
@@ -22,12 +20,13 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import project_library.dto.Book;
+import project_library.ui.frame.BookManagementFrame;
 
 @SuppressWarnings("serial")
 public class BookManagementTable extends JTable implements MouseListener {
 
 	private CustomTable model;
-	private ArrayList<Book> bList;
+	private BookManagementPanel bp;
 
 	public BookManagementTable() {
 		initComponents();
@@ -43,10 +42,10 @@ public class BookManagementTable extends JTable implements MouseListener {
 		return new String[] { "도서코드", "도서명", "저자", "출판사", "가격" };
 	}
 
-	private Object[][] getRows(ArrayList<Book> bList) {
-		Object[][] rows = new Object[bList.size()][];
+	private Object[][] getRows(ArrayList<Book> bookList) {
+		Object[][] rows = new Object[bookList.size()][];
 		for (int i = 0; i < rows.length; i++) {
-			rows[i] = toArray(bList.get(i));
+			rows[i] = toArray(bookList.get(i));
 		}
 		return rows;
 	}
@@ -56,12 +55,12 @@ public class BookManagementTable extends JTable implements MouseListener {
 				String.format("%,d원", bookDto.getPrice()) };
 	}
 
-	public ArrayList<Book> getBList() {
-		return bList;
+	public ArrayList<Book> getBookList() {
+		return BookManagementFrame.bookList;
 	}
 
-	public void setBookList(ArrayList<Book> bList) {
-		model = new CustomTable(getRows(bList), getCols());
+	public void setBookList(ArrayList<Book> bookList) {
+		model = new CustomTable(getRows(bookList), getCols());
 		setModel(model);
 
 		// column의 폭 설정
@@ -108,18 +107,18 @@ public class BookManagementTable extends JTable implements MouseListener {
 		model.removeRow(idx);
 	}
 
-	public void updateRow(int idx, Book uptatedBom) {
+	public void updateRow(int idx, Book updatedBoo) {
 		model.removeRow(idx);
-		model.insertRow(idx, toArray(uptatedBom));
+		model.insertRow(idx, toArray(updatedBoo));
 	}
 
 	public void mouseClicked(MouseEvent e) {
 		pBPanel.setEditalbeTableTrueTf();
 
-		int idx = bookTable.getSelectedRow();
-		Book bdt = bookList.get(idx);
+		int idx = BookManagementFrame.bookTable.getSelectedRow();
+		Book bdt = BookManagementFrame.bookList.get(idx);
 
-		BookManagementPanel bp = new BookManagementPanel();
+		bp = new BookManagementPanel();
 		bp.setBookDto(bdt);
 
 		// 삭제 취소 - 수정, 삭제 버튼 활성화

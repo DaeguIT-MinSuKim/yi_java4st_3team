@@ -1,7 +1,5 @@
 package project_library.ui.component;
 
-import static project_library.ui.frame.BookManagementFrame.bookList;
-import static project_library.ui.frame.BookManagementFrame.bookTable;
 import static project_library.ui.frame.BookManagementFrame.pBPanel;
 
 import java.awt.FlowLayout;
@@ -19,6 +17,7 @@ import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
 import project_library.service.BookManagementService;
+import project_library.ui.frame.BookManagementFrame;
 
 @SuppressWarnings("serial")
 public class BookManagementButton extends JPanel implements ActionListener {
@@ -118,7 +117,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 		Book newBto2 = pBPanel.getCodeNo();
 
 		// 테이블에 있는 모든 도서코드 체크
-		for (Book b : bookList) {
+		for (Book b : BookManagementFrame.bookList) {
 			if (newBto2.getNo().equals(b.getNo())) {
 				JOptionPane.showMessageDialog(null, "도서코드가 중복입니다.", "오류", JOptionPane.ERROR_MESSAGE);
 				System.out.println(newBto2);
@@ -128,15 +127,15 @@ public class BookManagementButton extends JPanel implements ActionListener {
 		}
 		String message = String.format("%s 도서가 저장 되었습니다.", newBto.getBookName());
 		JOptionPane.showMessageDialog(null, message);
-		
+
 		// Book DB 저장 연동
 		bService.insertBook(newBto);
 
 		// newBto를 Book에 add
-		bookTable.addBookDto(newBto);
+		BookManagementFrame.bookTable.addBookDto(newBto);
 
 		// bList add
-		bookList.add(newBto);
+		BookManagementFrame.bookList.add(newBto);
 
 		// pBPanel clear
 		pBPanel.clearTf();
@@ -151,8 +150,8 @@ public class BookManagementButton extends JPanel implements ActionListener {
 		// 도서 코드 비활성화
 		pBPanel.getTf().setEditable(false);
 
-		int idx = bookList.indexOf(newBto);
-		bookTable.setRowSelectionInterval(0, idx);
+		int idx = BookManagementFrame.bookList.indexOf(newBto);
+		BookManagementFrame.bookTable.setRowSelectionInterval(0, idx);
 		System.out.println(idx);
 
 	}
@@ -172,25 +171,25 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	}
 
 	protected void actionPerformedBtnUpdate() {
-		Book uptatedBoo = pBPanel.getItem();
-		System.out.println(uptatedBoo);
-		
+		Book updatedBoo = pBPanel.getItem();
+
+		int idx = (int) BookManagementFrame.bookList.indexOf(updatedBoo);
+		System.out.println(idx);
+
 		// Book DB 수정 연동
-		bService.modifyBook(uptatedBoo);
-		
-		int idx = bookList.indexOf(uptatedBoo);
-		
-		bookTable.updateRow(idx, uptatedBoo);
-		bookTable.setRowSelectionInterval(0, idx);
+		bService.modifyBook(updatedBoo);
+
+		BookManagementFrame.bookTable.updateRow(idx, updatedBoo);
+		// BookManagementFrame.bookTable.setRowSelectionInterval(0, idx);
 		pBPanel.clearTf();
-				
+
 		JOptionPane.showMessageDialog(null, "수정 되었습니다.");
 	}
 
 	protected void actionPerformedBtnDelete() {
 
 		// 선택된 인덱스
-		int idx = bookTable.getSelectedRow();
+		int idx = BookManagementFrame.bookTable.getSelectedRow();
 
 		// Book DB 삭제 연동
 		Book delBook = pBPanel.getItem();
@@ -198,10 +197,10 @@ public class BookManagementButton extends JPanel implements ActionListener {
 
 		// 삭제 여부 메시지
 		int result = JOptionPane.showConfirmDialog(null, "정말 삭제 하시겠습니까?", "경고", JOptionPane.OK_CANCEL_OPTION);
-		
-		if (result == JOptionPane.OK_OPTION) {	
+
+		if (result == JOptionPane.OK_OPTION) {
 			// table 에서 삭제
-			bookTable.delBookDto(idx);
+			BookManagementFrame.bookTable.delBookDto(idx);
 
 			// pMember clear
 			pBPanel.clearTf();
