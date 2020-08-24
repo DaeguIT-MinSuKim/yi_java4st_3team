@@ -166,6 +166,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 	}
 
 	public Book getItem() {
+		
 		// 공란
 		if (isEmpty()) {
 			throw new EmptyTfException("공란 존재");
@@ -176,11 +177,11 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 			throw new InValidationException("형식이 맞지 않습니다.");
 		}
 
-		String no = tfBno.getText();
+		String no = tfBno.getText().trim();
 		String name = tfBname.getText();
 		String aut = tfBau.getText();
 		String pub = tfBpu.getText();
-		int pri = Integer.parseInt(tfBpr.getText());
+		int pri = Integer.parseInt(tfBpr.getText().trim());
 		return new Book(no, name, aut, pub, pri);
 	}
 
@@ -205,11 +206,11 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 			throw new InValidationException("형식이 맞지 않습니다.");
 		}
 
-		String no = tfBno.getText();
+		String no = tfBno.getText().trim();
 		String name = tfBname.getText();
 		String aut = tfBau.getText();
 		String pub = tfBpu.getText();
-		int pri = Integer.parseInt(tfBpr.getText());
+		int pri = Integer.parseInt(tfBpr.getText().trim());
 		return new Book(no, name, aut, pub, pri);
 	}
 
@@ -224,9 +225,9 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 
 		// 정규표현식 적용
 		boolean noCheck = Pattern.matches("[a-zA-Z]{1}\\d{3}", no);
-		boolean nameCheck = Pattern.matches("^[가-힣A-Za-z]+$", name);
-		boolean autCheck = Pattern.matches("^[가-힣A-Za-z]+$", aut);
-		boolean pubCheck = Pattern.matches("^[가-힣A-Za-z]+$", pub);
+		boolean nameCheck = Pattern.matches("^[가-힣A-Za-z\s]+$", name);
+		boolean autCheck = Pattern.matches("^[가-힣A-Za-z\s]+$", aut);
+		boolean pubCheck = Pattern.matches("^[가-힣A-Za-z\s]+$", pub);
 		boolean priCheck = Pattern.matches("^[0-9]*$", pri);
 
 		return noCheck && nameCheck && autCheck && pubCheck && priCheck;
@@ -275,6 +276,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 
 	/* 첫번째 필드 회원/도서코드 중복 확인 ↓ */
 	public Book getCodeNo() {
+		
 		// 공란
 		if (isEmptyNo()) {
 			throw new EmptyTfException("공란 존재");
@@ -296,6 +298,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 	}
 
 	private boolean isFristChar() {
+		
 		// 정규식 표현식
 		String no = tfBno.getText().trim();
 		String str = no.substring(0, 1);
@@ -306,6 +309,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 	}
 
 	private boolean isInvalidNo() {
+		
 		// 정규식 표현식
 		String no = tfBno.getText().trim();
 
