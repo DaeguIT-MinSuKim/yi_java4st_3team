@@ -53,7 +53,7 @@ public class BookManagementTable extends JTable implements MouseListener {
 
 	private Object[] toArray(Book bookDto) {
 		return new Object[] { bookDto.getNo(), bookDto.getBookName(), bookDto.getAuthor(), bookDto.getPublisher(),
-				bookDto.getPrice() };
+				String.format("%,d원", bookDto.getPrice()) };
 	}
 
 	public ArrayList<Book> getBList() {

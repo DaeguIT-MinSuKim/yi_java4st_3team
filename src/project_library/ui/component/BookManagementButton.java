@@ -176,7 +176,6 @@ public class BookManagementButton extends JPanel implements ActionListener {
 		System.out.println(uptatedBoo);
 		
 		// Book DB 수정 연동
-		
 		bService.modifyBook(uptatedBoo);
 		
 		int idx = bookList.indexOf(uptatedBoo);
@@ -199,8 +198,8 @@ public class BookManagementButton extends JPanel implements ActionListener {
 
 		// 삭제 여부 메시지
 		int result = JOptionPane.showConfirmDialog(null, "정말 삭제 하시겠습니까?", "경고", JOptionPane.OK_CANCEL_OPTION);
-		if (result == JOptionPane.OK_OPTION) {
-			
+		
+		if (result == JOptionPane.OK_OPTION) {	
 			// table 에서 삭제
 			bookTable.delBookDto(idx);
 
@@ -210,7 +209,6 @@ public class BookManagementButton extends JPanel implements ActionListener {
 			// 삭제 성공 - 수정, 삭제 버튼 비활성화
 			btnUpdate.setEnabled(false);
 			btnDelete.setEnabled(false);
-
 		} else {
 			// 삭제 취소 - 수정, 삭제 버튼 활성화
 			btnUpdate.setEnabled(true);
