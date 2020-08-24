@@ -2,20 +2,29 @@ package project_library.ui.frame;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.BoxLayout;
-import project_library.ui.component.SearchBookPanel;
+
 import project_library.ui.component.SearchBookButton;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Component;
+import project_library.ui.component.SearchBookPanel;
+import project_library.ui.component.SearchBookTable;
+import project_library.ui.component.SearchBookTotalCountPanel;
 
 public class SearchBookFrame extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField tfBook;
+	private SearchBookTable table;
+	private JPanel pInput;
 
 	/**
 	 * Launch the application.
@@ -44,41 +53,65 @@ public class SearchBookFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		
-		SearchBookPanel panel_5 = new SearchBookPanel();
-		contentPane.add(panel_5);
-		GridBagLayout gbl_panel_5 = new GridBagLayout();
-		gbl_panel_5.columnWidths = new int[]{0};
-		gbl_panel_5.rowHeights = new int[]{0};
-		gbl_panel_5.columnWeights = new double[]{};
-		gbl_panel_5.rowWeights = new double[]{};
-		panel_5.setLayout(gbl_panel_5);
-		GridBagLayout gbl_panel_5 = new GridBagLayout();
-		gbl_panel_5.columnWidths = new int[]{0};
-		gbl_panel_5.rowHeights = new int[]{0};
-		gbl_panel_5.columnWeights = new double[]{};
-		gbl_panel_5.rowWeights = new double[]{};
-		panel_5.setLayout(gbl_panel_5);
-		panel_5.setLayout(new BoxLayout(panel_5, BoxLayout.X_AXIS));
-		panel_5.setLayout(new GridLayout(1, 0, 0, 0));
-		panel_5.setLayout(new GridLayout(1, 0, 0, 0));
-		GridBagLayout gbl_panel_5 = new GridBagLayout();
-		gbl_panel_5.columnWidths = new int[]{0};
-		gbl_panel_5.rowHeights = new int[]{0};
-		gbl_panel_5.columnWeights = new double[]{Double.MIN_VALUE};
-		gbl_panel_5.rowWeights = new double[]{Double.MIN_VALUE};
-		panel_5.setLayout(gbl_panel_5);
+		pInput = new JPanel();
+		contentPane.add(pInput);
+		GridBagLayout gbl_pInput = new GridBagLayout();
+		gbl_pInput.columnWidths = new int[]{44, 61, 73, 209, 0};
+		gbl_pInput.rowHeights = new int[]{23, 0};
+		gbl_pInput.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_pInput.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		pInput.setLayout(gbl_pInput);
 		
-		SearchBookButton panel_2 = new SearchBookButton();
-		contentPane.add(panel_2);
+		JRadioButton rdbtnBookName = new JRadioButton("도서명");
+		GridBagConstraints gbc_rdbtnBookName = new GridBagConstraints();
+		gbc_rdbtnBookName.fill = GridBagConstraints.HORIZONTAL;
+		gbc_rdbtnBookName.anchor = GridBagConstraints.NORTH;
+		gbc_rdbtnBookName.insets = new Insets(0, 0, 0, 5);
+		gbc_rdbtnBookName.gridx = 1;
+		gbc_rdbtnBookName.gridy = 0;
+		pInput.add(rdbtnBookName, gbc_rdbtnBookName);
 		
-		JPanel panel_3 = new JPanel();
-		contentPane.add(panel_3);
+		JRadioButton rdbtnBookCode = new JRadioButton("도서코드");
+		GridBagConstraints gbc_rdbtnBookCode = new GridBagConstraints();
+		gbc_rdbtnBookCode.anchor = GridBagConstraints.NORTHWEST;
+		gbc_rdbtnBookCode.insets = new Insets(0, 0, 0, 5);
+		gbc_rdbtnBookCode.gridx = 2;
+		gbc_rdbtnBookCode.gridy = 0;
+		pInput.add(rdbtnBookCode, gbc_rdbtnBookCode);
 		
-		JPanel panel_4 = new JPanel();
-		contentPane.add(panel_4);
+		tfBook = new JTextField();
+		GridBagConstraints gbc_tfBook = new GridBagConstraints();
+		gbc_tfBook.fill = GridBagConstraints.HORIZONTAL;
+		gbc_tfBook.gridx = 3;
+		gbc_tfBook.gridy = 0;
+		pInput.add(tfBook, gbc_tfBook);
+		tfBook.setColumns(10);
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel);
+		SearchBookButton pBtns = new SearchBookButton();
+		contentPane.add(pBtns);
+		
+		SearchBookPanel pBookInfo = new SearchBookPanel();
+		contentPane.add(pBookInfo);
+	
+		GridBagLayout gbl_pBookInfo = new GridBagLayout();
+		gbl_pBookInfo.columnWidths = new int[]{0};
+		gbl_pBookInfo.rowHeights = new int[]{0};
+		gbl_pBookInfo.columnWeights = new double[]{};
+		gbl_pBookInfo.rowWeights = new double[]{};
+		pBookInfo.setLayout(gbl_pBookInfo);
+		
+		JPanel pRentInfo = new JPanel();
+		contentPane.add(pRentInfo);
+		pRentInfo.setLayout(new BorderLayout(0, 0));
+		
+		JScrollPane scrollPane = new JScrollPane();
+		pRentInfo.add(scrollPane, BorderLayout.CENTER);
+		
+		table = new SearchBookTable();
+		scrollPane.setViewportView(table);
+		
+		SearchBookTotalCountPanel pRentInfoTotal = new SearchBookTotalCountPanel();
+		contentPane.add(pRentInfoTotal);
 	}
 
 }
