@@ -17,6 +17,8 @@ public class ReturnManagementButton extends JPanel implements ActionListener {
 
 	public ReturnManagementButton() {
 		initComponents();
+		
+		btnReturn.setEnabled(false);
 
 	}
 

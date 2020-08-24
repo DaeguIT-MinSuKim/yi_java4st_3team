@@ -1,17 +1,16 @@
 package project_library.dao;
 
 import java.util.List;
-
-import project_library.dto.ReturnManagement;
+import project_library.dto.Rent;
 
 public interface ReturnManagementDao {
-	List<ReturnManagement> selectReturnManagementByAll();
+	List<Rent> selectReturnManagementByAll();
 
-	ReturnManagement selectReturnManagementByNo(ReturnManagement dto);
+	Rent selectRentByNo(Rent dto);
 
-	int insertReturnManagement(ReturnManagement dto);
+	int insertReturnManagement(Rent dto);
 
-	int updateReturnManagement(ReturnManagement dto);
+	int updateReturnManagement(Rent dto);
 
-	int deleteReturnManagement(ReturnManagement dto);
+	int deleteReturnManagement(Rent dto);
 }

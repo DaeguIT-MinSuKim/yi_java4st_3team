@@ -1,18 +1,19 @@
 package project_library.ui.component;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.BoxLayout;
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Insets;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import project_library.dto.ReturnManagement;
+import project_library.ui.frame.ReturnManagementFrame;
 
 @SuppressWarnings("serial")
 public class ReturnManagementPanel extends JPanel {
@@ -275,4 +276,31 @@ public class ReturnManagementPanel extends JPanel {
 
 	}
 
+	protected void setReturnManagementDto(ReturnManagement bdt) {
+		ReturnManagementFrame.pRPanel.setItem(bdt);
+	}
+
+	private void setItem(ReturnManagement bdt) {
+		tfBno.setText(bdt.getBookCode());
+		tfBname.setText(bdt.getBookName());
+		tfBau.setText(bdt.getAuthor());
+		tfBpu.setText(bdt.getPublisher());
+		tfBpr.setText(bdt.getPrice() + "");
+		tfBcnt.setText(bdt.getTotalRental() + "");
+	}
+
+	public void setEditalbeTableTrueTf() {
+		// TODO Auto-generated method stub
+		tfBno.setEditable(false);
+		tfBname.setEditable(false);
+		tfBau.setEditable(false);
+		tfBpu.setEditable(false);
+		tfBpr.setEditable(false);
+		tfBcnt.setEditable(false);
+		tfNo.setEditable(false);
+		tfName.setEditable(false);
+		tfTel.setEditable(false);
+		tfBDate.setEditable(false);
+		tfRDate.setEditable(false);
+	}
 }

@@ -169,6 +169,3 @@ CREATE SEQUENCE IDXNUM
 /*
 DROP SEQUENCE IDXNUM;
 */
-
-	
->>>>>>> branch 'master' of https://github.com/DaeguIT-MinSuKim/yi_java4st_3team.git

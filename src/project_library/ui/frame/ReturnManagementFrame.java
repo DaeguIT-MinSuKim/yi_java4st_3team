@@ -21,8 +21,8 @@ import project_library.ui.component.ReturnManagementTable;
 public class ReturnManagementFrame extends JFrame {
 
 	private JPanel contentPane;
-	private ReturnManagementTable table;
-	private ReturnManagementPanel pRPanel;
+	public static ReturnManagementTable table;
+	public static ReturnManagementPanel pRPanel;
 	private ReturnManagementButton pRBtns;
 	private JPanel pRTable;
 	private JScrollPane scrollPane;
