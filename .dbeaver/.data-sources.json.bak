@@ -34,7 +34,7 @@
 		"oracle_thin-173e1a67e07-4b7546bb6b5b1ea8": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "orcl",
+			"name": "orcl - user_lib",
 			"save-password": true,
 			"show-system-objects": true,
 			"read-only": false,

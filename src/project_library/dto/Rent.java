@@ -1,7 +1,5 @@
 package project_library.dto;
 
-import java.util.Date;
-
 public class Rent {
 	private String bookCode;
 	private String bookName;
@@ -12,32 +10,56 @@ public class Rent {
 	private String memberCode;
 	private String memberName;
 	private String phone;
-	private Date rentDate;
-	private Date returnDate;
+	private String rentDate;
+	private String returnDate;
 	private int isRent;
-	
+	private int idx;
+	private int totalCount;
+	private String memberCode2;
+	private String bookCode2;
 	
 	public Rent() {
 		
 	}
-	
-	
-	public Rent(String bookCode, String bookName, String author, String publisher, int price, int totalRental,
-			String memberCode, String memberName, String phone, Date rentDate, Date returnDate, int isRent) {
-		super();
+
+
+	public Rent(
+				String memberCode, 
+				String memberName, 
+				String phone, 
+				int totalRental,
+				String bookCode,
+				String bookName,
+				String author,
+				String publisher,
+				int price,
+				int isRent,
+				int totalCount,
+				int idx,
+				String memberCode2,
+				String bookCode2,
+				String returnDate,
+				String rentDate
+			) {
+		this.memberCode = memberCode2;
+		this.memberName = memberName;
+		this.phone = phone;
+		this.totalRental = totalCount;
 		this.bookCode = bookCode;
 		this.bookName = bookName;
 		this.author = author;
 		this.publisher = publisher;
 		this.price = price;
-		this.totalRental = totalRental;
-		this.memberCode = memberCode;
-		this.memberName = memberName;
-		this.phone = phone;
-		this.rentDate = rentDate;
-		this.returnDate = returnDate;
 		this.isRent = isRent;
+		this.totalRental = totalCount;
+		this.idx = idx;
+		this.memberCode = memberCode2;
+		this.bookCode = bookCode;
+		this.returnDate = returnDate;
+		this.rentDate = rentDate;
 	}
+
+
 
 
 	public Rent(String bookCode, String memberCode) {
@@ -56,7 +78,7 @@ public class Rent {
 	}
 
 	
-
+	
 	public String getAuthor() {
 		return author;
 	}
@@ -147,22 +169,22 @@ public class Rent {
 	}
 
 
-	public Date getRentDate() {
+	public String getRentDate() {
 		return rentDate;
 	}
 
 
-	public void setRentDate(Date rentDate) {
+	public void setRentDate(String rentDate) {
 		this.rentDate = rentDate;
 	}
 
 
-	public Date getReturnDate() {
+	public String getReturnDate() {
 		return returnDate;
 	}
 
 
-	public void setReturnDate(Date returnDate) {
+	public void setReturnDate(String returnDate) {
 		this.returnDate = returnDate;
 	}
 
@@ -174,6 +196,15 @@ public class Rent {
 
 	public void setIsRent(int isRent) {
 		this.isRent = isRent;
+	}
+
+	public int getIdx() {
+		return idx;
+	}
+
+
+	public void setIdx(int idx) {
+		this.idx = idx;
 	}
 
 
