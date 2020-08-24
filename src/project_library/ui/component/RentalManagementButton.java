@@ -58,6 +58,7 @@ public class RentalManagementButton extends JPanel implements MouseListener {
 		// 대여 버튼 클릭시 데이터 처리 ↓
 		// 01. '도서'테이블 총대여횟수+1, 대여가능여부=0(NO), '회원'테이블 총대여권수+1
 		Rent bookCode = RentalManagementFrame.pPanel.getItem();
+		rService = new RentalManagementService();
 		rService.modifyBook(bookCode);
 		
 		// 02 '출납' 대여목록 INSERT

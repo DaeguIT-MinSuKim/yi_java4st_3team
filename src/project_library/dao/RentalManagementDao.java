@@ -10,8 +10,9 @@ public interface RentalManagementDao {
 	Rent selectRentalManagementByNo(Rent dto);
 
 	int insertRentalManagement(Rent dto);
-
-	int updateRentalManagement(Rent dto);
+	
+	int updateRentalManagement_book(Rent dto);
+	int updateRentalManagement_member(Rent dto);
 
 	//int deleteRentalManagement(Rent dto);
 }
