@@ -1,6 +1,4 @@
 # 도서 관리 프로그램
-<<<<<<< HEAD
-=======
 
 <img src="https://img.shields.io/badge/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%8B%9C%EC%9E%91-2020.07.29-green"> <img src="https://img.shields.io/badge/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%A2%85%EB%A3%8C-2020.09.04-orange">
 
@@ -47,4 +45,3 @@ project_library.ui.frame
 > 실제 사용자단 프레임 /
 > 각 main 들어있음 /
 > 패키지.dto, 패키지.service, 패키지.ui.component와 연결되어 있음
->>>>>>> branch 'master' of https://github.com/DaeguIT-MinSuKim/yi_java4st_3team.git
