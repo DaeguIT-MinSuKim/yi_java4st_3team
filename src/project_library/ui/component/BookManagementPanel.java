@@ -1,5 +1,10 @@
 package project_library.ui.component;
 
+import static project_library.ui.component.BookManagementButton.btnAdd;
+import static project_library.ui.component.BookManagementButton.btnSave;
+import static project_library.ui.component.BookManagementButton.btnUpdate;
+import static project_library.ui.frame.BookManagementFrame.pBPanel;
+
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -18,7 +23,6 @@ import project_library.dto.Book;
 import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
-import project_library.ui.frame.BookManagementFrame;
 
 @SuppressWarnings("serial")
 public class BookManagementPanel extends JPanel implements KeyListener {
@@ -271,7 +275,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 	}
 
 	protected void setBookDto(Book bdt) {
-		BookManagementFrame.pBPanel.setItem(bdt);
+		pBPanel.setItem(bdt);
 	}
 
 	/* 첫번째 필드 회원/도서코드 중복 확인 ↓ */
@@ -327,98 +331,98 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 			if (e.getSource() == tfBno) { // 저장할 경우
 				String no = tfBno.getText().trim();
 				if (no.length() != 0) {
-					BookManagementButton.btnAdd.setEnabled(true);
+					btnAdd.setEnabled(true);
 					// System.out.println(no);
 				} else {
-					BookManagementButton.btnSave.setEnabled(false);
+					btnSave.setEnabled(false);
 					if (tfBno.getText().trim().length() != 0 || tfBname.getText().length() != 0
 							|| tfBau.getText().length() != 0 || tfBpu.getText().length() != 0
 							|| tfBpr.getText().trim().length() != 0) {
 						return;
 					}
-					BookManagementButton.btnSave.setEnabled(false);
+					btnSave.setEnabled(false);
 				}
 			} else if (e.getSource() == tfBname) {
 				String name = tfBname.getText();
 				if (name.length() != 0) {
-					BookManagementButton.btnAdd.setEnabled(true);
+					btnAdd.setEnabled(true);
 					// System.out.println(name);
 				} else {
-					BookManagementButton.btnUpdate.setEnabled(false);
+					btnUpdate.setEnabled(false);
 				}
 
 			} else if (e.getSource() == tfBau) {
 				String bau = tfBau.getText();
 				if (bau.length() != 0) {
-					BookManagementButton.btnAdd.setEnabled(true);
+					btnAdd.setEnabled(true);
 					// System.out.println(bau);
 				} else {
-					BookManagementButton.btnUpdate.setEnabled(false);
+					btnUpdate.setEnabled(false);
 				}
 
 			} else if (e.getSource() == tfBpu) {
 				String bpu = tfBpu.getText();
 				if (bpu.length() != 0) {
-					BookManagementButton.btnAdd.setEnabled(true);
+					btnAdd.setEnabled(true);
 					// System.out.println(bpu);
 				} else {
-					BookManagementButton.btnUpdate.setEnabled(false);
+					btnUpdate.setEnabled(false);
 				}
 
 			} else if (e.getSource() == tfBpr) {
 				String bpr = tfBpr.getText().trim();
 				if (bpr.length() != 0) {
-					BookManagementButton.btnSave.setEnabled(true);
+					btnSave.setEnabled(true);
 					// System.out.println(bpr);
 				} else {
-					BookManagementButton.btnSave.setEnabled(false);
+					btnSave.setEnabled(false);
 					if (tfBname.getText().length() != 0 || tfBau.getText().length() != 0
 							|| tfBpu.getText().length() != 0 || tfBpr.getText().trim().length() != 0) {
 						return;
 					}
-					BookManagementButton.btnUpdate.setEnabled(true);
+					btnUpdate.setEnabled(true);
 				}
 
 			}
 
 		} else { // 수정할 경우
-			BookManagementButton.btnSave.setEnabled(false);
+			btnSave.setEnabled(false);
 			if (e.getSource() == tfBname) {
 				String name = tfBname.getText();
 				if (name.length() != 0) {
-					BookManagementButton.btnAdd.setEnabled(true);
+					btnAdd.setEnabled(true);
 					// System.out.println(name);
 				} else {
-					BookManagementButton.btnUpdate.setEnabled(false);
+					btnUpdate.setEnabled(false);
 				}
 			} else if (e.getSource() == tfBau) {
 				String bau = tfBau.getText();
 				if (bau.length() != 0) {
-					BookManagementButton.btnAdd.setEnabled(true);
+					btnAdd.setEnabled(true);
 					// System.out.println(bau);
 				} else {
-					BookManagementButton.btnUpdate.setEnabled(false);
+					btnUpdate.setEnabled(false);
 				}
 
 			} else if (e.getSource() == tfBpu) {
 				String bpu = tfBpu.getText();
 				if (bpu.length() != 0) {
-					BookManagementButton.btnAdd.setEnabled(true);
+					btnAdd.setEnabled(true);
 					// System.out.println(bpu);
 				} else {
-					BookManagementButton.btnUpdate.setEnabled(false);
+					btnUpdate.setEnabled(false);
 				}
 			} else if (e.getSource() == tfBpr) {
 				String bpr = tfBpr.getText().trim();
 				if (bpr.length() != 0) {
 					// System.out.println(bau);
 				} else {
-					BookManagementButton.btnSave.setEnabled(false);
+					btnSave.setEnabled(false);
 					if (tfBname.getText().length() != 0 || tfBau.getText().length() != 0
 							|| tfBpu.getText().length() != 0 || tfBpr.getText().trim().length() != 0) {
 						return;
 					}
-					BookManagementButton.btnUpdate.setEnabled(true);
+					btnUpdate.setEnabled(true);
 				}
 
 			}

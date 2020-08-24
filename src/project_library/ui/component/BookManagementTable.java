@@ -1,5 +1,11 @@
 package project_library.ui.component;
 
+import static project_library.ui.component.BookManagementButton.btnDelete;
+import static project_library.ui.component.BookManagementButton.btnUpdate;
+import static project_library.ui.frame.BookManagementFrame.bookList;
+import static project_library.ui.frame.BookManagementFrame.bookTable;
+import static project_library.ui.frame.BookManagementFrame.pBPanel;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -16,7 +22,6 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import project_library.dto.Book;
-import project_library.ui.frame.BookManagementFrame;
 
 @SuppressWarnings("serial")
 public class BookManagementTable extends JTable implements MouseListener {
@@ -109,17 +114,17 @@ public class BookManagementTable extends JTable implements MouseListener {
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		BookManagementFrame.pBPanel.setEditalbeTableTrueTf();
+		pBPanel.setEditalbeTableTrueTf();
 
-		int idx = BookManagementFrame.bookTable.getSelectedRow();
-		Book bdt = BookManagementFrame.bookList.get(idx);
+		int idx = bookTable.getSelectedRow();
+		Book bdt = bookList.get(idx);
 
 		BookManagementPanel bp = new BookManagementPanel();
 		bp.setBookDto(bdt);
 
 		// 삭제 취소 - 수정, 삭제 버튼 활성화
-		BookManagementButton.btnUpdate.setEnabled(true);
-		BookManagementButton.btnDelete.setEnabled(true);
+		btnUpdate.setEnabled(true);
+		btnDelete.setEnabled(true);
 	}
 
 	public void mouseEntered(MouseEvent e) {
