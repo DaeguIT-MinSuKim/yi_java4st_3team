@@ -1,19 +1,10 @@
-<<<<<<< HEAD
-SELECT * FROM ALL_TABLES;
-=======
 SELECT * FROM RENT;
 SELECT * FROM BOOK;
 SELECT * FROM MEMBER;
 
-UPDATE RENT 
-SET MEMBER_NO = 'M007'
-WHERE IDX = 2;
-
 /* 대여관리 */
--- 도서 대여가능 목록
-SELECT *
-FROM BOOK
-WHERE IS_RENT = 1;
+-- 도서 대여가능 목록 (IS_RENT = 대여가능여부)
+SELECT * FROM BOOK WHERE IS_RENT = 1;
 
 -- 테이블 클릭시
 SELECT * 
@@ -37,6 +28,7 @@ WHERE MEMBER_NO = 'M002';
 
 -- 출납테이블에 대여한 목록 추가
 INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, '땡겨온값', '땡겨온값', SYSDATE, NULL);
+
 
 
 
@@ -116,4 +108,3 @@ SELECT COUNT(*) FROM BOOK;
 SELECT COUNT(*) FROM RENT WHERE RENT_DATE+3 < RETURN_DATE;
 /* 총 대여 권수 */
 SELECT COUNT(*) FROM RENT;
->>>>>>> branch 'master' of https://github.com/DaeguIT-MinSuKim/yi_java4st_3team.git
