@@ -18,8 +18,10 @@ public class RentalManagementService {
 	}
 
 	public void modifyBook(Rent dto) {
-		dao.updateRentalManagement(dto);
+		dao.updateRentalManagement_book(dto);
+		dao.updateRentalManagement_member(dto);
 	}
+	
 /*
 	public void removeBook(Rent dto) {
 		dao.deleteRentalManagement(dto);

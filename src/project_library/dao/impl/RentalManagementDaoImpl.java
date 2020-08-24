@@ -70,29 +70,38 @@ public class RentalManagementDaoImpl implements RentalManagementDao {
     	}
 	}
 
+	/* 수정 */
 	@Override
-	public int updateRentalManagement(Rent dto) {
-		String bNo = dto.getBookCode();
-		String mNo = dto.getMemberCode();
-		
-		String sql_book = "UPDATE BOOK" + 
+	public int updateRentalManagement_book(Rent dto) {
+		String sql = "UPDATE BOOK" + 
 				"SET TOTAL_COUNT = TOTAL_COUNT + 1, IS_RENT = 0" + 
-				"WHERE BOOK_NO = ?";
-		String sql_member = "UPDATE MEMBER" + 
+				"WHERE BOOK_NO = ?"; 
+		
+		try(Connection con = JdbcUtil.getConnection();
+    			PreparedStatement pstmt = con.prepareStatement(sql)){
+    			pstmt.setString(1, dto.getBookCode());
+    		return pstmt.executeUpdate();
+    	}catch (SQLException e){
+    		throw new RuntimeException(e);
+    	}
+	}
+	
+	@Override
+	public int updateRentalManagement_member(Rent dto) {
+		String sql = "UPDATE MEMBER" + 
 				"SET TOTAL_RENT = TOTAL_RENT + 1" + 
 				"WHERE MEMBER_NO = ?";
 		
     	try(Connection con = JdbcUtil.getConnection();
-    			PreparedStatement pstmt = con.prepareStatement(sql_book)){
-    			pstmt.setString(1, bNo);
+    			PreparedStatement pstmt = con.prepareStatement(sql)){
+    			pstmt.setString(1, dto.getMemberCode());
     		return pstmt.executeUpdate();
-    	} catch (SQLException e) {
+    	}catch (SQLException e){
     		throw new RuntimeException(e);
     	}
-    	
-    	
 	}
-	
+	/* //수정 */
+
 	/*
 	@Override
 	public int deleteRentalManagement(Rent dto) {
