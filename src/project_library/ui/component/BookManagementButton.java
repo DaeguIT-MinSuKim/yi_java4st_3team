@@ -30,6 +30,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	private BookManagementService bService;
 
 	public BookManagementButton() {
+		bService = new BookManagementService();
 
 		initComponents();
 
@@ -129,7 +130,6 @@ public class BookManagementButton extends JPanel implements ActionListener {
 		JOptionPane.showMessageDialog(null, message);
 		
 		// Book DB 저장 연동
-		bService = new BookManagementService();
 		bService.insertBook(newBto);
 
 		// newBto를 Book에 add
@@ -173,10 +173,18 @@ public class BookManagementButton extends JPanel implements ActionListener {
 
 	protected void actionPerformedBtnUpdate() {
 		Book uptatedBoo = pBPanel.getItem();
+		System.out.println(uptatedBoo);
+		
+		// Book DB 수정 연동
+		
+		bService.modifyBook(uptatedBoo);
+		
 		int idx = bookList.indexOf(uptatedBoo);
+		
 		bookTable.updateRow(idx, uptatedBoo);
 		bookTable.setRowSelectionInterval(0, idx);
 		pBPanel.clearTf();
+				
 		JOptionPane.showMessageDialog(null, "수정 되었습니다.");
 	}
 
