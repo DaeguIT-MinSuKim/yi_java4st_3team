@@ -80,8 +80,20 @@ public class BookManagementDaoImpl implements BookManagementDao {
 
 	@Override
 	public int updateBook(Book bdto) {
+		String sql = "UPDATE BOOK SET BOOK_NAME = ?, AUTHOR = ?, PUBLISHER = ?, PRICE = ?, IS_RENT = ?, TOTAL_COUNT = ? WHERE BOOK_NO = ?";
+		try (Connection con = JdbcUtil.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+			pstmt.setString(1, bdto.getBookName());
+			pstmt.setString(2, bdto.getAuthor());
+			pstmt.setString(3, bdto.getPublisher());
+			pstmt.setInt(4, bdto.getPrice());
+			pstmt.setBoolean(5, bdto.isRent());
+			pstmt.setInt(6, bdto.getTotalRent());
+			pstmt.setString(7, bdto.getNo());
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 
-		return 0;
 	}
 
 	@Override
