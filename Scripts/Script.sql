@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+SELECT * FROM ALL_TABLES;
+=======
 SELECT * FROM RENT;
 SELECT * FROM BOOK;
 SELECT * FROM MEMBER;
@@ -113,3 +116,4 @@ SELECT COUNT(*) FROM BOOK;
 SELECT COUNT(*) FROM RENT WHERE RENT_DATE+3 < RETURN_DATE;
 /* 총 대여 권수 */
 SELECT COUNT(*) FROM RENT;
+>>>>>>> branch 'master' of https://github.com/DaeguIT-MinSuKim/yi_java4st_3team.git

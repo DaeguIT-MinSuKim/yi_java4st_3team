@@ -18,6 +18,9 @@ INSERT INTO BOOK VALUES('B005', 'Java의 정석', '남궁성', '도우출판', 2
 INSERT INTO BOOK VALUES('B006', '오라클로 배우는 데이터베이스', '이지훈', '이지스퍼블리싱', 25000, 1, 0);
 INSERT INTO BOOK VALUES('B007', '자바 프로젝트 필수 유틸리티', '전민수', '한빛미디어', 35000, 1, 0);
 INSERT INTO BOOK VALUES('B008', '자바 프로그래밍 입문', '박은종', '이지스퍼블리싱', 25000, 1, 0);
+<<<<<<< HEAD
+INSERT INTO BOOK VALUES('B009', 'C 언어 입문', '김성엽', '이지스퍼블리싱', 25000, 1, 0);
+=======
 INSERT INTO BOOK VALUES('B009', 'C 언어 입문', '김성엽', '이지스퍼블리싱', 25000, 1, 0);
 
 -- RENT 목록
@@ -25,3 +28,4 @@ INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M001', 'B001', to_char('18/06/17'), to_
 INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M002', 'B002', to_char('18/06/17'), to_char('18/06/17'));
 INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M003', 'B003', to_char('18/06/17'), to_char('18/06/17'));
 INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M004', 'B004', to_char('18/08/20'), to_char('18/08/20'));
+>>>>>>> branch 'master' of https://github.com/DaeguIT-MinSuKim/yi_java4st_3team.git

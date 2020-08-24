@@ -1,6 +1,50 @@
 {
 	"folders": {},
 	"connections": {
+<<<<<<< HEAD
+		"oracle_thin-173e1a12e21-f6cbd2dbaf6f218": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "orcl - system",
+			"save-password": true,
+			"show-system-objects": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "1521",
+				"database": "orcl",
+				"url": "jdbc:oracle:thin:@//localhost:1521/orcl",
+				"home": "E:\\oracle\\product\\11.2.0\\dbhome_1",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-check-schema-content@": "false",
+					"@dbeaver-always-show-dba@": "false",
+					"@dbeaver-always-use-dba-views@": "false",
+					"@dbeaver-meta-use-sys-schema@": "false",
+					"@dbeaver-meta-use-simple-constraints@": "false",
+					"@dbeaver-use-rule-hint@": "false",
+					"@dbeaver-use-meta-optimizer@": "false",
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native",
+				"handlers": {}
+			}
+		},
+		"oracle_thin-173e1a67e07-4b7546bb6b5b1ea8": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "orcl - user_lib",
+			"save-password": true,
+			"show-system-objects": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "1521",
+				"database": "orcl",
+				"url": "jdbc:oracle:thin:@//localhost:1521/orcl",
+				"home": "E:\\oracle\\product\\11.2.0\\dbhome_1",
+=======
 		"oracle_thin-17414433205-74c00caf95c8741d": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
@@ -42,6 +86,7 @@
 				"database": "orcl",
 				"url": "jdbc:oracle:thin:@//localhost:1521/orcl",
 				"home": "C:\\app\\daehyun\\product\\11.2.0\\dbhome_2",
+>>>>>>> branch 'master' of https://github.com/DaeguIT-MinSuKim/yi_java4st_3team.git
 				"type": "dev",
 				"provider-properties": {
 					"@dbeaver-check-schema-content@": "false",

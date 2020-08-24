@@ -27,7 +27,6 @@ public class BookManagementFrame extends JFrame {
 	private JScrollPane scrollPane;
 	public static BookManagementTable bookTable;
 	public static ArrayList<Book> bookList;
-	private BookManagementService bService;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -38,31 +37,27 @@ public class BookManagementFrame extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
 			}
-
 		});
-
 	}
 
 	public BookManagementFrame() {
 
-		bService = new BookManagementService();
+		BookManagementService bService = new BookManagementService();
 		bookList = (ArrayList<Book>) bService.getBookDtoList();
-
 		/*
-			bookList = new ArrayList<Book>();
-			bookList.add(new Book("B001","리눅스 시스템 구축", "신윤환", "북수홀릭", 33000, true, 0));
-			bookList.add(new Book("B002", "HTML5 + CSS3", "고경희", "이지스퍼블리싱", 25000, true, 0));
-			bookList.add(new Book("B003", "자바스크립트 기본 편", "고경희", "이지스퍼블리싱", 25000, true, 0));
-			bookList.add(new Book("B004", "자바스크립트 + 제이쿼리 입문", "정인용", "이지스퍼블리싱", 20000, true, 0));
-			bookList.add(new Book("B005", "Java의 정석", "남궁성", "도우출판", 25000, true, 0));
-			bookList.add(new Book("B006", "오라클로 배우는 데이터베이스", "이지훈", "이지스퍼블리싱", 25000, true, 0));
-			bookList.add(new Book("B007", "자바 프로젝트 필수 유틸리티", "전민수", "한빛미디어", 35000, true, 0));
-			bookList.add(new Book("B008", "자바 프로그래밍 입문", "박은종", "이지스퍼블리싱", 25000, true, 0));
-			bookList.add(new Book("B009", "C 언어 입문", "김성엽", "이지스퍼블리싱", 25000, true, 0));
-		*/
-
+		 * bList = new ArrayList<Book>(); bList.add(new Book("B001", "리눅스 시스템 구축",
+		 * "신윤환", "북수홀릭", 33000, true, 0)); bList.add(new Book("B002", "HTML5 + CSS3",
+		 * "고경희", "이지스퍼블리싱", 25000, true, 0)); bList.add(new Book("B003", "자바스크립트 기본 편",
+		 * "고경희", "이지스퍼블리싱", 25000, true, 0)); bList.add(new Book("B004",
+		 * "자바스크립트 + 제이쿼리 입문", "정인용", "이지스퍼블리싱", 20000, true, 0)); bList.add(new
+		 * Book("B005", "Java의 정석", "남궁성", "도우출판", 25000, true, 0)); bList.add(new
+		 * Book("B006", "오라클로 배우는 데이터베이스", "이지훈", "이지스퍼블리싱", 25000, true, 0));
+		 * bList.add(new Book("B007", "자바 프로젝트 필수 유틸리티", "전민수", "한빛미디어", 35000, true,
+		 * 0)); bList.add(new Book("B008", "자바 프로그래밍 입문", "박은종", "이지스퍼블리싱", 25000, true,
+		 * 0)); bList.add(new Book("B009", "C 언어 입문", "김성엽", "이지스퍼블리싱", 25000, true,
+		 * 0));
+		 */
 		initComponents();
 
 		bookTable = new BookManagementTable();
