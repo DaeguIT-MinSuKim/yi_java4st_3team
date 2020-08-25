@@ -19,7 +19,7 @@ public class SearchMemberButton extends JPanel {
 		JButton btnSearch = new JButton("검색");
 		btnSearch.addActionListener(new ActionListener() {
 			private MemberManagementService mService;
-			public static ArrayList<Member> memberDtoList;
+			public  ArrayList<Member> memberDtoList;
 
 			public void actionPerformed(ActionEvent e) {
 				Member name= SearchMemberFrame.pInput.getItem();
