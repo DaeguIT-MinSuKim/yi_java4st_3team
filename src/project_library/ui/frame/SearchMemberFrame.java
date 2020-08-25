@@ -11,8 +11,8 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import project_library.ui.component.SearchMemberButton;
+import project_library.ui.component.SearchMemberInfoShowPanel;
 import project_library.ui.component.SearchMemberInputPanel;
-import project_library.ui.component.SearchMemberPanel;
 import project_library.ui.component.SearchMemberTotalCountPanel;
 
 @SuppressWarnings("serial")
@@ -56,7 +56,7 @@ public class SearchMemberFrame extends JFrame {
 		SearchMemberButton pBtns = new SearchMemberButton();
 		contentPane.add(pBtns);
 		
-		SearchMemberPanel pMemberInfo = new SearchMemberPanel();
+		SearchMemberInfoShowPanel pMemberInfo = new SearchMemberInfoShowPanel();
 		contentPane.add(pMemberInfo);
 		
 		JPanel pRentInfo = new JPanel();
