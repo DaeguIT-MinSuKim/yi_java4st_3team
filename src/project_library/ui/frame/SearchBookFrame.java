@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -14,12 +15,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import project_library.dto.Rent;
+import project_library.service.SearchBookManagementService;
 import project_library.ui.component.SearchBookButton;
 import project_library.ui.component.SearchBookPanel;
 import project_library.ui.component.SearchBookTable;
 import project_library.ui.component.SearchBookTotalCountPanel;
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
 
 public class SearchBookFrame extends JFrame {
 
@@ -27,7 +28,9 @@ public class SearchBookFrame extends JFrame {
 	private JTextField tfBook;
 	private SearchBookTable table;
 	private JPanel pInput;
-
+	public static ArrayList<Rent> SearchBookList;
+	private JScrollPane scrollPane;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -48,6 +51,18 @@ public class SearchBookFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public SearchBookFrame() {
+		SearchBookManagementService bService = new SearchBookManagementService();
+		SearchBookList = (ArrayList<Rent>) bService.getSearchBookManagementList();
+		
+		initComponents();
+		
+		table = new SearchBookTable();
+		table.setBookSearchManagementList(SearchBookList);
+		scrollPane.setViewportView(table);
+		
+	}
+
+	private void initComponents() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();

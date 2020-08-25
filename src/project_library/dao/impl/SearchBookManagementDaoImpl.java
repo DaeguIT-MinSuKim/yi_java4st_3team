@@ -62,11 +62,12 @@ public class SearchBookManagementDaoImpl implements SearchBookManagementDao {
 		String BOOK_NO2 = rs.getString("BOOK_NO");
 		String RENT_DATE = rs.getString("RENT_DATE");
 		String RETURN_DATE = rs.getString("RETURN_DATE");
+		String IS_DELAY = rs.getString("IS_DELAY");
 		
 		
 		return new Rent(MEMBER_NO, MEMBER_NAME, TEL, TOTAL_RENT, BOOK_NO, BOOK_NAME,
 				AUTHOR, PUBLISHER, PRICE, IS_RENT, TOTAL_COUNT, IDX,
-				MEMBER_NO2, BOOK_NO2, RENT_DATE, RETURN_DATE);
+				MEMBER_NO2, BOOK_NO2, RENT_DATE, RETURN_DATE, IS_DELAY);
 	}
 
 	@Override
