@@ -227,9 +227,9 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 		String pri = tfBpr.getText();
 
 		// 정규표현식 적용
-		boolean nameCheck = Pattern.matches("^[가-힣A-Za-z\s]+$", name);
-		boolean autCheck = Pattern.matches("^[가-힣A-Za-z\s]+$", aut);
-		boolean pubCheck = Pattern.matches("^[가-힣A-Za-z\s]+$", pub);
+		boolean nameCheck = Pattern.matches("^[가-힣A-Za-z\\s]+$", name);
+		boolean autCheck = Pattern.matches("^[가-힣A-Za-z\\s]+$", aut);
+		boolean pubCheck = Pattern.matches("^[가-힣A-Za-z\\s]+$", pub);
 		boolean priCheck = Pattern.matches("^[0-9]*$", pri);
 
 		return nameCheck && autCheck && pubCheck && priCheck;
