@@ -11,21 +11,21 @@ import javax.swing.border.EmptyBorder;
 
 @SuppressWarnings("serial")
 public class ReturnManagementButton extends JPanel implements ActionListener {
-	public JButton btnReturn;
-	public JButton btnExit;
+	public static JButton btnReturn;
+	public static JButton btnExit;
 	
+	public static JButton getBtnReturn() {
+		return btnReturn;
+	}
 
 	public ReturnManagementButton() {
 		initComponents();
-		
 		btnReturn.setEnabled(false);
-
 	}
 
 	private void initComponents() {
 		
 		setBorder(new EmptyBorder(0, 10, 0, 10));
-		
 		
 		btnReturn = new JButton("반납");
 		btnReturn.addActionListener(this);

@@ -53,14 +53,15 @@ public class ReturnManagementFrame extends JFrame {
 		
 		initComponents();
 		
+		// 테이블 클릭시 도서정보 텍스트필드에 뿌리기 
 		
 		table = new ReturnManagementTable();
-		//table.setReturnManagementList(returnManagementList);
+		table.setReturnManagementList(returnManagementList);
 		scrollPane.setViewportView(table);
 	}
 
 	private void initComponents() {
-		
+		setTitle("반납 관리");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();
@@ -75,7 +76,7 @@ public class ReturnManagementFrame extends JFrame {
 		contentPane.add(pRBtns);
 		
 		pRTable = new JPanel();
-		pRTable.setBorder(new TitledBorder(null, "\uBC18\uB0A9\uD544\uC694 \uB3C4\uC11C\uBAA9\uB85D", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pRTable.setBorder(new TitledBorder(null, "[ 반납필요 도서목록 ]", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		contentPane.add(pRTable);
 		pRTable.setLayout(new BorderLayout(0, 0));
 		

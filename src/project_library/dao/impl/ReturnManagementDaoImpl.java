@@ -26,14 +26,13 @@ public class ReturnManagementDaoImpl implements ReturnManagementDao {
 		try (Connection con = JdbcUtil.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) { //executeQuery()로 DB값 호출
-
 			
 			if (rs.next()) {
 				List<Rent> list = new ArrayList<>();
 				do {
 					list.add(getReturnManagement(rs));
 				} while (rs.next()); // 모두 삽입 완료되면 종료
-				//System.out.println(list);
+				System.out.println(list);
 				return list;
 			}
 			
@@ -59,7 +58,6 @@ public class ReturnManagementDaoImpl implements ReturnManagementDao {
 		String BOOK_NO2 = rs.getString("BOOK_NO");
 		String RENT_DATE = rs.getString("RENT_DATE");
 		String RETURN_DATE = rs.getString("RETURN_DATE");
-		
 		
 		return new Rent(MEMBER_NO, MEMBER_NAME, TEL, TOTAL_RENT, BOOK_NO, BOOK_NAME,
 				AUTHOR, PUBLISHER, PRICE, IS_RENT, TOTAL_COUNT, IDX,
