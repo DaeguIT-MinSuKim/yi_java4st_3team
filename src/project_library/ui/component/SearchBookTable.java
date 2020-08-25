@@ -12,7 +12,7 @@ public class SearchBookTable extends JTable {
 				{null, null, null, null, null},
 			},
 			new String[] {
-				"\uD68C\uC6D0\uCF54\uB4DC", "\uC131\uBA85", "\uB300\uC5EC\uC77C", "\uBC18\uB0A9\uC77C", "\uC5F0\uCCB4\uC5EC\uBD80"
+					"회원코드", "성명", "대여일", "반납일", "연체여부"
 			}
 		));
 	}
