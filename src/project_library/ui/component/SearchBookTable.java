@@ -34,7 +34,7 @@ public class SearchBookTable extends JTable implements MouseListener {
 	private Object[][] getRows(ArrayList<Rent> rentalList) {
 		Object[][] rows = new Object[rentalList.size()][];
 		for (int i = 0; i < rows.length; i++) {
-			rows[i] = toArray(rentalList.get(i));
+			rows[i] = toArray(rentalList.get(i)); 
 		}
 		return rows;
 	}
@@ -80,7 +80,6 @@ public class SearchBookTable extends JTable implements MouseListener {
 		tcm.getColumn(2).setPreferredWidth(150);
 		tcm.getColumn(3).setPreferredWidth(200);
 		tcm.getColumn(4).setPreferredWidth(100);
-		tcm.getColumn(5).setPreferredWidth(100);
 
 		// column의 내용 정렬
 		DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
@@ -90,7 +89,6 @@ public class SearchBookTable extends JTable implements MouseListener {
 		tcm.getColumn(2).setCellRenderer(dtcr);
 		tcm.getColumn(3).setCellRenderer(dtcr);
 		tcm.getColumn(4).setCellRenderer(dtcr);
-		tcm.getColumn(5).setCellRenderer(dtcr);
 
 		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
 		setRowSorter(sorter);

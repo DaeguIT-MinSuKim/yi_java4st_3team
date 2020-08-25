@@ -62,7 +62,42 @@ public class Rent {
 		this.isDelay = isDelay;
 	}
 
-
+	
+	public Rent(
+			String memberCode, 
+			String memberName, 
+			String phone, 
+			int totalRental,
+			String bookCode,
+			String bookName,
+			String author,
+			String publisher,
+			int price,
+			int isRent,
+			int totalCount,
+			int idx,
+			String memberCode2,
+			String bookCode2,
+			String returnDate,
+			String rentDate
+		) {
+	this.memberCode = memberCode2;
+	this.memberName = memberName;
+	this.phone = phone;
+	this.totalRental = totalCount;
+	this.bookCode = bookCode;
+	this.bookName = bookName;
+	this.author = author;
+	this.publisher = publisher;
+	this.price = price;
+	this.isRent = isRent;
+	this.totalRental = totalCount;
+	this.idx = idx;
+	this.memberCode = memberCode2;
+	this.bookCode = bookCode;
+	this.returnDate = returnDate;
+	this.rentDate = rentDate;
+}
 
 
 	public Rent(String bookCode, String memberCode) {

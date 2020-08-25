@@ -59,7 +59,6 @@ public class SearchBookFrame extends JFrame {
 		table = new SearchBookTable();
 		table.setBookSearchManagementList(SearchBookList);
 		scrollPane.setViewportView(table);
-		
 	}
 
 	private void initComponents() {
@@ -113,12 +112,12 @@ public class SearchBookFrame extends JFrame {
 		contentPane.add(pRentInfo);
 		pRentInfo.setLayout(new BorderLayout(0, 0));
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		pRentInfo.add(scrollPane, BorderLayout.CENTER);
 		
-		table = new SearchBookTable();
-		table.setBorder(null);
-		scrollPane.setViewportView(table);
+//		table = new SearchBookTable();
+//		table.setBorder(null);
+//		scrollPane.setViewportView(table);
 		
 		SearchBookTotalCountPanel pRentInfoTotal = new SearchBookTotalCountPanel();
 		contentPane.add(pRentInfoTotal);
