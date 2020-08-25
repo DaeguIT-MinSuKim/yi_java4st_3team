@@ -26,7 +26,7 @@ public class SearchBookPanel extends JPanel {
 	public SearchBookPanel() {
 		setBorder(new TitledBorder(null, "\uB3C4\uC11C\uC815\uBCF4", TitledBorder.LEFT, TitledBorder.TOP, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{44, 57, 116, 57, 116, 0};
+		gridBagLayout.columnWidths = new int[]{44, 57, 116, 170, 294, 0};
 		gridBagLayout.rowHeights = new int[]{21, 21, 21, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};

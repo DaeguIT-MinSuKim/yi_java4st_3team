@@ -18,6 +18,8 @@ import project_library.ui.component.SearchBookButton;
 import project_library.ui.component.SearchBookPanel;
 import project_library.ui.component.SearchBookTable;
 import project_library.ui.component.SearchBookTotalCountPanel;
+import java.awt.GridLayout;
+import java.awt.FlowLayout;
 
 public class SearchBookFrame extends JFrame {
 
@@ -47,7 +49,7 @@ public class SearchBookFrame extends JFrame {
 	 */
 	public SearchBookFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 549, 393);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -89,16 +91,13 @@ public class SearchBookFrame extends JFrame {
 		
 		SearchBookButton pBtns = new SearchBookButton();
 		contentPane.add(pBtns);
+		gridBagLayout.columnWidths = new int[]{0};
+		gridBagLayout.rowHeights = new int[]{0};
+		gridBagLayout.columnWeights = new double[]{Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{Double.MIN_VALUE};
 		
 		SearchBookPanel pBookInfo = new SearchBookPanel();
 		contentPane.add(pBookInfo);
-	
-		GridBagLayout gbl_pBookInfo = new GridBagLayout();
-		gbl_pBookInfo.columnWidths = new int[]{0};
-		gbl_pBookInfo.rowHeights = new int[]{0};
-		gbl_pBookInfo.columnWeights = new double[]{};
-		gbl_pBookInfo.rowWeights = new double[]{};
-		pBookInfo.setLayout(gbl_pBookInfo);
 		
 		JPanel pRentInfo = new JPanel();
 		contentPane.add(pRentInfo);
