@@ -49,7 +49,7 @@ public class SearchBookFrame extends JFrame {
 	 */
 	public SearchBookFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 549, 393);
+		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -58,7 +58,7 @@ public class SearchBookFrame extends JFrame {
 		pInput = new JPanel();
 		contentPane.add(pInput);
 		GridBagLayout gbl_pInput = new GridBagLayout();
-		gbl_pInput.columnWidths = new int[]{44, 61, 73, 209, 0};
+		gbl_pInput.columnWidths = new int[]{44, 61, 73, 495, 0};
 		gbl_pInput.rowHeights = new int[]{23, 0};
 		gbl_pInput.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_pInput.rowWeights = new double[]{0.0, Double.MIN_VALUE};
@@ -91,11 +91,6 @@ public class SearchBookFrame extends JFrame {
 		
 		SearchBookButton pBtns = new SearchBookButton();
 		contentPane.add(pBtns);
-		gridBagLayout.columnWidths = new int[]{0};
-		gridBagLayout.rowHeights = new int[]{0};
-		gridBagLayout.columnWeights = new double[]{Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{Double.MIN_VALUE};
-		
 		SearchBookPanel pBookInfo = new SearchBookPanel();
 		contentPane.add(pBookInfo);
 		
@@ -107,6 +102,7 @@ public class SearchBookFrame extends JFrame {
 		pRentInfo.add(scrollPane, BorderLayout.CENTER);
 		
 		table = new SearchBookTable();
+		table.setBorder(null);
 		scrollPane.setViewportView(table);
 		
 		SearchBookTotalCountPanel pRentInfoTotal = new SearchBookTotalCountPanel();

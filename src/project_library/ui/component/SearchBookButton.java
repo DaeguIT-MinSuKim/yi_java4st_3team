@@ -17,14 +17,13 @@ public class SearchBookButton extends JPanel implements MouseListener {
 	private JButton btnSearch;
 	private JButton btnExit;
 	private BookManagementService bService;
-	private JFrame tfBook;
 	public static ArrayList<Book> bookDtoList;
 	private JTextField tfBno;
 	private JTextField tfBname;
 	private JTextField tfBpu;
 	private JTextField tfBau;
 	private JTextField tfBpr;
-
+	private JTextField tfBook;
 	public SearchBookButton() {
 		
 		btnSearch = new JButton("검색");
@@ -46,11 +45,8 @@ public class SearchBookButton extends JPanel implements MouseListener {
 
 	private void btnSearch_mouseClicked(MouseEvent e) {
 		// 텍스트필드에 입력된 도서코드 값 가져옴.
-		String getTfBook = tfBook.getTitle();
+		String getTfBook = tfBook.getText();
 	
-		//bookImpl에서 던져진 db값 가져옴
-		bService = new BookManagementService();
-		bookDtoList = (ArrayList<Book>) bService.getBookDtoList();
 	
 		 //도서코드를 기준으로 도서코드가 있는지  체크
 		boolean bookCodeChk = false;
@@ -58,7 +54,7 @@ public class SearchBookButton extends JPanel implements MouseListener {
 		String bookCode ="";
 		String bookPublisher ="";
 		String bookAuthor ="";
-		int bookPrice;
+		int bookPrice = 0;
 		
 		
 		for(Book b : bookDtoList) {
@@ -72,6 +68,9 @@ public class SearchBookButton extends JPanel implements MouseListener {
 			}	
 		}
 		
+		String bookPrice2 = Integer.toString(bookPrice);
+
+		
 		//체크된 값을  기준으로 구분처리
 		if(bookCodeChk == true) {
 			//멤버가 있으면
@@ -81,7 +80,14 @@ public class SearchBookButton extends JPanel implements MouseListener {
 			 tfBname.setText(bookName);
 			 tfBpu.setText(bookPublisher);
 			 tfBau.setText(bookAuthor);
-			// tfBpr.setText(bookPrice);
+			 tfBpr.setText(bookPrice2);
+			 
+			 
+			 //출납테이블에서 대여현황을 읽어와 대여정보 테이블에 표시한다. 
+			//bookImpl에서 던져진 db값 가져옴
+			bService = new BookManagementService();
+			bookDtoList = (ArrayList<Book>) bService.getBookDtoList();	 
+			 
 		
 			 //라디오버튼선택에따른것도 해줘야함.....
 		}
