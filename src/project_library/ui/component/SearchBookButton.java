@@ -5,12 +5,12 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import project_library.dto.Book;
 import project_library.service.BookManagementService;
+import java.awt.FlowLayout;
 
 @SuppressWarnings("serial")
 public class SearchBookButton extends JPanel implements MouseListener {
@@ -25,6 +25,8 @@ public class SearchBookButton extends JPanel implements MouseListener {
 	private JTextField tfBpr;
 	private JTextField tfBook;
 	public SearchBookButton() {
+		FlowLayout flowLayout = (FlowLayout) getLayout();
+		flowLayout.setHgap(15);
 		
 		btnSearch = new JButton("검색");
 		btnSearch.addMouseListener(this);

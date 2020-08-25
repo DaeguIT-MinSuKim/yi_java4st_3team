@@ -16,7 +16,7 @@ public class JdbcUtil {
 			//String url = props.getProperty("url");
 			 //String user = props.getProperty("user");
 			 //String password = props.getProperty("password");
-			 String url = "jdbc:oracle:thin:@localhost:1521:orcl2?useSSL=false";
+			 String url = "jdbc:oracle:thin:@localhost:1521:orcl?useSSL=false";
 			 String user = "user_lib";
 			 String password = "rootroot";
 			// System.out.printf("user = %s, password = %s, url = %s%n", url, user,
