@@ -47,6 +47,9 @@ public class SearchBookButton extends JPanel implements MouseListener {
 		// 텍스트필드에 입력된 도서코드 값 가져옴.
 		String getTfBook = tfBook.getText();
 	
+		//bookImpl에서 던져진 db값 가져옴
+		bService = new BookManagementService();
+		bookDtoList = (ArrayList<Book>) bService.getBookDtoList();	 
 	
 		 //도서코드를 기준으로 도서코드가 있는지  체크
 		boolean bookCodeChk = false;
@@ -84,9 +87,7 @@ public class SearchBookButton extends JPanel implements MouseListener {
 			 
 			 
 			 //출납테이블에서 대여현황을 읽어와 대여정보 테이블에 표시한다. 
-			//bookImpl에서 던져진 db값 가져옴
-			bService = new BookManagementService();
-			bookDtoList = (ArrayList<Book>) bService.getBookDtoList();	 
+	
 			 
 		
 			 //라디오버튼선택에따른것도 해줘야함.....
