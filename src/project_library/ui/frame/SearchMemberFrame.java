@@ -11,6 +11,7 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import project_library.ui.component.SearchMemberButton;
+import project_library.ui.component.SearchMemberInputPanel;
 import project_library.ui.component.SearchMemberPanel;
 import project_library.ui.component.SearchMemberTotalCountPanel;
 
@@ -18,7 +19,7 @@ import project_library.ui.component.SearchMemberTotalCountPanel;
 public class SearchMemberFrame extends JFrame {
 
 	private JPanel contentPane;
-	public static SearchMemberPanel pInput;
+	public static SearchMemberInputPanel pInput;
 	private JTable table;
 
 	/**
@@ -48,7 +49,7 @@ public class SearchMemberFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		
-		pInput = new SearchMemberPanel();
+		pInput = new SearchMemberInputPanel();
 		pInput.setBorder(new EmptyBorder(0, 20, 0, 20));
 		contentPane.add(pInput);
 		
@@ -70,9 +71,6 @@ public class SearchMemberFrame extends JFrame {
 		
 		SearchMemberTotalCountPanel pRentInfoTotal = new SearchMemberTotalCountPanel();
 		contentPane.add(pRentInfoTotal);
-		
-		JPanel pTotalCount = new JPanel();
-		contentPane.add(pTotalCount);
 		
 		//table에 가지고 온 회원의 대여정보 + 총계를 가지고 오기 
 	}
