@@ -160,12 +160,8 @@ ALTER TABLE BOOK MODIFY PUBLISHER VARCHAR2(50);
 /* 대현 08월 21일 시퀀스 생성 */
 CREATE SEQUENCE IDXNUM
 	INCREMENT BY 1
-	START WITH 0;
-<<<<<<< HEAD
-/*
+	START WITH 1
+	MINVALUE 0;
+	
+/* 시퀀스 삭제 */
 DROP SEQUENCE IDXNUM;
-*/
-=======
-
-/* DROP SEQUENCE IDXNUM; */
->>>>>>> refs/heads/hotfix_bookupd_v1.04.1
