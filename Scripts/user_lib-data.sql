@@ -24,4 +24,8 @@ INSERT INTO BOOK VALUES('B009', 'C 언어 입문', '김성엽', '이지스퍼블
 INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M001', 'B001', to_char('18/06/17'), to_char('18/06/17'));
 INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M002', 'B002', to_char('18/06/17'), to_char('18/06/17'));
 INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M003', 'B003', to_char('18/06/17'), to_char('18/06/17'));
+<<<<<<< HEAD
 INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M004', 'B004', to_char('18/08/20'), to_char('18/08/20'));
+=======
+INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M004', 'B004', to_char('18/08/20'), to_char('18/08/20'));
+>>>>>>> branch 'master' of https://github.com/DaeguIT-MinSuKim/yi_java4st_3team.git
