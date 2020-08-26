@@ -14,6 +14,7 @@ import project_library.ui.component.SearchMemberButton;
 import project_library.ui.component.SearchMemberInfoShowPanel;
 import project_library.ui.component.SearchMemberInputPanel;
 import project_library.ui.component.SearchMemberTotalCountPanel;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class SearchMemberFrame extends JFrame {
@@ -21,7 +22,6 @@ public class SearchMemberFrame extends JFrame {
 	private JPanel contentPane;
 	public static SearchMemberInputPanel pInput;
 	private JTable table;
-
 	/**
 	 * Launch the application.
 	 */
@@ -50,6 +50,7 @@ public class SearchMemberFrame extends JFrame {
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		
 		pInput = new SearchMemberInputPanel();
+		pInput.tfName.setHorizontalAlignment(SwingConstants.LEFT);
 		pInput.setBorder(new EmptyBorder(0, 20, 0, 20));
 		contentPane.add(pInput);
 		

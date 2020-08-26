@@ -8,11 +8,17 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import project_library.dto.Member;
+import project_library.exception.EmptyTfException;
+import project_library.exception.InValidationException;
 import project_library.service.MemberManagementService;
 import project_library.ui.frame.SearchMemberFrame;
 
 @SuppressWarnings("serial")
 public class SearchMemberButton extends JPanel {
+
+	public String getMemberName;
+	public String getMemberCode;
+	public String getMemberTel;
 
 	public SearchMemberButton() {
 		
@@ -20,17 +26,25 @@ public class SearchMemberButton extends JPanel {
 		btnSearch.addActionListener(new ActionListener() {
 			private MemberManagementService mService;
 			public  ArrayList<Member> memberDtoList;
+			public String memberName;
+			public String memberTel;
+			public String memberCode;
 
 			public void actionPerformed(ActionEvent e) {
-				Member name= SearchMemberFrame.pInput.getItem();
+				//System.out.println("A");
+				
+				Member name = SearchMemberFrame.pInput.getItem();
 				
 				mService=new MemberManagementService();
 				memberDtoList=(ArrayList<Member>)mService.getMemberDtoList();
-				
+//				if (isEmpty()) {
+//					throw new EmptyTfException("공란 존재");
+//				}
+
 				boolean memberChk=false;
-				String memberCode="";
-				String memberName="";
-				String memberTel="";
+				memberCode = "";
+				memberName = "";
+				memberTel = "";
 				
 				for(Member M: memberDtoList) {
 					memberChk=true;
@@ -42,6 +56,31 @@ public class SearchMemberButton extends JPanel {
 				if(memberChk==true) {
 					
 				}
+			}
+//			public Member getMember() {
+//
+//				// 공란
+//				
+//				// 형식
+//				if (!isInvalid()) {
+//					throw new InValidationException("형식이 맞지 않습니다.");
+//				}
+//
+////				String no = tfNo.getText().trim();
+//				String name = tfName.getText().trim();
+////				String tel = tfTel.getText().trim();
+//				return new Member(name);
+//			}
+			public String getMemberName() {
+				return memberName;
+			}
+
+			public String getMemberTel() {
+				return memberTel;
+			}
+
+			public String getMemberCode() {
+				return memberCode;
 			}
 		});
 		add(btnSearch);

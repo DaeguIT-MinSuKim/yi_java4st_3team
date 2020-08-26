@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.regex.Pattern;
 
@@ -19,12 +18,11 @@ import javax.swing.border.LineBorder;
 
 import project_library.dto.Member;
 import project_library.exception.EmptyTfException;
-import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
 import project_library.ui.frame.MemberManagementFrame;
 
 @SuppressWarnings("serial")
-public class SearchMemberInputPanel extends JPanel implements KeyListener {
+public class SearchMemberInputPanel extends JPanel{
 	public JTextField tfName;
 
 	public SearchMemberInputPanel() {
@@ -51,7 +49,7 @@ public class SearchMemberInputPanel extends JPanel implements KeyListener {
 		add(lblName, gbc_lblName);
 
 		tfName = new JTextField();
-		tfName.addKeyListener(this);
+//		tfName.addKeyListener(this);
 		tfName.setHorizontalAlignment(SwingConstants.CENTER);
 		tfName.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		tfName.setColumns(20);
@@ -97,23 +95,7 @@ public class SearchMemberInputPanel extends JPanel implements KeyListener {
 //		tfTel.setText("");
 	}
 
-	public Member getMember() {
-
-		// 공란
-		if (isEmpty()) {
-			throw new EmptyTfException("공란 존재");
-		}
-
-		// 형식
-		if (!isInvalid()) {
-			throw new InValidationException("형식이 맞지 않습니다.");
-		}
-
-//		String no = tfNo.getText().trim();
-		String name = tfName.getText().trim();
-//		String tel = tfTel.getText().trim();
-		return new Member(name);
-	}
+	
 
 	private boolean isInvalid() {
 		// 정규식 표현식
@@ -144,85 +126,10 @@ public class SearchMemberInputPanel extends JPanel implements KeyListener {
 		tfName.setEditable(true);
 	}
 
-	public void keyPressed(KeyEvent e) {
-
-	}
-
-	public void keyReleased(KeyEvent e) {
-//		if (tfNo.isEditable()) {// 코드필드 활성화 됐으면
-//			if (e.getSource() == tfNo) { // 저장할 경우
-//				String no = tfNo.getText().trim();
-//				if (no.length() != 0) {
-//					MemberManagementFrame.btnAdd.setEnabled(true);
-//					// System.out.println(no);
-//				} else {
-//					MemberManagementFrame.btnSave.setEnabled(false);
-//					if (tfNo.getText().trim().length() != 0 || tfName.getText().trim().length() != 0
-//							|| tfTel.getText().trim().length() != 0) {
-//						return;
-//					}
-//					MemberManagementFrame.btnSave.setEnabled(false);
-//				}
-			 if (e.getSource() == tfName) {
-				String name = tfName.getText().trim();
-				if (name.length() != 0) {
-					MemberManagementFrame.btnAdd.setEnabled(true);
-					// System.out.println(name);
-				} else {
-					MemberManagementFrame.btnUpdate.setEnabled(false);
-				}
-			} /*
-				 * else if (e.getSource() == tfTel) { String tel = tfTel.getText().trim(); if
-				 * (tel.length() != 0) { MemberManagementFrame.btnSave.setEnabled(true); //
-				 * System.out.println(tel); } else {
-				 * MemberManagementFrame.btnSave.setEnabled(false); if
-				 * (tfName.getText().trim().length() != 0 || tfTel.getText().trim().length() !=
-				 * 0) { return; } MemberManagementFrame.btnUpdate.setEnabled(true); } }
-				 */
-		 else { // 수정할 경우
-			MemberManagementFrame.btnSave.setEnabled(false);
-			if (e.getSource() == tfName) {
-				String name = tfName.getText().trim();
-				if (name.length() != 0) {
-					MemberManagementFrame.btnAdd.setEnabled(true);
-					// System.out.println(name);
-				} else {
-					MemberManagementFrame.btnUpdate.setEnabled(false);
-				}
-			} /*else if (e.getSource() == tfTel) {
-				String tel = tfTel.getText().trim();
-				if (tel.length() != 0) {
-					// System.out.println(tel);
-*/				 else {
-					MemberManagementFrame.btnSave.setEnabled(false);
-					if (tfName.getText().trim().length() != 0) {
-						return;
-					}
-					MemberManagementFrame.btnUpdate.setEnabled(true);
-				}
-			}
-		}
 	
 
-	public void keyTyped(KeyEvent e) {
-
-	}
-
-	protected void keyReleasedTfTel(KeyEvent e) {
-
-	}
-
-	protected void keyReleasedTfName(KeyEvent e) {
-
-	}
-
-	protected void keyReleasedTfNo(KeyEvent e) {
-
-	}
-
-	protected void setMemberDto(Member mdt) {
-		MemberManagementFrame.pMember.setItem(mdt);
-	}
+//	protected void setMemberDto(Member mdt) {
+//		MemberManagementFrame.pMember.setItem(mdt);}
 
 	/* 첫번째 필드 회원/도서코드 중복 확인 ↓ */
 //	public Member getCodeNo() {

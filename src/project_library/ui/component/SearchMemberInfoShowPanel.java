@@ -22,6 +22,7 @@ import project_library.exception.EmptyTfException;
 import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
 import project_library.ui.frame.MemberManagementFrame;
+import project_library.ui.component.SearchMemberButton;
 
 @SuppressWarnings("serial")
 public class SearchMemberInfoShowPanel extends JPanel  {
@@ -122,11 +123,15 @@ public class SearchMemberInfoShowPanel extends JPanel  {
 		this.lblGetTel = lblGetTel;
 	}
 
+	public void setItem(SearchMemberButton btn) {
+		lblGetNo.setText(btn.getMemberCode);
+		lblGetName.setText(btn.getMemberName);
+		lblGetTel.setText(btn.getMemberTel);
+	}
 	// Clear
 	public void clearTf() {
 		lblGetNo.setText("");
 		lblGetName.setText("");
 		lblGetTel.setText("");
 	}
-
 }
