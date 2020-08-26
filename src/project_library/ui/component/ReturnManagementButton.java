@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -64,29 +65,28 @@ public class ReturnManagementButton extends JPanel implements ActionListener {
 		 String ReturnDate = ReturnManagementFrame.pRPanel.getTfRDate().getText(); // 반납일
 		 String RentDate = bdt.getRentDate().substring(0, 10); // 대여일
 		 
-		 // String -> Date 형변환
+		// String -> Date 형변환
+		/*
 		 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-		 
 		 try {
 			Date trans_ReturnDate = dateFormat.parse(ReturnDate);// 반납일 형변환
 			Date trans_RentDate = dateFormat.parse(RentDate);// 대여일 형변환
-			
 			System.out.println(trans_ReturnDate);
 			System.out.println(trans_RentDate);
-			
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		*/
+
 		 // 대여일과 반납일 비교
-		 
 		 int compare = ReturnDate.compareTo(RentDate);
-		 
-		 if( compare > 0 ) {
-			 System.out.println("ReturnDate > RentDate");
-		 }else if( compare < 0 ) {
-			 System.out.println("ReturnDate < RentDate");
-		 }else {
-			 System.out.println("ReturnDate = RentDate");
+		 if( compare > 0 ) { 
+			 // 이제 반납실행 ㄱㄱ
+//			 Rent Data = ReturnManagementFrame.pRPanel.getItem();
+			 
+		 }else { // 반납일을 잘못 입력했을 경우
+			 JOptionPane.showMessageDialog(null, "대여일 이후의 날짜를 입력하세요", "오류", JOptionPane.ERROR_MESSAGE);
+			 ReturnManagementFrame.pRPanel.getTfRDate().setText(""); // 텍스트필드 글자 지움
 		 }
 		 
 		 

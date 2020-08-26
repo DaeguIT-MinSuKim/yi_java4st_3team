@@ -17,8 +17,9 @@ public class ReturnManagementService {
 		dao.insertReturnManagement(dto);
 	}
 
-	public void modifyBook(Rent dto) {
-		dao.updateReturnManagement(dto);
+	public void modifyReturnManagement(Rent dto) {
+		dao.updateReturnManagement_isRent(dto);
+		dao.updateReturnManagement_returnDate(dto);
 	}
 
 	public void removeBook(Rent dto) {

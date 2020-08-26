@@ -75,10 +75,33 @@ public class ReturnManagementDaoImpl implements ReturnManagementDao {
 	}
 
 	@Override
-	public int updateReturnManagement(Rent dto) {
-		return 0;
+	public int updateReturnManagement_isRent(Rent dto) {
+		String sql = "UPDATE BOOK SET IS_RENT = 1 WHERE BOOK_NO = ?";
+		
+		try(Connection con = JdbcUtil.getConnection();
+    			PreparedStatement pstmt = con.prepareStatement(sql)){
+    			pstmt.setString(1, dto.getBookCode());
+    		return pstmt.executeUpdate();
+    	}catch (SQLException e){
+    		throw new RuntimeException(e);
+    	}
 	}
 
+	@Override
+	public int updateReturnManagement_returnDate(Rent dto) {
+		String sql = "UPDATE RENT SET RETURN_DATE = ? WHERE IDX = ?";
+		
+		try(Connection con = JdbcUtil.getConnection();
+    			PreparedStatement pstmt = con.prepareStatement(sql)){
+    			pstmt.setString(1, dto.getRentDate());
+    			pstmt.setInt(2, dto.getIdx());
+    		return pstmt.executeUpdate();
+    	}catch (SQLException e){
+    		throw new RuntimeException(e);
+    	}
+	}
+	
+	
 	@Override
 	public int deleteReturnManagement(Rent dto) {
 		return 0;

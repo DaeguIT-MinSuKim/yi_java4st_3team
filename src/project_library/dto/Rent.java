@@ -24,6 +24,13 @@ public class Rent {
 	}
 
 
+	public Rent(String bookCode, String returnDate, int idx) {
+		this.bookCode = bookCode;
+		this.returnDate = returnDate;
+		this.idx = idx;
+	}
+
+
 	public Rent(
 				String memberCode, 
 				String memberName, 
@@ -105,7 +112,9 @@ public class Rent {
 		this.memberCode = memberCode;
 	}
 	
-
+	
+	
+	
 	public Rent(String bookCode, String bookName, String author, String publisher, int price, int totalRental) {
 		this.bookCode = bookCode;
 		this.bookName = bookName;
@@ -254,8 +263,9 @@ public class Rent {
 	public void setIsDelay(String isDelay) {
 		this.isDelay = isDelay;
 	}
+	
 
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

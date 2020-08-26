@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.regex.Pattern;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,6 +16,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import project_library.dto.Rent;
+import project_library.exception.EmptyTfException;
+import project_library.exception.InValidationException;
 import project_library.ui.frame.ReturnManagementFrame;
 
 @SuppressWarnings("serial")
@@ -341,6 +344,40 @@ public class ReturnManagementPanel extends JPanel {
 	public void setTfRDate(JTextField tfRDate) {
 		this.tfRDate = tfRDate;
 	}
+
+	public Rent getItem() {
+		// 공란
+//		if (isEmpty()) {
+//			throw new EmptyTfException("공란 존재");
+//		}
+//		// 형식
+//		if (!isInvalid()) {
+//			throw new InValidationException("형식이 맞지 않습니다.");
+//		}
+//		String bNo = tfBno.getText().trim();
+//		String RDate = tfRDate.getText().trim();
+//		int Ridx = 
+//		
+//		return new Rent(bNo, RDate, idx);
+		return null;
+	}
+
+//	private boolean isInvalid() {
+//		// 정규식 표현식
+//		String bNo = tfBookNo.getText().trim();
+//		String mNo = tfMemberNo.getText().trim();
+//
+//		// 정규표현식 적용
+//		boolean noCheck1 = Pattern.matches("[a-zA-Z]{1}\\d{3}", bNo);
+//		boolean noCheck2 = Pattern.matches("[a-zA-Z]{1}\\d{3}", mNo);
+//		return noCheck1 && noCheck2;
+//	}
+//
+//	private boolean isEmpty() {
+//		boolean bNo = tfBookNo.getText().isEmpty();
+//		boolean mNo = tfMemberNo.getText().isEmpty();
+//		return bNo && mNo;
+//	}
 	
 	
 }

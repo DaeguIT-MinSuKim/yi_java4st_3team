@@ -10,7 +10,8 @@ public interface ReturnManagementDao {
 
 	int insertReturnManagement(Rent dto);
 
-	int updateReturnManagement(Rent dto);
+	int updateReturnManagement_isRent(Rent dto);
+	int updateReturnManagement_returnDate(Rent dto);
 
 	int deleteReturnManagement(Rent dto);
 
