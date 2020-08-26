@@ -36,6 +36,7 @@ public class BookStatusManagementFrame extends JFrame {
 		
 		initComponents();
 		
+		pBStatus.setEditalbeFalseTf();
 	}
 
 	private void initComponents() {
