@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -78,24 +79,38 @@ public class SearchBookButton extends JPanel implements MouseListener {
 		
 		//체크된 값을  기준으로 구분처리
 		if(bookCodeChk == true) {
-			//멤버가 있으면
+			//도서 코드로 조회하여 멤버가 있으면
 			//System.out.println("검색됨");
 		
+			//도서코드, 도서명, 출판사, 저자, 가격 입력
 			 tfBno.setText(bookCode);
 			 tfBname.setText(bookName);
 			 tfBpu.setText(bookPublisher);
 			 tfBau.setText(bookAuthor);
 			 tfBpr.setText(bookPrice2);
 			 
-			 
-			 //출납테이블에서 대여현황을 읽어와 대여정보 테이블에 표시한다. 
-	
-			 
-		
-			 //라디오버튼선택에따른것도 해줘야함.....
+		}else {
+			//멤버가 없으면
+			JOptionPane.showMessageDialog(null, "검색한 회원이 없습니다.", "오류", JOptionPane.ERROR_MESSAGE);
+			clearMemberTf();
 		}
+		
+		//출납테이블에서 대여현황을 읽어와 대여정보 테이블에 표시한다. 
+		
+		
+		
+		//라디오버튼선택에따른것도 해줘야함.....
 	}	
 	
+	private void clearMemberTf() {
+		 tfBno.setText("");
+		 tfBname.setText("");
+		 tfBpu.setText("");
+		 tfBau.setText("");
+		 tfBpr.setText("");
+	}
+
+
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
