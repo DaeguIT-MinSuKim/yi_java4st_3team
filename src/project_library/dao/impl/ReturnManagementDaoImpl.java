@@ -32,7 +32,7 @@ public class ReturnManagementDaoImpl implements ReturnManagementDao {
 				do {
 					list.add(getReturnManagement(rs));
 				} while (rs.next()); // 모두 삽입 완료되면 종료
-				System.out.println(list);
+				//System.out.println(list);
 				return list;
 			}
 			

@@ -54,7 +54,6 @@ public class ReturnManagementFrame extends JFrame {
 		initComponents();
 		
 		// 테이블 클릭시 도서정보 텍스트필드에 뿌리기 
-		
 		table = new ReturnManagementTable();
 		table.setReturnManagementList(returnManagementList);
 		scrollPane.setViewportView(table);

@@ -292,7 +292,6 @@ public class ReturnManagementPanel extends JPanel {
 	}
 
 	private void setItem(Rent bdt) {
-		
 		tfBno.setText(bdt.getBookCode());
 		tfBname.setText(bdt.getBookName());
 		tfBau.setText(bdt.getAuthor());
@@ -334,4 +333,14 @@ public class ReturnManagementPanel extends JPanel {
 		tfBDate.setEditable(false);
 		tfRDate.setEditable(true);
 	}
+
+	public JTextField getTfRDate() {
+		return tfRDate;
+	}
+
+	public void setTfRDate(JTextField tfRDate) {
+		this.tfRDate = tfRDate;
+	}
+	
+	
 }

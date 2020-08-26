@@ -11,8 +11,8 @@
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
-				"database": "orcl",
-				"url": "jdbc:oracle:thin:@//localhost:1521/orcl",
+				"database": "orcl2",
+				"url": "jdbc:oracle:thin:@//localhost:1521/orcl2",
 				"home": "C:\\app\\HOME\\product\\11.2.0\\dbhome_1",
 				"type": "dev",
 				"provider-properties": {
@@ -28,6 +28,9 @@
 				},
 				"auth-model": "oracle_native",
 				"handlers": {}
+			},
+			"custom-properties": {
+				"database.meta.separate.connection": "false"
 			}
 		},
 		"oracle_thin-174252d8d8f-630a66bf0186e3bd": {
@@ -40,10 +43,14 @@
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
-				"database": "orcl",
-				"url": "jdbc:oracle:thin:@//localhost:1521/orcl",
-				"home": "C:\\app\\HOME\\product\\11.2.0\\dbhome_1",
+				"database": "orcl2",
+				"url": "jdbc:oracle:thin:@//localhost:1521/orcl2",
+				"home": "E:\\app\\lenovo\\product\\11.2.0\\dbhome_4",
 				"type": "dev",
+				"properties": {
+					"useFetchSizeWithLongColumn": "true",
+					"loginTimeout": "20"
+				},
 				"provider-properties": {
 					"@dbeaver-check-schema-content@": "false",
 					"@dbeaver-always-show-dba@": "false",
@@ -57,6 +64,9 @@
 				},
 				"auth-model": "oracle_native",
 				"handlers": {}
+			},
+			"custom-properties": {
+				"database.meta.separate.connection": "false"
 			}
 		}
 	},
