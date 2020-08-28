@@ -8,29 +8,20 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 
 import project_library.dto.Book;
-import project_library.dto.Member;
 import project_library.dto.Rent;
 import project_library.service.BookManagementService;
-import project_library.service.MemberManagementService;
+import project_library.service.SearchBookManagementService;
+import project_library.ui.frame.SearchBookFrame;
 
 @SuppressWarnings("serial")
 public class SearchBookButton extends JPanel implements MouseListener {
 	private JButton btnSearch;
 	private JButton btnExit;
 	private BookManagementService bService;
+	private SearchBookManagementService sService;
 	public static ArrayList<Book> bookDtoList;
-	private JTextField tfBno;
-	private JTextField tfBname;
-	private JTextField tfBpu;
-	private JTextField tfBau;
-	private JTextField tfBpr;
-	private JTextField tfBook;
-	private SearchBookTable table;
-	private JScrollPane scrollPane;
 	public static ArrayList<Rent> SearchBookList;
 	
 	public SearchBookButton() {
@@ -69,9 +60,22 @@ public class SearchBookButton extends JPanel implements MouseListener {
 	}
 
 	public void btnSearch_mouseClicked(MouseEvent e) {
+		
+		// 라디오버튼 체크
+//		String radioChk = false;
+//		
+//		if( radioChk == true ) { // 도서명
+//			
+//		}else { // 도서코드
+//			
+//		}
+		
+		//System.out.println("검색함");
+		
 		// 텍스트필드에 입력된 도서코드 값 가져옴.
-		String getTfBook = tfBook.getText();
-	
+		String getTfBook = SearchBookFrame.tfBook.getText();
+//		System.out.println(getTfBook);
+		
 		//bookImpl에서 던져진 db값 가져옴
 		bService = new BookManagementService();
 		bookDtoList = (ArrayList<Book>) bService.getBookDtoList();	 
@@ -105,17 +109,31 @@ public class SearchBookButton extends JPanel implements MouseListener {
 			//System.out.println("검색됨");
 		
 			//도서코드, 도서명, 출판사, 저자, 가격 입력
-			 tfBno.setText(bookCode);
-			 tfBname.setText(bookName);
-			 tfBpu.setText(bookPublisher);
-			 tfBau.setText(bookAuthor);
-			 tfBpr.setText(bookPrice2);
-			 
+			
+			SearchBookPanel.tfBno.setText(bookCode);
+			SearchBookPanel.tfBname.setText(bookName);
+			SearchBookPanel.tfBpu.setText(bookPublisher);
+			SearchBookPanel.tfBau.setText(bookAuthor);
+			SearchBookPanel.tfBpr.setText(bookPrice2);
 			 
 			 //출납테이블에서 대여 현황 읽어와 [대여정보,SearchBooktable]에 표시한다.
+			sService = new SearchBookManagementService(); // 초기화를 해야 최신값을 쓸수있다 ?
+			SearchBookList = (ArrayList<Rent>) sService.getSearchBookManagementList();
+				
+			SearchBookFrame.table = new SearchBookTable();
+			SearchBookFrame.table.setBookSearchManagementList(SearchBookList);
+			SearchBookFrame.scrollPane.setViewportView(SearchBookFrame.table);
 			
+			// 총대여횟수 
+			//대여정보의 사람의 수 = 해당도서가 총 대여한 실적 표시...!!
+	//		System.out.println(SearchBookFrame.table.getRowCount());
+	//		String count = Integer.toString(SearchBookFrame.table.getRowCount());
 			
-			 
+			int count1 = SearchBookFrame.table.getRowCount();
+			String count2 = Integer.toString(count1);
+			
+			SearchBookTotalCountPanel.tfCount.setText(count2);
+		
 		}else {
 			//멤버가 없으면
 			JOptionPane.showMessageDialog(null, "검색한 회원이 없습니다.", "오류", JOptionPane.ERROR_MESSAGE);
@@ -125,15 +143,14 @@ public class SearchBookButton extends JPanel implements MouseListener {
 		
 		
 		
-		//라디오버튼선택에따른것도 해줘야함.....
 	}	
 	
 	private void clearMemberTf() {
-		 tfBno.setText("");
-		 tfBname.setText("");
-		 tfBpu.setText("");
-		 tfBau.setText("");
-		 tfBpr.setText("");
+		SearchBookPanel.tfBno.setText("");
+		SearchBookPanel.tfBname.setText("");
+		SearchBookPanel.tfBpu.setText("");
+		SearchBookPanel.tfBau.setText("");
+		SearchBookPanel.tfBpr.setText("");
 	}
 
 

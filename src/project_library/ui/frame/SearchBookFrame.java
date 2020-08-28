@@ -27,8 +27,8 @@ import project_library.ui.component.SearchBookTotalCountPanel;
 public class SearchBookFrame extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField tfBook;
-	private SearchBookTable table;
+	public static JTextField tfBook;
+	public static SearchBookTable table;
 	private JPanel pInput;
 	private GridBagLayout gbl_pInput;
 	private JRadioButton rdbtnBookName;
@@ -42,11 +42,12 @@ public class SearchBookFrame extends JFrame {
 	private SearchBookPanel pBookInfo;
 	private SearchBookTotalCountPanel pRentInfoTotal;
 	private ArrayList<Rent> SearchBookList;
-	private JScrollPane scrollPane;
+	public static JScrollPane scrollPane;
 	private SearchBookManagementService bService;
 	private ButtonGroup radioGroup;
+ 
 
-
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -66,8 +67,9 @@ public class SearchBookFrame extends JFrame {
 	public SearchBookFrame() {
 		
 		  bService = new SearchBookManagementService(); 
+		  
 		  SearchBookList = (ArrayList<Rent>) bService.getSearchBookManagementList();
-		 
+		  
 
 		initComponents();
 
@@ -142,9 +144,9 @@ public class SearchBookFrame extends JFrame {
 		pRentInfo.add(scrollPane, BorderLayout.CENTER);
 
 		
-		table = new SearchBookTable(); 
-		table.setBookSearchManagementList(SearchBookList);
-		scrollPane.setViewportView(table);
+//		table = new SearchBookTable(); 
+//		table.setBookSearchManagementList(SearchBookList);
+//		scrollPane.setViewportView(table);
 		 
 
 		pRentInfoTotal = new SearchBookTotalCountPanel();

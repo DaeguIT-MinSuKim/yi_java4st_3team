@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class SearchBookTotalCountPanel extends JPanel {
-	private JTextField textField;
+	public static JTextField tfCount;
 
 	/**
 	 * Create the panel.
@@ -19,15 +19,15 @@ public class SearchBookTotalCountPanel extends JPanel {
 		flowLayout.setHgap(15);
 		flowLayout.setVgap(0);
 		
-		JLabel lblTitle = new JLabel("총대여 횟수 : ");
-		add(lblTitle);
+		JLabel lblTotalCount = new JLabel("총대여 횟수 : ");
+		add(lblTotalCount);
 		
-		textField = new JTextField();
-		add(textField);
-		textField.setColumns(10);
+		tfCount = new JTextField();
+		add(tfCount);
+		tfCount.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("회");
-		add(lblNewLabel);
+		JLabel lblTotalCount2 = new JLabel("회");
+		add(lblTotalCount2);
 
 	}
 

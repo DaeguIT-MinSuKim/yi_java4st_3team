@@ -14,12 +14,11 @@ import java.awt.Component;
 import javax.swing.border.TitledBorder;
 
 public class SearchBookPanel extends JPanel {
-	private JTextField tfBno;
-	private JTextField tfBpr;
-	private JTextField tfBname;
-	private JTextField tfBPu;
-	private JTextField tfBau;
-
+	public static JTextField tfBno;
+	public static JTextField tfBpr;
+	public static JTextField tfBname;
+	public static JTextField tfBpu;
+	public static JTextField tfBau;
 	
 	
 	public SearchBookPanel() {
@@ -35,7 +34,7 @@ public class SearchBookPanel extends JPanel {
 	public void setEditableFalseTf() {
 		tfBno.setEditable(false);
 		tfBname.setEditable(false);
-		tfBPu.setEditable(false);
+		tfBpu.setEditable(false);
 		tfBau.setEditable(false);
 		tfBpr.setEditable(false);
 	}
@@ -96,16 +95,16 @@ public class SearchBookPanel extends JPanel {
 		gbc_lblBpu.gridy = 2;
 		add(lblBpu, gbc_lblBpu);
 		
-		tfBPu = new JTextField();
-		tfBPu.setColumns(10);
-		GridBagConstraints gbc_tfBPu = new GridBagConstraints();
-		gbc_tfBPu.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfBPu.gridwidth = 3;
-		gbc_tfBPu.anchor = GridBagConstraints.NORTH;
-		gbc_tfBPu.insets = new Insets(0, 0, 5, 0);
-		gbc_tfBPu.gridx = 2;
-		gbc_tfBPu.gridy = 2;
-		add(tfBPu, gbc_tfBPu);
+		tfBpu = new JTextField();
+		tfBpu.setColumns(10);
+		GridBagConstraints gbc_tfBpu = new GridBagConstraints();
+		gbc_tfBpu.fill = GridBagConstraints.HORIZONTAL;
+		gbc_tfBpu.gridwidth = 3;
+		gbc_tfBpu.anchor = GridBagConstraints.NORTH;
+		gbc_tfBpu.insets = new Insets(0, 0, 5, 0);
+		gbc_tfBpu.gridx = 2;
+		gbc_tfBpu.gridy = 2;
+		add(tfBpu, gbc_tfBpu);
 		
 		JLabel lblBau = new JLabel("저      자:");
 		GridBagConstraints gbc_lblBau = new GridBagConstraints();
@@ -143,7 +142,7 @@ public class SearchBookPanel extends JPanel {
 		gbc_tfBpr.gridx = 2;
 		gbc_tfBpr.gridy = 4;
 		add(tfBpr, gbc_tfBpr);
-		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{tfBpr, lblBno, tfBno, lblBname, tfBname, lblBau, lblBpu, tfBPu, tfBau, lblBpr}));
+		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{tfBpr, lblBno, tfBno, lblBname, tfBname, lblBau, lblBpu, tfBpu, tfBau, lblBpr}));
 	}
 
 	

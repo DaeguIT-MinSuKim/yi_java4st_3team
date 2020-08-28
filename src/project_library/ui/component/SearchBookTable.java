@@ -19,7 +19,8 @@ import project_library.dto.Rent;
 
 public class SearchBookTable extends JTable implements MouseListener {
 	private CustomTable model;
-	private ArrayList<Rent> rentalList;
+	public static ArrayList<Rent> rentalList;
+	
 	
 	public SearchBookTable() {
 		initComponents();
@@ -30,11 +31,13 @@ public class SearchBookTable extends JTable implements MouseListener {
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		addMouseListener(this);
 	}
-
+	
+	
 	private Object[][] getRows(ArrayList<Rent> rentalList) {
 		Object[][] rows = new Object[rentalList.size()][];
 		for (int i = 0; i < rows.length; i++) {
 			rows[i] = toArray(rentalList.get(i)); 
+//			System.out.println(rentalList.size());
 		}
 		return rows;
 	}
