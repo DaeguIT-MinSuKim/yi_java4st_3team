@@ -13,9 +13,6 @@ import project_library.service.BookStatusManagementService;
 
 @SuppressWarnings("serial")
 public class BookStatusPanel extends JPanel {
-	private JTextField tfTBook;
-	private JTextField tfOBook;
-	private JTextField tfRBook;
 	private BookStatusManagementService bService;
 
 	public BookStatusPanel() {
@@ -27,22 +24,23 @@ public class BookStatusPanel extends JPanel {
 		lblTBook.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		add(lblTBook);
 		
-		tfTBook = new JTextField();
-		add(tfTBook);
-		tfTBook.setColumns(10);
-		
+		JTextField tfToBook = new JTextField();
+		tfToBook.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		add(tfToBook);
+		tfToBook.setColumns(10);
+		tfToBook.setText(bService.selectTotalBook() + "권");
 
-		
 		JLabel lblOBook = new JLabel("총 연체 권수");
 		lblOBook.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOBook.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		add(lblOBook);
 		
 		bService = new BookStatusManagementService();
-				
-		tfOBook = new JTextField();
-		add(tfOBook);
-		tfOBook.setColumns(10);
+		
+		JTextField tfOvBook = new JTextField();
+		tfOvBook.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		add(tfOvBook);
+		tfOvBook.setColumns(10);
 		//bService.selectTotalBook();
 		
 		JLabel lblRBook = new JLabel("총 대여 권수");
@@ -50,16 +48,17 @@ public class BookStatusPanel extends JPanel {
 		lblRBook.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		add(lblRBook);
 		
-		tfRBook = new JTextField();
-		add(tfRBook);
-		tfRBook.setColumns(10);
+		JTextField tfReBook = new JTextField();
+		tfReBook.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		add(tfReBook);
+		tfReBook.setColumns(10);
 	}
 	
-	// 수정 불가능
-	public void setEditalbeFalseTf() {
-		tfTBook.setEditable(false);
-		tfOBook.setEditable(false);
-		tfRBook.setEditable(false);
-	}
+	/*	// 수정 불가능
+		public void setEditalbeFalseTf() {
+			tfTBook.setEditable(false);
+			tfOBook.setEditable(false);
+			tfRBook.setEditable(false);
+		}*/
 
 }
