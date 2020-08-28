@@ -30,8 +30,6 @@ WHERE MEMBER_NO = 'M002';
 INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, '땡겨온값', '땡겨온값', SYSDATE, NULL);
 
 
-
-
 /* 반납관리 */
 -- 최초에 테이블에 넣을 목록
 SELECT M.*, B.*, R.*

@@ -7,7 +7,6 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.regex.Pattern;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,7 +16,6 @@ import javax.swing.border.EmptyBorder;
 
 import project_library.dto.Rent;
 import project_library.exception.EmptyTfException;
-import project_library.exception.InValidationException;
 import project_library.ui.frame.ReturnManagementFrame;
 
 @SuppressWarnings("serial")
@@ -50,7 +48,7 @@ public class ReturnManagementPanel extends JPanel {
 		gbl_panel01.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel01.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel01.setLayout(gbl_panel01);
-		
+
 		JLabel lblBno = new JLabel("도서코드:");
 		lblBno.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		GridBagConstraints gbc_lblBno = new GridBagConstraints();
@@ -347,37 +345,22 @@ public class ReturnManagementPanel extends JPanel {
 
 	public Rent getItem() {
 		// 공란
-//		if (isEmpty()) {
-//			throw new EmptyTfException("공란 존재");
-//		}
-//		// 형식
-//		if (!isInvalid()) {
-//			throw new InValidationException("형식이 맞지 않습니다.");
-//		}
-//		String bNo = tfBno.getText().trim();
-//		String RDate = tfRDate.getText().trim();
-//		int Ridx = 
-//		
-//		return new Rent(bNo, RDate, idx);
-		return null;
+		if (isEmpty()) {
+			throw new EmptyTfException("공란 존재");
+		}
+		int idx = ReturnManagementFrame.table.getSelectedRow();
+		Rent bdt = ReturnManagementFrame.returnManagementList.get(idx);
+			
+		String bookNo = tfBno.getText().trim(); // 도서코드
+		String RDate = tfRDate.getText().trim(); // 반납일
+		int Ridx = bdt.getIdx(); // 선택된 인덱스
+		return new Rent(bookNo, RDate, Ridx);
 	}
-
-//	private boolean isInvalid() {
-//		// 정규식 표현식
-//		String bNo = tfBookNo.getText().trim();
-//		String mNo = tfMemberNo.getText().trim();
-//
-//		// 정규표현식 적용
-//		boolean noCheck1 = Pattern.matches("[a-zA-Z]{1}\\d{3}", bNo);
-//		boolean noCheck2 = Pattern.matches("[a-zA-Z]{1}\\d{3}", mNo);
-//		return noCheck1 && noCheck2;
-//	}
-//
-//	private boolean isEmpty() {
-//		boolean bNo = tfBookNo.getText().isEmpty();
-//		boolean mNo = tfMemberNo.getText().isEmpty();
-//		return bNo && mNo;
-//	}
+	private boolean isEmpty() {
+		boolean bookNo = tfRDate.getText().isEmpty();
+		boolean RDate = tfRDate.getText().isEmpty();
+		return bookNo && RDate;
+	}
 	
 	
 }

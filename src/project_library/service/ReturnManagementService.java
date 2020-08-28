@@ -13,16 +13,16 @@ public class ReturnManagementService {
 		return dao.selectReturnManagementByAll();
 	}
 
-	public void insertBook(Rent dto) {
+	public void insertReturnManagement(Rent dto) {
 		dao.insertReturnManagement(dto);
 	}
 
-	public void modifyReturnManagement(Rent dto) {
+	public void updateReturnManagement(Rent dto) {
 		dao.updateReturnManagement_isRent(dto);
 		dao.updateReturnManagement_returnDate(dto);
 	}
 
-	public void removeBook(Rent dto) {
+	public void removeReturnManagement(Rent dto) {
 		dao.deleteReturnManagement(dto);
 	}
 }

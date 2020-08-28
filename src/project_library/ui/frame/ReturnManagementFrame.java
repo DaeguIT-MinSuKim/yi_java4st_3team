@@ -73,7 +73,7 @@ public class ReturnManagementFrame extends JFrame {
 		
 		pRBtns = new ReturnManagementButton();
 		contentPane.add(pRBtns);
-		
+
 		pRTable = new JPanel();
 		pRTable.setBorder(new TitledBorder(null, "[ 반납필요 도서목록 ]", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		contentPane.add(pRTable);
@@ -81,6 +81,5 @@ public class ReturnManagementFrame extends JFrame {
 		
 		scrollPane = new JScrollPane();
 		pRTable.add(scrollPane, BorderLayout.CENTER);
-		
 	}
 }

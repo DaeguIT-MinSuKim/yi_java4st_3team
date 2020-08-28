@@ -4,8 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.sql.Timestamp;
 
 import project_library.conn.JdbcUtil;
 import project_library.dao.ReturnManagementDao;
@@ -78,6 +83,7 @@ public class ReturnManagementDaoImpl implements ReturnManagementDao {
 	public int updateReturnManagement_isRent(Rent dto) {
 		String sql = "UPDATE BOOK SET IS_RENT = 1 WHERE BOOK_NO = ?";
 		
+		/* 대여가능여부 > 대여가능으로 변경, 도서코드 기준으로 */
 		try(Connection con = JdbcUtil.getConnection();
     			PreparedStatement pstmt = con.prepareStatement(sql)){
     			pstmt.setString(1, dto.getBookCode());
@@ -89,18 +95,26 @@ public class ReturnManagementDaoImpl implements ReturnManagementDao {
 
 	@Override
 	public int updateReturnManagement_returnDate(Rent dto) {
+		/* 반납일 삽입, IDX 기준으로 */
 		String sql = "UPDATE RENT SET RETURN_DATE = ? WHERE IDX = ?";
-		
+		String from = dto.getReturnDate() + " 00:00:00";
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
 		try(Connection con = JdbcUtil.getConnection();
-    			PreparedStatement pstmt = con.prepareStatement(sql)){
-    			pstmt.setString(1, dto.getRentDate());
-    			pstmt.setInt(2, dto.getIdx());
+			PreparedStatement pstmt = con.prepareStatement(sql)){
+
+			try {
+				Date RDate = transFormat.parse(from);
+				pstmt.setTimestamp(1, new Timestamp(RDate.getTime()) );
+				pstmt.setInt(2, dto.getIdx());
+			} catch (ParseException e){
+				e.printStackTrace();
+			}
     		return pstmt.executeUpdate();
     	}catch (SQLException e){
     		throw new RuntimeException(e);
     	}
 	}
-	
 	
 	@Override
 	public int deleteReturnManagement(Rent dto) {

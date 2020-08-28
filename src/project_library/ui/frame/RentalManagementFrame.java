@@ -42,7 +42,7 @@ public class RentalManagementFrame extends JFrame {
 			}
 		});
 	}
-	
+
 	public RentalManagementFrame() {
 		RentalManagementService bService = new RentalManagementService();
 		rentalManagementList = (ArrayList<Rent>) bService.getRentalManagementList();

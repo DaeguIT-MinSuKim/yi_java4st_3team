@@ -13,6 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import project_library.dto.Rent;
+import project_library.service.MemberManagementService;
+import project_library.service.ReturnManagementService;
+import project_library.ui.frame.RentalManagementFrame;
 import project_library.ui.frame.ReturnManagementFrame;
 
 
@@ -20,6 +23,7 @@ import project_library.ui.frame.ReturnManagementFrame;
 public class ReturnManagementButton extends JPanel implements ActionListener {
 	public static JButton btnReturn;
 	public static JButton btnExit;
+	private ReturnManagementService mService;
 	
 	public static JButton getBtnReturn() {
 		return btnReturn;
@@ -65,35 +69,28 @@ public class ReturnManagementButton extends JPanel implements ActionListener {
 		 String ReturnDate = ReturnManagementFrame.pRPanel.getTfRDate().getText(); // 반납일
 		 String RentDate = bdt.getRentDate().substring(0, 10); // 대여일
 		 
-		// String -> Date 형변환
-		/*
-		 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-		 try {
-			Date trans_ReturnDate = dateFormat.parse(ReturnDate);// 반납일 형변환
-			Date trans_RentDate = dateFormat.parse(RentDate);// 대여일 형변환
-			System.out.println(trans_ReturnDate);
-			System.out.println(trans_RentDate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		*/
-
 		 // 대여일과 반납일 비교
 		 int compare = ReturnDate.compareTo(RentDate);
 		 if( compare > 0 ) { 
-			 // 이제 반납실행 ㄱㄱ
-//			 Rent Data = ReturnManagementFrame.pRPanel.getItem();
-			 
-		 }else { // 반납일을 잘못 입력했을 경우
+			 // 여기서 DB에 반납일 값 넣기 ㄱㄱ
+			 Rent Data = ReturnManagementFrame.pRPanel.getItem();
+			 //System.out.println(Data);
+			mService = new ReturnManagementService();
+			mService.updateReturnManagement(Data);
+			
+			JOptionPane.showMessageDialog(null, "도서 반납이 완료되었습니다.", "성공", JOptionPane.INFORMATION_MESSAGE);
+			
+			//02. UI 화면 클리어, 테이블 목록에서 삭제
+			ReturnManagementFrame.pRPanel.getTfRDate().setText(""); // 텍스트필드 글자 지움
+			ReturnManagementFrame.pRPanel.setEditalbeTableTrueTf();
+			
+			int Ridx = ReturnManagementFrame.table.getSelectedRow();
+			ReturnManagementFrame.table.delReturnManagementDto(idx);
+			
+		 } else { // 반납일을 잘못 입력했을 경우
 			 JOptionPane.showMessageDialog(null, "대여일 이후의 날짜를 입력하세요", "오류", JOptionPane.ERROR_MESSAGE);
 			 ReturnManagementFrame.pRPanel.getTfRDate().setText(""); // 텍스트필드 글자 지움
 		 }
-		 
-		 
-		//02. 반납완료 값 입력
-		
-		
-		//03. UI 화면 클리어, 테이블 목록에서 삭제
 	}
 	
 	protected void actionPerformedBtnExit() {

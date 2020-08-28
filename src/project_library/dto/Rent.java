@@ -20,7 +20,10 @@ public class Rent {
 	private String isDelay;
 	
 	public Rent() {
-		
+	}
+
+	public Rent(String returnDate) {
+		this.returnDate = returnDate;
 	}
 
 
@@ -29,8 +32,8 @@ public class Rent {
 		this.returnDate = returnDate;
 		this.idx = idx;
 	}
-
-
+	
+	
 	public Rent(
 				String memberCode, 
 				String memberName, 
@@ -300,8 +303,10 @@ public class Rent {
 	@Override
 	public String toString() {
 		return String.format(
-				"Rent [bookCode=%s, bookName=%s, author=%s, publisher=%s, price=%s, totalRental=%s, memberCode=%s, memberName=%s, phone=%s, rentDate=%s, returnDate=%s, isRent=%s]",
-				bookCode, bookName, author, publisher, price, totalRental, memberCode, memberName, phone, rentDate, returnDate, isRent);
+			"Rent [bookCode=%s, bookName=%s, author=%s, publisher=%s, price=%s, totalRental=%s, memberCode=%s, memberName=%s, phone=%s, rentDate=%s, returnDate=%s, isRent=%s, idx=%s, totalCount=%s, memberCode2=%s, bookCode2=%s, isDelay=%s]",
+			bookCode, bookName, author, publisher, price, totalRental, memberCode, memberName, phone, rentDate,
+			returnDate, isRent, idx, totalCount, memberCode2, bookCode2, isDelay);
 	}
+
 	
 }

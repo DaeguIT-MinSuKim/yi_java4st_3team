@@ -30,7 +30,7 @@ public class ReturnManagementTable extends JTable implements MouseListener {
 		// 프로그램 시작시 동작
 		ReturnManagementFrame.pRPanel.setEditalbeTableTrueTf();
 	}
-
+	
 	private void initComponents(){
 		setBorder(new EmptyBorder(0, 10, 0, 10));
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -47,8 +47,7 @@ public class ReturnManagementTable extends JTable implements MouseListener {
 			return false;
 		}
 	}
-
-
+	
 	private Object[][] getRows(ArrayList<Rent> returnList) {
 		//System.out.println(returnList);
 		Object[][] rows = new Object[returnList.size()][];
@@ -57,7 +56,7 @@ public class ReturnManagementTable extends JTable implements MouseListener {
 		}
 		return rows;
 	}
-
+	
 	private Object[] toArray(Rent Rent) {
 		return new Object[] { 
 			Rent.getBookCode(),
@@ -78,14 +77,14 @@ public class ReturnManagementTable extends JTable implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-//		  // Table 클릭 시 01. 텍스트필드 활성화/비활성화.
+		  // Table 클릭 시 01. 텍스트필드 활성화/비활성화.
 		  ReturnManagementFrame.pRPanel.click_setEditalbeTableTrueTf();
-//	  
-//		  // Table 클릭 시 02. 선택한 값을 가져옴
+
+		  // Table 클릭 시 02. 선택한 값을 가져옴
 		  int idx = ReturnManagementFrame.table.getSelectedRow();
 		  Rent bdt = ReturnManagementFrame.returnManagementList.get(idx);
-//		  
-//		  // Table 클릭 시 03. 텍스트필드에 클릭한 데이터정보 넣어줌.
+
+		  // Table 클릭 시 03. 텍스트필드에 클릭한 데이터정보 넣어줌.
 		  ReturnManagementPanel rp = new ReturnManagementPanel();
 		  rp.setReturnManagementDto(bdt);
 	}
@@ -94,7 +93,7 @@ public class ReturnManagementTable extends JTable implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 	}
-
+ 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -123,7 +122,7 @@ public class ReturnManagementTable extends JTable implements MouseListener {
 		tcm.getColumn(2).setPreferredWidth(150);
 		tcm.getColumn(3).setPreferredWidth(200);
 		tcm.getColumn(4).setPreferredWidth(100);
-
+		
 		// column의 내용 정렬
 		DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
 		dtcr.setHorizontalAlignment(SwingConstants.CENTER);
@@ -132,9 +131,14 @@ public class ReturnManagementTable extends JTable implements MouseListener {
 		tcm.getColumn(2).setCellRenderer(dtcr);
 		tcm.getColumn(3).setCellRenderer(dtcr);
 		tcm.getColumn(4).setCellRenderer(dtcr);
+		
+//		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+//		setRowSorter(sorter);
 
-		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
-		setRowSorter(sorter);
+	}
 
+	public void delReturnManagementDto(int idx) {
+		// model 삭제
+		model.removeRow(idx);
 	}
 }	
