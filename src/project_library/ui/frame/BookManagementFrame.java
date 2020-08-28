@@ -28,18 +28,18 @@ public class BookManagementFrame extends JFrame {
 	public static BookManagementTable bookTable;
 	public static ArrayList<Book> bookList;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BookManagementFrame frame = new BookManagementFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					BookManagementFrame frame = new BookManagementFrame();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	public BookManagementFrame() {
 
@@ -69,7 +69,7 @@ public class BookManagementFrame extends JFrame {
 
 	private void initComponents() {
 		setTitle("도서 관리");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -46,7 +46,6 @@ public class SearchBookFrame extends JFrame {
 	private SearchBookManagementService bService;
 	private ButtonGroup radioGroup;
  
-
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -57,11 +56,8 @@ public class SearchBookFrame extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
 			}
-			
 		});
-		
 	}
 
 	public SearchBookFrame() {
