@@ -41,7 +41,7 @@ public class SearchBookFrame extends JFrame {
 	private SearchBookButton pBtns;
 	private SearchBookPanel pBookInfo;
 	private SearchBookTotalCountPanel pRentInfoTotal;
-	public static ArrayList<Rent> SearchBookList;
+	private ArrayList<Rent> SearchBookList;
 	private JScrollPane scrollPane;
 	private SearchBookManagementService bService;
 	private ButtonGroup radioGroup;
@@ -64,15 +64,18 @@ public class SearchBookFrame extends JFrame {
 	}
 
 	public SearchBookFrame() {
-		bService = new SearchBookManagementService();
-		SearchBookList = (ArrayList<Rent>) bService.getSearchBookManagementList();
+		
+		  bService = new SearchBookManagementService(); 
+		  SearchBookList = (ArrayList<Rent>) bService.getSearchBookManagementList();
+		 
 
 		initComponents();
 
-		
-		 table = new SearchBookTable();
-		 table.setBookSearchManagementList(SearchBookList);
-		 scrollPane.setViewportView(table);
+		/*
+		 * table = new SearchBookTable();
+		 * table.setBookSearchManagementList(SearchBookList);
+		 * scrollPane.setViewportView(table);
+		 */
 		 
 		radioGroup = new ButtonGroup();
 		radioGroup.add(rdbtnBookName);
@@ -138,10 +141,11 @@ public class SearchBookFrame extends JFrame {
 		scrollPane = new JScrollPane();
 		pRentInfo.add(scrollPane, BorderLayout.CENTER);
 
-		/*
-		 * table = new SearchBookTable(); table.setBorder(null);
-		 * scrollPane.setViewportView(table);
-		 */
+		
+		table = new SearchBookTable(); 
+		table.setBookSearchManagementList(SearchBookList);
+		scrollPane.setViewportView(table);
+		 
 
 		pRentInfoTotal = new SearchBookTotalCountPanel();
 		contentPane.add(pRentInfoTotal);
