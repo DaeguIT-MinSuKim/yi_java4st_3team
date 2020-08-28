@@ -42,7 +42,7 @@ public class BookStatusManagementDaoImpl implements BookStatusManagementDao {
 
 	@Override
 	public int selectTotalOverdueBook() {
-		String sql = "SELECT COUNT('is_Delay') FROM VM_OVERDUE WHERE \"is_Delay\" = 'Y'";
+		String sql = "SELECT COUNT('is_Delay') FROM VM_OVERDUE WHERE is_Delay = 'Y'";
 		int resultCount = 0;
 		try (Connection con = JdbcUtil.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);

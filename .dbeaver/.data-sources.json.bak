@@ -1,58 +1,20 @@
 {
 	"folders": {},
 	"connections": {
-		"oracle_thin-174252c20cc-2e6a637e5e3e2056": {
+		"oracle_thin-17432bfbdc2-687bf072ff716cfd": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "orcl - system",
+			"name": "ORCL2",
 			"save-password": true,
 			"show-system-objects": true,
 			"read-only": false,
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
-				"database": "orcl2",
-				"url": "jdbc:oracle:thin:@//localhost:1521/orcl2",
-				"home": "C:\\app\\HOME\\product\\11.2.0\\dbhome_1",
-				"type": "dev",
-				"provider-properties": {
-					"@dbeaver-check-schema-content@": "false",
-					"@dbeaver-always-show-dba@": "false",
-					"@dbeaver-always-use-dba-views@": "false",
-					"@dbeaver-meta-use-sys-schema@": "false",
-					"@dbeaver-meta-use-simple-constraints@": "false",
-					"@dbeaver-use-rule-hint@": "false",
-					"@dbeaver-use-meta-optimizer@": "false",
-					"@dbeaver-connection-type@": "BASIC",
-					"@dbeaver-sid-service@": "SERVICE"
-				},
-				"auth-model": "oracle_native",
-				"handlers": {}
-			},
-			"custom-properties": {
-				"database.meta.separate.connection": "false"
-<<<<<<< HEAD
-=======
-			}
-		},
-		"oracle_thin-174252d8d8f-630a66bf0186e3bd": {
-			"provider": "oracle",
-			"driver": "oracle_thin",
-			"name": "orcl - user_lib",
-			"save-password": true,
-			"show-system-objects": true,
-			"read-only": false,
-			"configuration": {
-				"host": "localhost",
-				"port": "1521",
-				"database": "orcl2",
-				"url": "jdbc:oracle:thin:@//localhost:1521/orcl2",
+				"database": "ORCL",
+				"url": "jdbc:oracle:thin:@//localhost:1521/ORCL",
 				"home": "E:\\app\\lenovo\\product\\11.2.0\\dbhome_4",
 				"type": "dev",
-				"properties": {
-					"useFetchSizeWithLongColumn": "true",
-					"loginTimeout": "20"
-				},
 				"provider-properties": {
 					"@dbeaver-check-schema-content@": "false",
 					"@dbeaver-always-show-dba@": "false",
@@ -69,7 +31,6 @@
 			},
 			"custom-properties": {
 				"database.meta.separate.connection": "false"
->>>>>>> branch 'master' of https://github.com/DaeguIT-MinSuKim/yi_java4st_3team.git
 			}
 		}
 	},
