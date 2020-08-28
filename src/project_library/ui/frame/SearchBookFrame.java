@@ -5,11 +5,15 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -24,7 +28,7 @@ import project_library.ui.component.SearchBookTable;
 import project_library.ui.component.SearchBookTotalCountPanel;
 
 @SuppressWarnings("serial")
-public class SearchBookFrame extends JFrame {
+public class SearchBookFrame extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	public static JTextField tfBook;
@@ -45,8 +49,7 @@ public class SearchBookFrame extends JFrame {
 	public static JScrollPane scrollPane;
 	private SearchBookManagementService bService;
 	private ButtonGroup radioGroup;
- 
-
+	private JButton sBtn;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -69,10 +72,10 @@ public class SearchBookFrame extends JFrame {
 		  bService = new SearchBookManagementService(); 
 		  
 		  SearchBookList = (ArrayList<Rent>) bService.getSearchBookManagementList();
-		  
 
 		initComponents();
-
+		
+		
 		/*
 		 * table = new SearchBookTable();
 		 * table.setBookSearchManagementList(SearchBookList);
@@ -82,6 +85,7 @@ public class SearchBookFrame extends JFrame {
 		radioGroup = new ButtonGroup();
 		radioGroup.add(rdbtnBookName);
 		radioGroup.add(rdbtnBookCode);
+		
 	}
 
 	private void initComponents() {
@@ -127,6 +131,9 @@ public class SearchBookFrame extends JFrame {
 		tfBook.setColumns(10);
 
 		pBtns = new SearchBookButton();
+		
+		sBtn = pBtns.getBtnSearch();
+		sBtn.addActionListener(this);
 		gbc_pBtns = new GridBagConstraints();
 		gbc_pBtns.fill = GridBagConstraints.BOTH;
 		gbc_pBtns.gridx = 3;
@@ -151,6 +158,45 @@ public class SearchBookFrame extends JFrame {
 
 		pRentInfoTotal = new SearchBookTotalCountPanel();
 		contentPane.add(pRentInfoTotal);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		try {
+			if (rdbtnBookCode.isSelected()) {
+				//	System.out.println("코드검색");
+				
+				boolean isCode = true;
+				String searchKey = tfBook.getText().trim();
+					
+				bService = new SearchBookManagementService();
+				SearchBookList = (ArrayList<Rent>) bService.selectSearchBookWhereList(isCode, searchKey);
+				
+				table = new SearchBookTable();
+				table.setBookSearchManagementList(SearchBookList);
+				scrollPane.setViewportView(table);
+					
+				pBtns.activeBookCode();
+			}else {
+	//			System.out.println("이름검색");
+				
+				boolean isCode = false;
+				String searchKey = tfBook.getText();
+				bService = new SearchBookManagementService();
+				SearchBookList = (ArrayList<Rent>) bService.selectSearchBookWhereList(isCode, searchKey);
+				
+				table = new SearchBookTable(); 
+				table.setBookSearchManagementList(SearchBookList);
+				scrollPane.setViewportView(table);
+					
+				pBtns.activeBookName();
+			}
+			
+		}catch(Exception ee) {
+			JOptionPane.showMessageDialog(null, "형식에 맞게 입력해주세요.", "오류", JOptionPane.ERROR_MESSAGE);
+		}
+		
+		
 	}
 
 }

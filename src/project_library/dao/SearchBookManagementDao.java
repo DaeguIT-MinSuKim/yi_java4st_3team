@@ -16,5 +16,6 @@ public interface SearchBookManagementDao {
 	
 	int updateSearchBookManagement_member(Rent dto);
 
+	List<Rent> selectSearchBookWhere(boolean isCode, String searchKey);
 	//int deleteRentalManagement(Rent dto);
 }

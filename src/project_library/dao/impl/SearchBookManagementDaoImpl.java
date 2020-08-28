@@ -9,7 +9,6 @@ import java.util.List;
 
 import project_library.conn.JdbcUtil;
 import project_library.dao.SearchBookManagementDao;
-import project_library.dto.Book;
 import project_library.dto.Rent;
 
 public class SearchBookManagementDaoImpl implements SearchBookManagementDao {
@@ -93,6 +92,41 @@ public class SearchBookManagementDaoImpl implements SearchBookManagementDao {
 	public int updateSearchBookManagement_member(Rent dto) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<Rent> selectSearchBookWhere(boolean isCode, String searchKey) {
+		String sql = "SELECT M.*, B.*, R.*, (CASE WHEN R.RENT_DATE+3 < R.RETURN_DATE THEN 'Y' WHEN R.RENT_DATE+3 >= R.RETURN_DATE THEN 'N' ELSE '반납하지 않음' END) AS is_Delay " + 
+				"FROM MEMBER M, BOOK B, RENT R " + 
+				"WHERE M.MEMBER_NO = R.MEMBER_NO AND B.BOOK_NO = R.BOOK_NO ";
+		
+		if (isCode) {
+			sql += "and B.book_no = ?";
+		}else {
+			sql += "and B.book_name= ?";
+		}
+		
+
+		try (Connection con = JdbcUtil.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);){
+					pstmt.setString(1, searchKey);
+					
+					try(ResultSet rs = pstmt.executeQuery()) {
+//						System.out.println("aaaaa");
+
+						if (rs.next()) {
+							List<Rent> list = new ArrayList<>();
+							do {
+								list.add(getBook(rs));
+							} while (rs.next());
+							System.out.println(list);
+							return list;
+						}
+				}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return null;
 	}
 
 }

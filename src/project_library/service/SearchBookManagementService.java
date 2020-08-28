@@ -12,6 +12,10 @@ public class SearchBookManagementService {
 	public List<Rent> getSearchBookManagementList() {
 		return dao.selectSearchBookManagementByAll();
 	}
+	
+	public List<Rent> selectSearchBookWhereList(boolean isCode, String searchKey) {
+		return dao.selectSearchBookWhere(isCode, searchKey);
+	}
 
 	public void insertBook(Rent dto) {
 		dao.insertSearchBookManagement(dto);

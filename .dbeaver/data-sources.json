@@ -4,15 +4,15 @@
 		"oracle_thin-17432bfbdc2-687bf072ff716cfd": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "ORCL2",
+			"name": "orcl - user_lib",
 			"save-password": true,
 			"show-system-objects": true,
 			"read-only": false,
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
-				"database": "ORCL2",
-				"url": "jdbc:oracle:thin:@//localhost:1521/ORCL2",
+				"database": "orcl",
+				"url": "jdbc:oracle:thin:@//localhost:1521/orcl",
 				"home": "E:\\app\\lenovo\\product\\11.2.0\\dbhome_4",
 				"type": "dev",
 				"provider-properties": {
@@ -28,6 +28,9 @@
 				},
 				"auth-model": "oracle_native",
 				"handlers": {}
+			},
+			"custom-properties": {
+				"database.meta.separate.connection": "false"
 			}
 		}
 	},
