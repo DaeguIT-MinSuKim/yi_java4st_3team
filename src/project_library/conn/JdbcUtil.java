@@ -10,22 +10,20 @@ public class JdbcUtil {
 
 	public static Connection getConnection() {
 		Connection conn = null;
-		//String proptiesPath = "db.properties";
+		String proptiesPath = "db.properties";
 		// String proptiesPath = "mysql_db.properties";
-		try {//(InputStream is = ClassLoader.getSystemResourceAsStream(proptiesPath)) {
-			//Properties props = new Properties();
-			//props.load(is);
+		try (InputStream is = ClassLoader.getSystemResourceAsStream(proptiesPath)) {
+			Properties props = new Properties();
+			props.load(is);
 			// System.out.println(props);
-			//String url = props.getProperty("url");
-			 //String user = props.getProperty("user");
-			 //String password = props.getProperty("password");
-			 String url = "jdbc:oracle:thin:@localhost:1521:orcl?useSSL=false";
-			 String user = "user_lib";
-			 String password = "rootroot";
-			// System.out.printf("user = %s, password = %s, url = %s%n", url, user,
-			// password);
+			String url = props.getProperty("url");
+			String user = props.getProperty("user");
+			String password = props.getProperty("password");
+			// String url = "jdbc:oracle:thin:@localhost:1521:orcl?useSSL=false";
+			// String user = "user_lib";
+			// String password = "rootroot";
 			conn = DriverManager.getConnection(url, user, password);
-//			conn = DriverManager.getConnection(url, props);
+			// conn = DriverManager.getConnection(url, props);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
