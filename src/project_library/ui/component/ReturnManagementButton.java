@@ -78,14 +78,17 @@ public class ReturnManagementButton extends JPanel implements ActionListener {
 			mService = new ReturnManagementService();
 			mService.updateReturnManagement(Data);
 			
-			JOptionPane.showMessageDialog(null, "도서 반납이 완료되었습니다.", "성공", JOptionPane.INFORMATION_MESSAGE);
-			
 			//02. UI 화면 클리어, 테이블 목록에서 삭제
 			ReturnManagementFrame.pRPanel.getTfRDate().setText(""); // 텍스트필드 글자 지움
-			ReturnManagementFrame.pRPanel.setEditalbeTableTrueTf();
+			ReturnManagementFrame.pRPanel.clearTf();
 			
 			int Ridx = ReturnManagementFrame.table.getSelectedRow();
 			ReturnManagementFrame.table.delReturnManagementDto(idx);
+			
+			JOptionPane.showMessageDialog(null, "도서 반납이 완료되었습니다.", "성공", JOptionPane.INFORMATION_MESSAGE);
+			
+			
+			
 			
 		 } else { // 반납일을 잘못 입력했을 경우
 			 JOptionPane.showMessageDialog(null, "대여일 이후의 날짜를 입력하세요", "오류", JOptionPane.ERROR_MESSAGE);

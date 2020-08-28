@@ -334,6 +334,20 @@ public class ReturnManagementPanel extends JPanel {
 		tfBDate.setEditable(false);
 		tfRDate.setEditable(true);
 	}
+	
+	public void clearTf() {
+		tfBno.setText("");
+		tfBname.setText("");
+		tfBau.setText("");
+		tfBpu.setText("");
+		tfBpr.setText("");
+		tfBcnt.setText("");
+		tfNo.setText("");
+		tfName.setText("");
+		tfTel.setText("");
+		tfBDate.setText("");
+		tfRDate.setText("");
+	}
 
 	public JTextField getTfRDate() {
 		return tfRDate;
