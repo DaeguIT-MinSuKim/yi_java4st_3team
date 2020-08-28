@@ -80,8 +80,8 @@ public class BookManagementTable extends JTable implements MouseListener {
 		tcm.getColumn(3).setCellRenderer(dtcr);
 		tcm.getColumn(4).setCellRenderer(dtcr);
 
-		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
-		setRowSorter(sorter);
+//		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+//		setRowSorter(sorter);
 
 	}
 
