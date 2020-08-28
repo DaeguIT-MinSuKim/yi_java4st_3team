@@ -33,14 +33,13 @@ public class BookStatusManagementFrame extends JFrame {
 	}
 
 	public BookStatusManagementFrame() {
-		
 		initComponents();
-		
+	//	pBStatus.setEditalbeFalseTf();
 	}
 
 	private void initComponents() {
 		setTitle("도서 현황");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

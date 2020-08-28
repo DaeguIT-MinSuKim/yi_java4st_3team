@@ -24,7 +24,8 @@ public class ReturnManagementButton extends JPanel implements ActionListener {
 	public static JButton btnReturn;
 	public static JButton btnExit;
 	private ReturnManagementService mService;
-	
+	private ReturnManagementFrame bFrame;
+
 	public static JButton getBtnReturn() {
 		return btnReturn;
 	}
@@ -97,7 +98,10 @@ public class ReturnManagementButton extends JPanel implements ActionListener {
 	}
 	
 	protected void actionPerformedBtnExit() {
-		System.exit(0);
+		bFrame.dispose();
+	}
+	public void setbFrame(ReturnManagementFrame bFrame) {
+		this.bFrame = bFrame;
 	}
 
 }

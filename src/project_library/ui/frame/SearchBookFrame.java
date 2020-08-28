@@ -139,6 +139,7 @@ public class SearchBookFrame extends JFrame implements ActionListener {
 		gbc_pBtns.gridx = 3;
 		gbc_pBtns.gridy = 0;
 		pInput.add(pBtns, gbc_pBtns);
+		pBtns.setbFrame(this);
 		
 		pBookInfo = new SearchBookPanel();
 		contentPane.add(pBookInfo);

@@ -11,8 +11,13 @@
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
+<<<<<<< HEAD
 				"database": "orcl",
 				"url": "jdbc:oracle:thin:@//localhost:1521/orcl",
+=======
+				"database": "ORCL",
+				"url": "jdbc:oracle:thin:@//localhost:1521/ORCL",
+>>>>>>> branch 'master' of https://github.com/DaeguIT-MinSuKim/yi_java4st_3team.git
 				"home": "E:\\app\\lenovo\\product\\11.2.0\\dbhome_4",
 				"type": "dev",
 				"provider-properties": {

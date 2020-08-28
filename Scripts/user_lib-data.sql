@@ -21,11 +21,13 @@ INSERT INTO BOOK VALUES('B008', '자바 프로그래밍 입문', '박은종', '�
 INSERT INTO BOOK VALUES('B009', 'C 언어 입문', '김성엽', '이지스퍼블리싱', 25000, 1, 0);
 
 -- RENT 목록
-INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M001', 'B001', to_char('18/06/17'), to_char('18/06/17'));
-INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M002', 'B002', to_char('18/06/17'), to_char('18/06/17'));
-INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M003', 'B003', to_char('18/06/17'), to_char('18/06/17'));
-<<<<<<< HEAD
-INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M004', 'B004', to_char('18/08/20'), to_char('18/08/20'));
-=======
-INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M004', 'B004', to_char('18/08/20'), to_char('18/08/20'));
->>>>>>> branch 'master' of https://github.com/DaeguIT-MinSuKim/yi_java4st_3team.git
+INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M001', 'B001', to_char('20/08/24'), to_char('20/08/24'));
+INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M002', 'B002', to_char('20/08/24'), to_char('20/08/27'));
+INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M003', 'B003', to_char('20/08/24'), to_char('20/08/28'));
+INSERT INTO RENT VALUES(IDXNUM.NEXTVAL, 'M004', 'B004', to_char('20/08/24'), to_char('20/08/29'));
+
+-- 기존 RENT 목록 삭제
+DELETE FROM RENT WHERE MEMBER_NO = 'M001';
+DELETE FROM RENT WHERE MEMBER_NO = 'M002';
+DELETE FROM RENT WHERE MEMBER_NO = 'M003';
+DELETE FROM RENT WHERE MEMBER_NO = 'M004';

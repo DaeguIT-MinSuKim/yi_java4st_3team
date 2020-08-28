@@ -137,7 +137,8 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 		btnExit.addActionListener(this);
 		btnExit.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		pBtns.add(btnExit);
-
+//		pBtns.setbFrame(this);
+		
 		btnSave.setEnabled(false);
 		btnUpdate.setEnabled(false);
 		btnDelete.setEnabled(false);
@@ -285,7 +286,6 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 	}
 
 	protected void actionPerformedBtnExit() {
-		System.exit(0);
+		this.dispose();
 	}
-
 }

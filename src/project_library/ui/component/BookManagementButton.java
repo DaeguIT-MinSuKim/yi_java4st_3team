@@ -27,6 +27,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	public static JButton btnDelete;
 	public static JButton btnExit;
 	private BookManagementService bService;
+	private BookManagementFrame bFrame;
 
 	public BookManagementButton() {
 		bService = new BookManagementService();
@@ -152,7 +153,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 
 		int idx = BookManagementFrame.bookList.indexOf(newBto);
 		BookManagementFrame.bookTable.setRowSelectionInterval(0, idx);
-		System.out.println(idx);
+		//System.out.println(idx);
 
 	}
 
@@ -217,7 +218,9 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	}
 
 	protected void actionPerformedBtnExit() {
-		System.exit(0);
+		bFrame.dispose();
 	}
-
+	public void setbFrame(BookManagementFrame bFrame) {
+		this.bFrame = bFrame;
+	}
 }

@@ -73,6 +73,7 @@ public class ReturnManagementFrame extends JFrame {
 		
 		pRBtns = new ReturnManagementButton();
 		contentPane.add(pRBtns);
+		pRBtns.setbFrame(this);
 
 		pRTable = new JPanel();
 		pRTable.setBorder(new TitledBorder(null, "[ 반납필요 도서목록 ]", TitledBorder.LEADING, TitledBorder.TOP, null, null));

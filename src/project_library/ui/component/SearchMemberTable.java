@@ -72,8 +72,8 @@ public class SearchMemberTable extends JTable implements MouseListener {
 		tcm.getColumn(2).setCellRenderer(dtcr);
 		tcm.getColumn(3).setCellRenderer(dtcr);
 
-		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
-		setRowSorter(sorter);
+//		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+//		setRowSorter(sorter);
 	}
 
 	private class CustomTable extends DefaultTableModel {

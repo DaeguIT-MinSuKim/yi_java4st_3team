@@ -4,15 +4,24 @@
 		"oracle_thin-17432bfbdc2-687bf072ff716cfd": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
+<<<<<<< HEAD
 			"name": "orcl - user_lib",
+=======
+			"name": "ORCL",
+>>>>>>> branch 'master' of https://github.com/DaeguIT-MinSuKim/yi_java4st_3team.git
 			"save-password": true,
 			"show-system-objects": true,
 			"read-only": false,
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
+<<<<<<< HEAD
 				"database": "orcl",
 				"url": "jdbc:oracle:thin:@//localhost:1521/orcl",
+=======
+				"database": "ORCL",
+				"url": "jdbc:oracle:thin:@//localhost:1521/ORCL",
+>>>>>>> branch 'master' of https://github.com/DaeguIT-MinSuKim/yi_java4st_3team.git
 				"home": "E:\\app\\lenovo\\product\\11.2.0\\dbhome_4",
 				"type": "dev",
 				"provider-properties": {

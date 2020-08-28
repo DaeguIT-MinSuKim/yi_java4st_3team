@@ -72,6 +72,7 @@ public class RentalManagementFrame extends JFrame {
 		
 		pBtns = new RentalManagementButton();
 		contentPane.add(pBtns);
+		pBtns.setbFrame(this);
 		
 		pBTable = new JPanel();
 		pBTable.setBorder(new TitledBorder(new EmptyBorder(5, 5, 5, 5), "[ 도서 대여가능 목록 ]", TitledBorder.LEADING, TitledBorder.TOP, null, null));

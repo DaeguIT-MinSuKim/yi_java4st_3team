@@ -28,18 +28,18 @@ public class BookManagementFrame extends JFrame {
 	public static BookManagementTable bookTable;
 	public static ArrayList<Book> bookList;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BookManagementFrame frame = new BookManagementFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					BookManagementFrame frame = new BookManagementFrame();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	public BookManagementFrame() {
 
@@ -69,7 +69,7 @@ public class BookManagementFrame extends JFrame {
 
 	private void initComponents() {
 		setTitle("도서 관리");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -79,14 +79,14 @@ public class BookManagementFrame extends JFrame {
 		pBPanel = new BookManagementPanel();
 		pBPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.add(pBPanel);
-
+		
 		pBBtns = new BookManagementButton();
 		pBBtns.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.add(pBBtns);
-
+		pBBtns.setbFrame(this);
+		
 		pBTable = new JPanel();
-		pBTable.setBorder(new TitledBorder(new EmptyBorder(5, 5, 5, 5), "[ 도서 목록 ]", TitledBorder.LEADING,
-				TitledBorder.TOP, null, null));
+		pBTable.setBorder(new TitledBorder(new EmptyBorder(5, 5, 5, 5), "[ 도서 목록 ]", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		contentPane.add(pBTable);
 		pBTable.setLayout(new BorderLayout(0, 0));
 

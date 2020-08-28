@@ -56,6 +56,7 @@ public class SearchMemberFrame extends JFrame {
 		
 		SearchMemberButton pBtns = new SearchMemberButton();
 		contentPane.add(pBtns);
+		pBtns.setbFrame(this);
 		
 		SearchMemberInfoShowPanel pMemberInfo = new SearchMemberInfoShowPanel();
 		contentPane.add(pMemberInfo);
