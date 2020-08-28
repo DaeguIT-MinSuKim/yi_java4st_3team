@@ -16,7 +16,14 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
 import project_library.ui.frame.BookManagementFrame;
+import project_library.ui.frame.BookStatusManagementFrame;
+import project_library.ui.frame.MemberManagementFrame;
+import project_library.ui.frame.RentalManagementFrame;
+import project_library.ui.frame.ReturnManagementFrame;
+import project_library.ui.frame.SearchBookFrame;
+import project_library.ui.frame.SearchMemberFrame;
 
+@SuppressWarnings("serial")
 public class index extends JFrame {
 
 	private JPanel contentPane;
@@ -25,11 +32,10 @@ public class index extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-	
+		
 		try {
 			UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-				| UnsupportedLookAndFeelException e1) {
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e1) {
 			e1.printStackTrace();
 		}
 		
@@ -106,12 +112,7 @@ public class index extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				BookManagementFrame f = new BookManagementFrame();
-				
-				if(f.isVisible()){
-					f.setVisible(false);
-				}else {
-					f.setVisible(true);
-				}
+				f.setVisible(true);
 			}
 		});
 		panel_7.add(btnBook);
@@ -124,6 +125,8 @@ public class index extends JFrame {
 		btnRental.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				RentalManagementFrame f = new RentalManagementFrame();
+				f.setVisible(true);
 			}
 		});
 		panel_6.add(btnRental);
@@ -136,6 +139,8 @@ public class index extends JFrame {
 		btnSearchMember.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				SearchMemberFrame f = new SearchMemberFrame();
+				f.setVisible(true);
 			}
 		});
 		panel_8.add(btnSearchMember);
@@ -152,6 +157,8 @@ public class index extends JFrame {
 		btnMember.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				MemberManagementFrame f = new MemberManagementFrame();
+				f.setVisible(true);
 			}
 		});
 		panel_14.add(btnMember);
@@ -164,6 +171,8 @@ public class index extends JFrame {
 		btnReturn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				ReturnManagementFrame f = new ReturnManagementFrame();
+				f.setVisible(true);
 			}
 		});
 		panel_11.add(btnReturn);
@@ -176,6 +185,8 @@ public class index extends JFrame {
 		btnSearchBook.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				SearchBookFrame f = new SearchBookFrame();
+				f.setVisible(true);
 			}
 		});
 		panel_10.add(btnSearchBook);
@@ -198,7 +209,8 @@ public class index extends JFrame {
 		btnBookInfo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				BookStatusManagementFrame f = new BookStatusManagementFrame();
+				f.setVisible(true);
 			}
 		});
 		panel_17.add(btnBookInfo);

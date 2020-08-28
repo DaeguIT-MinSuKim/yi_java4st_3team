@@ -9,12 +9,14 @@ import javax.swing.JPanel;
 
 import project_library.dto.Rent;
 import project_library.service.RentalManagementService;
+import project_library.ui.frame.BookManagementFrame;
 import project_library.ui.frame.RentalManagementFrame;
 
 public class RentalManagementButton extends JPanel implements MouseListener {
 	public static JButton btnRent;
 	public static JButton btnCancel;
 	private RentalManagementService rService;
+	private RentalManagementFrame bFrame;
 	
 	/**
 	 * Create the panel.
@@ -82,7 +84,7 @@ public class RentalManagementButton extends JPanel implements MouseListener {
 	
 	
 	protected void do_btnCancel_mouseClicked(MouseEvent arg0) {
-		System.exit(0);
+		actionPerformedBtnExit();
 	}
 
 	@Override
@@ -107,5 +109,12 @@ public class RentalManagementButton extends JPanel implements MouseListener {
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	protected void actionPerformedBtnExit() {
+		bFrame.dispose();
+	}
+	public void setbFrame(RentalManagementFrame bFrame) {
+		this.bFrame = bFrame;
 	}
 }

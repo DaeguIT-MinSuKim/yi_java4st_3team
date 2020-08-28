@@ -79,14 +79,14 @@ public class BookManagementFrame extends JFrame {
 		pBPanel = new BookManagementPanel();
 		pBPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.add(pBPanel);
-
+		
 		pBBtns = new BookManagementButton();
 		pBBtns.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.add(pBBtns);
-
+		pBBtns.setbFrame(this);
+		
 		pBTable = new JPanel();
-		pBTable.setBorder(new TitledBorder(new EmptyBorder(5, 5, 5, 5), "[ 도서 목록 ]", TitledBorder.LEADING,
-				TitledBorder.TOP, null, null));
+		pBTable.setBorder(new TitledBorder(new EmptyBorder(5, 5, 5, 5), "[ 도서 목록 ]", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		contentPane.add(pBTable);
 		pBTable.setLayout(new BorderLayout(0, 0));
 

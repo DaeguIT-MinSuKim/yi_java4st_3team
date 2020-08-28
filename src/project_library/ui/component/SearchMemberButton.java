@@ -8,8 +8,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import project_library.dto.Member;
-import project_library.exception.EmptyTfException;
-import project_library.exception.InValidationException;
 import project_library.service.MemberManagementService;
 import project_library.ui.frame.SearchMemberFrame;
 
@@ -19,6 +17,7 @@ public class SearchMemberButton extends JPanel {
 	public String getMemberName;
 	public String getMemberCode;
 	public String getMemberTel;
+	private SearchMemberFrame bFrame;
 
 	public SearchMemberButton() {
 		
@@ -89,11 +88,14 @@ public class SearchMemberButton extends JPanel {
 		btnClose.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				bFrame.dispose();
 			}
 		});
 		add(btnClose);
 
+	}
+	public void setbFrame(SearchMemberFrame bFrame) {
+		this.bFrame = bFrame;
 	}
 
 }

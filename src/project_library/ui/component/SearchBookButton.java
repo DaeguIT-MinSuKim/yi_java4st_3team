@@ -23,6 +23,7 @@ public class SearchBookButton extends JPanel implements MouseListener {
 	private SearchBookManagementService sService;
 	public static ArrayList<Book> bookDtoList;
 	public static ArrayList<Rent> SearchBookList;
+	private SearchBookFrame bFrame;
 	
 	public SearchBookButton() {
 		
@@ -56,7 +57,7 @@ public class SearchBookButton extends JPanel implements MouseListener {
 	
 
 	private void btnExit_mouseClicked(MouseEvent e) {
-		System.exit(0);
+		bFrame.dispose();
 	}
 
 	public void btnSearch_mouseClicked(MouseEvent e) {
@@ -178,4 +179,7 @@ public class SearchBookButton extends JPanel implements MouseListener {
 		
 	}
 
+	public void setbFrame(SearchBookFrame bFrame) {
+		this.bFrame = bFrame;
+	}
 }

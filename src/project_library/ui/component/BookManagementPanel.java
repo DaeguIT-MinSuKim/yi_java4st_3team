@@ -431,7 +431,7 @@ public class BookManagementPanel extends JPanel implements KeyListener {
 	}
 
 	public void keyTyped(KeyEvent e) {
-
+		
 	}
 
 	protected void keyReleasedTfBau(KeyEvent e) {

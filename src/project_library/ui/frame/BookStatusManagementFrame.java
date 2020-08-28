@@ -33,9 +33,7 @@ public class BookStatusManagementFrame extends JFrame {
 	}
 
 	public BookStatusManagementFrame() {
-		
 		initComponents();
-		
 	}
 
 	private void initComponents() {
