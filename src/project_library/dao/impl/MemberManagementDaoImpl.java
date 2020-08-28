@@ -25,7 +25,7 @@ public class MemberManagementDaoImpl implements MemberManagementDao {
 
 	@Override
 	public List<Member> selectMemberByAll() {
-		String sql = "SELECT MEMBER_NO , MEMBER_NAME , TEL , TOTAL_RENT FROM MEMBER";
+		String sql = "SELECT MEMBER_NO, MEMBER_NAME, TEL, TOTAL_RENT FROM MEMBER ORDER BY MEMBER_NO";
 		try (Connection con = JdbcUtil.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {

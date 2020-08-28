@@ -27,7 +27,7 @@ public class ReturnManagementDaoImpl implements ReturnManagementDao {
 
 	@Override
 	public List<Rent> selectReturnManagementByAll() {
-		String sql = "SELECT M.*, B.*, R.* FROM MEMBER M, BOOK B, RENT R WHERE M.MEMBER_NO = R.MEMBER_NO AND B.BOOK_NO = R.BOOK_NO";
+		String sql = "SELECT M.*, B.*, R.* FROM MEMBER M, BOOK B, RENT R WHERE M.MEMBER_NO = R.MEMBER_NO AND B.BOOK_NO = R.BOOK_NO ORDER BY R.BOOK_NO";
 		try (Connection con = JdbcUtil.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) { //executeQuery()로 DB값 호출
