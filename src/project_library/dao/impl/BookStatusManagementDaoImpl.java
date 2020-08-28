@@ -2,7 +2,10 @@ package project_library.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import project_library.conn.JdbcUtil;
 import project_library.dao.BookStatusManagementDao;
@@ -21,27 +24,54 @@ public class BookStatusManagementDaoImpl implements BookStatusManagementDao {
 	}
 
 	@Override
-	public int selectTotalBook(Book bsta) {
-		String sql = "SELECT COUNT(DISTINCT ?) FROM BOOK";
-		try (Connection con = JdbcUtil.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
-			pstmt.setString(1, bsta.getNo());
-			return pstmt.executeUpdate();
+	public int selectTotalBook() {
+		String sql = "SELECT COUNT(DISTINCT BOOK_NO) FROM BOOK";
+		int resultCount = 0;
+		try (Connection con = JdbcUtil.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery()) {
+			if (rs.next()) {
+				resultCount = rs.getInt(1);
+			}
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		
+		return resultCount;
 	}
 
 	@Override
-	public int selectTotalOverdueBook(Book bsta) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int selectTotalOverdueBook() {
+		String sql = "SELECT COUNT('is_Delay') FROM VM_OVERDUE WHERE \"is_Delay\" = 'Y'";
+		int resultCount = 0;
+		try (Connection con = JdbcUtil.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery()) {
+			if (rs.next()) {
+				resultCount = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return resultCount;
 	}
 
 	@Override
-	public int selectTotalRentalBook(Book bsta) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int selectTotalRentalBook() {
+		String sql = "SELECT COUNT(DISTINCT BOOK_NO) FROM RENT";
+		int resultCount = 0;
+		try (Connection con = JdbcUtil.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery()) {
+			if (rs.next()) {
+				resultCount = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return resultCount;
 	}
 
 }

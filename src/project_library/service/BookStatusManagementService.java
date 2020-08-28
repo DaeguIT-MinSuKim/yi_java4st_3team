@@ -2,21 +2,21 @@ package project_library.service;
 
 import project_library.dao.BookStatusManagementDao;
 import project_library.dao.impl.BookStatusManagementDaoImpl;
-import project_library.dto.Book;
 
 public class BookStatusManagementService {
+
 	private BookStatusManagementDao dao = BookStatusManagementDaoImpl.getInstance();
 
-	public void selectTotalBook(Book bsta) {
-		dao.selectTotalBook(bsta);
+	public int selectTotalBook() {
+		return dao.selectTotalBook();
 	}
 
-	public void selectTotalOverdueBook(Book bsta) {
-		dao.selectTotalOverdueBook(bsta);
+	public int selectTotalOverdueBook() {
+		return dao.selectTotalOverdueBook();
 	}
 
-	public void selectTotalRentalBook(Book bsta) {
-		dao.selectTotalRentalBook(bsta);
+	public int selectTotalRentalBook() {
+		return dao.selectTotalRentalBook();
 	}
 
 }

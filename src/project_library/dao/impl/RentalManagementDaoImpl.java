@@ -73,9 +73,7 @@ public class RentalManagementDaoImpl implements RentalManagementDao {
 	/* 수정 */
 	@Override
 	public int updateRentalManagement_book(Rent dto) {
-		String sql = "UPDATE BOOK" + 
-				"SET TOTAL_COUNT = TOTAL_COUNT + 1, IS_RENT = 0" + 
-				"WHERE BOOK_NO = ?"; 
+		String sql = "UPDATE BOOK SET TOTAL_COUNT = TOTAL_COUNT + 1, IS_RENT = 0 WHERE BOOK_NO = ?"; 
 		
 		try(Connection con = JdbcUtil.getConnection();
     			PreparedStatement pstmt = con.prepareStatement(sql)){
@@ -88,9 +86,7 @@ public class RentalManagementDaoImpl implements RentalManagementDao {
 	
 	@Override
 	public int updateRentalManagement_member(Rent dto) {
-		String sql = "UPDATE MEMBER" + 
-				"SET TOTAL_RENT = TOTAL_RENT + 1" + 
-				"WHERE MEMBER_NO = ?";
+		String sql = "UPDATE MEMBER SET TOTAL_RENT = TOTAL_RENT + 1 WHERE MEMBER_NO = ?";
 		
     	try(Connection con = JdbcUtil.getConnection();
     			PreparedStatement pstmt = con.prepareStatement(sql)){
