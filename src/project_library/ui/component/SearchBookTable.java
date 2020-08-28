@@ -43,8 +43,8 @@ public class SearchBookTable extends JTable implements MouseListener {
 		return new Object[] {
 		rent.getMemberCode(),
 		rent.getMemberName(),
-		rent.getRentDate(),
 		rent.getReturnDate(),
+		rent.getRentDate(),
 		rent.getIsDelay()
 		};
 	}
@@ -90,8 +90,8 @@ public class SearchBookTable extends JTable implements MouseListener {
 		tcm.getColumn(3).setCellRenderer(dtcr);
 		tcm.getColumn(4).setCellRenderer(dtcr);
 
-		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
-		setRowSorter(sorter);
+//		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+//		setRowSorter(sorter);
 	}
 
 	@Override

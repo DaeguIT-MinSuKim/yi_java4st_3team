@@ -20,10 +20,28 @@ public class SearchBookPanel extends JPanel {
 	private JTextField tfBPu;
 	private JTextField tfBau;
 
-	/**
-	 * Create the panel.
-	 */
+	
+	
 	public SearchBookPanel() {
+		
+
+		initComponents();
+		
+		//텍스트필드 비활성화
+		setEditableFalseTf();
+	}
+
+
+	public void setEditableFalseTf() {
+		tfBno.setEditable(false);
+		tfBname.setEditable(false);
+		tfBPu.setEditable(false);
+		tfBau.setEditable(false);
+		tfBpr.setEditable(false);
+	}
+	
+	private void initComponents() {
+		
 		setBorder(new TitledBorder(null, "\uB3C4\uC11C\uC815\uBCF4", TitledBorder.LEFT, TitledBorder.TOP, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{44, 57, 116, 170, 294, 0};
@@ -126,7 +144,9 @@ public class SearchBookPanel extends JPanel {
 		gbc_tfBpr.gridy = 4;
 		add(tfBpr, gbc_tfBpr);
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{tfBpr, lblBno, tfBno, lblBname, tfBname, lblBau, lblBpu, tfBPu, tfBau, lblBpr}));
-	
 	}
 
+	
+
+	
 }

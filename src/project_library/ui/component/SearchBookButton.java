@@ -1,5 +1,6 @@
 package project_library.ui.component;
 
+import java.awt.FlowLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -7,11 +8,14 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import project_library.dto.Book;
+import project_library.dto.Member;
+import project_library.dto.Rent;
 import project_library.service.BookManagementService;
-import java.awt.FlowLayout;
+import project_library.service.MemberManagementService;
 
 @SuppressWarnings("serial")
 public class SearchBookButton extends JPanel implements MouseListener {
@@ -25,7 +29,17 @@ public class SearchBookButton extends JPanel implements MouseListener {
 	private JTextField tfBau;
 	private JTextField tfBpr;
 	private JTextField tfBook;
+	private SearchBookTable table;
+	private JScrollPane scrollPane;
+	public static ArrayList<Rent> SearchBookList;
+	
 	public SearchBookButton() {
+		
+		initcomponents();
+	
+	}
+	
+	private void initcomponents() {
 		FlowLayout flowLayout = (FlowLayout) getLayout();
 		flowLayout.setHgap(15);
 		
@@ -34,19 +48,27 @@ public class SearchBookButton extends JPanel implements MouseListener {
 		add(btnSearch);
 		
 		btnExit = new JButton("닫기");
+		btnExit.addMouseListener(this);
 		add(btnExit);
-
 	}
 	
 	
 	public void mouseClicked(MouseEvent e) {
+		
 		if(e.getSource() == btnSearch) {
 			btnSearch_mouseClicked(e);
+		}
+		if(e.getSource() == btnExit) {
+			btnExit_mouseClicked(e);
 		}
 	}
 	
 
-	private void btnSearch_mouseClicked(MouseEvent e) {
+	private void btnExit_mouseClicked(MouseEvent e) {
+		System.exit(0);
+	}
+
+	public void btnSearch_mouseClicked(MouseEvent e) {
 		// 텍스트필드에 입력된 도서코드 값 가져옴.
 		String getTfBook = tfBook.getText();
 	
@@ -89,13 +111,17 @@ public class SearchBookButton extends JPanel implements MouseListener {
 			 tfBau.setText(bookAuthor);
 			 tfBpr.setText(bookPrice2);
 			 
+			 
+			 //출납테이블에서 대여 현황 읽어와 [대여정보,SearchBooktable]에 표시한다.
+			
+			
+			 
 		}else {
 			//멤버가 없으면
 			JOptionPane.showMessageDialog(null, "검색한 회원이 없습니다.", "오류", JOptionPane.ERROR_MESSAGE);
 			clearMemberTf();
 		}
 		
-		//출납테이블에서 대여현황을 읽어와 대여정보 테이블에 표시한다. 
 		
 		
 		
