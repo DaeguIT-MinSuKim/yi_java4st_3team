@@ -26,6 +26,9 @@ import project_library.ui.component.SearchBookButton;
 import project_library.ui.component.SearchBookPanel;
 import project_library.ui.component.SearchBookTable;
 import project_library.ui.component.SearchBookTotalCountPanel;
+import javax.swing.JTable;
+import project_library.ui.component.SearchBookTable2;
+import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
 public class SearchBookFrame extends JFrame implements ActionListener {
@@ -50,6 +53,7 @@ public class SearchBookFrame extends JFrame implements ActionListener {
 	private SearchBookManagementService bService;
 	private ButtonGroup radioGroup;
 	private JButton sBtn;
+	private SearchBookTable2 table_1;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -151,6 +155,16 @@ public class SearchBookFrame extends JFrame implements ActionListener {
 
 		scrollPane = new JScrollPane();
 		pRentInfo.add(scrollPane, BorderLayout.CENTER);
+		
+		table_1 = new SearchBookTable2();
+		table_1.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"회원코드", "성명", "대여일", "반납일", "연체여부"
+			}
+		));
+		scrollPane.setViewportView(table_1);
 
 		
 //		table = new SearchBookTable(); 
