@@ -68,6 +68,7 @@ public class SearchBookFrame extends JFrame implements ActionListener {
 	}
 
 	public SearchBookFrame() {
+		setTitle("도서 검색");
 		
 		  bService = new SearchBookManagementService(); 
 		  
