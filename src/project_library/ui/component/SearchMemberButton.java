@@ -1,5 +1,6 @@
 package project_library.ui.component;
 
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -10,14 +11,14 @@ import javax.swing.JPanel;
 import project_library.dto.Member;
 import project_library.service.MemberManagementService;
 import project_library.ui.frame.SearchMemberFrame;
-
+import project_library.ui.component.SearchMemberInfoShowPanel;
 @SuppressWarnings("serial")
 public class SearchMemberButton extends JPanel {
 
 	public String getMemberName;
 	public String getMemberCode;
 	public String getMemberTel;
-	private SearchMemberFrame bFrame;
+	protected Window bFrame;
 
 	public SearchMemberButton() {
 		
@@ -36,9 +37,6 @@ public class SearchMemberButton extends JPanel {
 				
 				mService=new MemberManagementService();
 				memberDtoList=(ArrayList<Member>)mService.getMemberDtoList();
-//				if (isEmpty()) {
-//					throw new EmptyTfException("공란 존재");
-//				}
 
 				boolean memberChk=false;
 				memberCode = "";
@@ -53,23 +51,12 @@ public class SearchMemberButton extends JPanel {
 				}
 				
 				if(memberChk==true) {
-					
+					SearchMemberInfoShowPanel.lblGetNo.setText(memberCode);
+					SearchMemberInfoShowPanel.lblGetName.setText(memberName);
+					SearchMemberInfoShowPanel.lblGetTel.setText(memberCode);
 				}
+///////여기까지 하던 중 -----------------------------------------------------------				
 			}
-//			public Member getMember() {
-//
-//				// 공란
-//				
-//				// 형식
-//				if (!isInvalid()) {
-//					throw new InValidationException("형식이 맞지 않습니다.");
-//				}
-//
-////				String no = tfNo.getText().trim();
-//				String name = tfName.getText().trim();
-////				String tel = tfTel.getText().trim();
-//				return new Member(name);
-//			}
 			public String getMemberName() {
 				return memberName;
 			}

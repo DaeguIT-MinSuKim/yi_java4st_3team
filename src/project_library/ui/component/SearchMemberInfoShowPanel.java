@@ -26,9 +26,9 @@ import project_library.ui.component.SearchMemberButton;
 
 @SuppressWarnings("serial")
 public class SearchMemberInfoShowPanel extends JPanel  {
-	private JLabel lblGetNo;
-	private JLabel lblGetName;
-	private JLabel lblGetTel;
+	public static JLabel lblGetNo;
+	public static JLabel lblGetName;
+	public static JLabel lblGetTel;
 
 	public SearchMemberInfoShowPanel() {
 		initComponents();
