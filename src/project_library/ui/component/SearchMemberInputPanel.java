@@ -23,7 +23,7 @@ import project_library.ui.frame.MemberManagementFrame;
 
 @SuppressWarnings("serial")
 public class SearchMemberInputPanel extends JPanel{
-	public JTextField tfName;
+	public JTextField tfCode;
 
 	public SearchMemberInputPanel() {
 		initComponents();
@@ -38,36 +38,36 @@ public class SearchMemberInputPanel extends JPanel{
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0 };
 		setLayout(gridBagLayout);
 
-		JLabel lblName = new JLabel("성      명 : ");
-		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblName.setFont(new Font("맑은 고딕", Font.BOLD, 14));
-		GridBagConstraints gbc_lblName = new GridBagConstraints();
-		gbc_lblName.anchor = GridBagConstraints.EAST;
-		gbc_lblName.insets = new Insets(0, 0, 5, 5);
-		gbc_lblName.gridx = 0;
-		gbc_lblName.gridy = 1;
-		add(lblName, gbc_lblName);
+		JLabel lblCode = new JLabel("회 원 코 드 : ");
+		lblCode.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblCode.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		GridBagConstraints gbc_lblCode = new GridBagConstraints();
+		gbc_lblCode.anchor = GridBagConstraints.EAST;
+		gbc_lblCode.insets = new Insets(0, 0, 5, 5);
+		gbc_lblCode.gridx = 0;
+		gbc_lblCode.gridy = 1;
+		add(lblCode, gbc_lblCode);
 
-		tfName = new JTextField();
+		tfCode = new JTextField();
 //		tfName.addKeyListener(this);
-		tfName.setHorizontalAlignment(SwingConstants.CENTER);
-		tfName.setFont(new Font("맑은 고딕", Font.BOLD, 14));
-		tfName.setColumns(20);
-		tfName.setBorder(new EmptyBorder(5, 10, 5, 5));
-		tfName.setBorder((Border) (new LineBorder(Color.black, 1)));
-		GridBagConstraints gbc_tfName = new GridBagConstraints();
-		gbc_tfName.gridwidth = 3;
-		gbc_tfName.insets = new Insets(5, 5, 5, 5);
-		gbc_tfName.fill = GridBagConstraints.HORIZONTAL;
-		gbc_tfName.gridx = 1;
-		gbc_tfName.gridy = 1;
-		add(tfName, gbc_tfName);
+		tfCode.setHorizontalAlignment(SwingConstants.CENTER);
+		tfCode.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		tfCode.setColumns(20);
+		tfCode.setBorder(new EmptyBorder(5, 10, 5, 5));
+		tfCode.setBorder((Border) (new LineBorder(Color.black, 1)));
+		GridBagConstraints gbc_tfCode = new GridBagConstraints();
+		gbc_tfCode.gridwidth = 3;
+		gbc_tfCode.insets = new Insets(5, 5, 5, 5);
+		gbc_tfCode.fill = GridBagConstraints.HORIZONTAL;
+		gbc_tfCode.gridx = 1;
+		gbc_tfCode.gridy = 1;
+		add(tfCode, gbc_tfCode);
 
 	}
 
 	protected void setItem(Member idx) {
 //		tfNo.setText(idx.getNo() + "");
-		tfName.setText(idx.getName());
+		tfCode.setText(idx.getName());
 //		tfTel.setText(idx.getTel());
 	}
 
@@ -83,7 +83,7 @@ public class SearchMemberInputPanel extends JPanel{
 		}
 
 //		String no = tfNo.getText().trim();
-		String name = tfName.getText().trim();
+		String name = tfCode.getText().trim();
 //		String tel = tfTel.getText().trim();
 		return new Member(name);
 	}
@@ -91,7 +91,7 @@ public class SearchMemberInputPanel extends JPanel{
 	// Clear
 	public void clearTf() {
 //		tfNo.setText("");
-		tfName.setText("");
+		tfCode.setText("");
 //		tfTel.setText("");
 	}
 
@@ -99,31 +99,29 @@ public class SearchMemberInputPanel extends JPanel{
 
 	private boolean isInvalid() {
 		// 정규식 표현식
-//		String no = tfNo.getText().trim();
-		String name = tfName.getText().trim();
-//		String tel = tfTel.getText().trim();
+		String no = tfCode.getText().trim();
 
 		// 정규표현식 적용
-//		boolean noCheck = Pattern.matches("[a-zA-Z]{1}\\d{3}", no);
-		boolean nameCheck = Pattern.matches("^[가-힣A-Za-z]+$", name);
+		boolean noCheck = Pattern.matches("[a-zA-Z]{1}\\d{3}", no);
+//		boolean nameCheck = Pattern.matches("^[가-힣A-Za-z]+$", name);
 //		boolean telCheck = Pattern.matches("\\d{3}-\\d{3,4}-\\d{4}", tel);
-		return nameCheck ;
+		return noCheck ;
 	}
 
 	private boolean isEmpty() {
-		return tfName.getText().isEmpty();
+		return tfCode.getText().isEmpty();
 	}
 
 
 	// MemberPanel 수정 불가능
 	public void setEditalbeFalseTf() {
-		tfName.setEditable(false);
+		tfCode.setEditable(false);
 	}
 
 
 	// Table 클릭 시
 	public void setEditalbeTableTrueTf() {
-		tfName.setEditable(true);
+		tfCode.setEditable(true);
 	}
 
 	

@@ -10,7 +10,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import project_library.dto.Member;
+import project_library.dto.Rent;
 import project_library.service.MemberManagementService;
+import project_library.service.SearchMemberManagementService;
 import project_library.ui.frame.SearchMemberFrame;
 @SuppressWarnings("serial")
 public class SearchMemberButton extends JPanel {
@@ -26,42 +28,66 @@ public class SearchMemberButton extends JPanel {
 		btnSearch.addActionListener(new ActionListener() {
 			private MemberManagementService mService;
 			public  ArrayList<Member> memberDtoList;
+			public ArrayList<Rent> SBookList;
 			public String memberName;
 			public String memberTel;
 			public String memberCode;
+			
 
 			public void actionPerformed(ActionEvent e) {
 				//System.out.println("A");
 				
-				Member name = SearchMemberFrame.pInput.getItem();
+				Member no = SearchMemberFrame.pInput.getItem();
+				
+				String getCode = no.getNo();
+//				System.out.println(getCode);
 				
 				mService=new MemberManagementService();
 				memberDtoList=(ArrayList<Member>)mService.getMemberDtoList();
+				
 				System.out.println(memberDtoList);
+				
 				boolean memberChk=false;
 				memberCode = "";
 				memberName = "";
 				memberTel = "";
 				
 				for(Member M: memberDtoList) {
-					memberChk=true;
-					memberCode=M.getNo();
-					memberName=M.getName();
-					memberTel=M.getTel();
+						System.out.println(M.getNo());
+					if( M.getNo().equals(getCode) ) {
+						memberChk = true;
+						memberCode=M.getNo();
+						memberName=M.getName();
+						memberTel=M.getTel();
+					}
 				}
 				
-				if(memberChk==true) {
+//				System.out.println(memberCode);
+				
+				if(memberChk == true) {
 					SearchMemberInfoShowPanel.lblGetNo.setText(memberCode);
 					SearchMemberInfoShowPanel.lblGetName.setText(memberName);
 					SearchMemberInfoShowPanel.lblGetTel.setText(memberTel);
 					
-//					int count1=SearchMemberFrame.table.getRowCount();
+					
+//					SMservice = new Sea
+					sService = new SearchMemberManagementService(); // 초기화를 해야 최신값을 쓸수있다 ?
+					SearchBookList = (ArrayList<Rent>) sService.getSearchBookManagementList();
+					
+					
+					SearchMemberFrame.table = new SearchMemberTable_young();
+					SearchMemberFrame.table.setSearchMemberManagementList(SBookList);
+					SearchMemberFrame.scrollPane.setViewportView(SearchMemberFrame.table);
+					
 					
 				}else {
 					JOptionPane.showMessageDialog(null, "검색한 회원이 없습니다.","오류",JOptionPane.ERROR_MESSAGE);
 					clearMemberInfo();
 				}
+				
 			}
+			
+			
 			public String getMemberName() {
 				return memberName;
 			}

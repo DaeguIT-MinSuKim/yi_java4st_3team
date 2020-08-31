@@ -2,6 +2,7 @@ package project_library.ui.frame;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.ScrollPane;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -13,6 +14,7 @@ import javax.swing.border.EmptyBorder;
 import project_library.ui.component.SearchMemberButton;
 import project_library.ui.component.SearchMemberInfoShowPanel;
 import project_library.ui.component.SearchMemberInputPanel;
+import project_library.ui.component.SearchMemberTable_young;
 import project_library.ui.component.SearchMemberTotalCountPanel;
 import javax.swing.SwingConstants;
 
@@ -21,7 +23,8 @@ public class SearchMemberFrame extends JFrame {
 
 	private JPanel contentPane;
 	public static SearchMemberInputPanel pInput;
-	public static JTable table;
+	public static SearchMemberTable_young table;
+	public static JScrollPane scrollPane;
 	/**
 	 * Launch the application.
 	 */
@@ -50,7 +53,7 @@ public class SearchMemberFrame extends JFrame {
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 		
 		pInput = new SearchMemberInputPanel();
-		pInput.tfName.setHorizontalAlignment(SwingConstants.LEFT);
+		pInput.tfCode.setHorizontalAlignment(SwingConstants.LEFT);
 		pInput.setBorder(new EmptyBorder(0, 20, 0, 20));
 		contentPane.add(pInput);
 		
@@ -68,7 +71,7 @@ public class SearchMemberFrame extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		pRentInfo.add(scrollPane, BorderLayout.CENTER);
 		
-		table = new JTable();
+		table = new SearchMemberTable_young();
 		scrollPane.setViewportView(table);
 		
 		SearchMemberTotalCountPanel pRentInfoTotal = new SearchMemberTotalCountPanel();

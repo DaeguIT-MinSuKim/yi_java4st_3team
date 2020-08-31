@@ -13,6 +13,8 @@ public class Member {
 	public Member(String no) {
 		this.no = no;
 	}
+	
+
 
 	public Member(String no, String name, String tel, int rent) {
 		this.no = no;
