@@ -21,7 +21,7 @@ public class SearchMemberFrame extends JFrame {
 
 	private JPanel contentPane;
 	public static SearchMemberInputPanel pInput;
-	private JTable table;
+	public static JTable table;
 	/**
 	 * Launch the application.
 	 */
@@ -58,7 +58,7 @@ public class SearchMemberFrame extends JFrame {
 		contentPane.add(pBtns);
 		pBtns.setbFrame(this);
 		
-		SearchMemberInfoShowPanel pMemberInfo = new SearchMemberInfoShowPanel();
+		SearchMemberInfoShowPanel pMemberInfo =  new SearchMemberInfoShowPanel();
 		contentPane.add(pMemberInfo);
 		
 		JPanel pRentInfo = new JPanel();
