@@ -34,7 +34,6 @@ public class SearchMemberButton extends JPanel {
 			public String memberCode;
 			private SearchMemberManagementService sService;
 			private ArrayList<Rent> SearchBookList;
-			
 
 			public void actionPerformed(ActionEvent e) {
 				//System.out.println("A");
@@ -47,7 +46,7 @@ public class SearchMemberButton extends JPanel {
 				mService=new MemberManagementService();
 				memberDtoList=(ArrayList<Member>)mService.getMemberDtoList();
 				
-				System.out.println(memberDtoList);
+//				System.out.println(memberDtoList);
 				
 				boolean memberChk=false;
 				memberCode = "";
@@ -71,18 +70,16 @@ public class SearchMemberButton extends JPanel {
 					SearchMemberInfoShowPanel.lblGetName.setText(memberName);
 					SearchMemberInfoShowPanel.lblGetTel.setText(memberTel);
 					
-					//--------------------------------------------------------membercode를 입력해서 booklist가지고 오기 
+					//--------------------------------------table
 					
-					
-					sService = new SearchMemberManagementService(); 
+ 					sService = new SearchMemberManagementService(); 
 					SearchBookList = (ArrayList<Rent>) sService.getSelectSearchMemberByNoList(memberCode);
-					
-					
+					System.out.println(memberCode);
 					SearchMemberFrame.table = new SearchMemberTable_young();
 					SearchMemberFrame.table.setSearchMemberManagementList(SBookList);
 					SearchMemberFrame.scrollPane.setViewportView(SearchMemberFrame.table);
 					
-					
+					System.out.println(SearchBookList);
 				}else {
 					JOptionPane.showMessageDialog(null, "검색한 회원이 없습니다.","오류",JOptionPane.ERROR_MESSAGE);
 					clearMemberInfo();

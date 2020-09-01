@@ -16,7 +16,7 @@ import project_library.dto.Rent;
 
 public class SearchMemberTable_young extends JTable implements MouseListener {
 	private CustomTable model;
-	public static ArrayList<Rent> rentalList;
+	public static ArrayList<Rent> searchBookList;
 	
 	
 	public SearchMemberTable_young() {
@@ -30,11 +30,10 @@ public class SearchMemberTable_young extends JTable implements MouseListener {
 	}
 	
 	
-	private Object[][] getRows(ArrayList<Rent> rentalList) {
-		Object[][] rows = new Object[rentalList.size()][];
+	private Object[][] getRows(ArrayList<Rent> searchBookList) {
+		Object[][] rows = new Object[searchBookList.size()][];
 		for (int i = 0; i < rows.length; i++) {
-			rows[i] = toArray(rentalList.get(i)); 
-//			System.out.println(rentalList.size());
+			rows[i] = toArray(searchBookList.get(i)); 
 		}
 		return rows;
 	}
@@ -65,9 +64,6 @@ public class SearchMemberTable_young extends JTable implements MouseListener {
 		
 	}
 	
-	public ArrayList<Rent> getBList() {
-		return rentalList;
-	}
 	
 	public void setSearchMemberManagementList(ArrayList<Rent> SBookList) {
 		model = new CustomTable(getRows(SBookList), getCols());

@@ -71,7 +71,14 @@ public class SearchMemberManagementDaoImpl implements SearchMemberManagementDao 
 	}
 	 @Override
 	   public List<Rent> selectSearchMemberByNo(String memberCode) {
-	      String sql = "";
+	      String sql = "SELECT B.BOOK_NO, B.BOOK_NAME, R.RENT_DATE , R.RETURN_DATE, ( " + 
+	      		"CASE WHEN R.RENT_DATE+3 < R.RETURN_DATE THEN 'Y' " + 
+	      		"WHEN R.RENT_DATE+3 >= R.RETURN_DATE THEN 'N' " + 
+	      		"ELSE '반납하지 않음' END " + 
+	      		") AS IS_DELAY " + 
+	      		"FROM MEMBER M, BOOK B, RENT R " + 
+	      		"WHERE M.MEMBER_NO = R.MEMBER_NO AND B.BOOK_NO = R.BOOK_NO " + 
+	      		"AND R.MEMBER_NO = ?";
 	      try (Connection con = JdbcUtil.getConnection(); 
 	            PreparedStatement pstmt = con.prepareStatement(sql)) {
 	    	  
@@ -92,5 +99,6 @@ public class SearchMemberManagementDaoImpl implements SearchMemberManagementDao 
 	         throw new RuntimeException(e);
 	      }
 	      return null;
+	      
 	   }
 }

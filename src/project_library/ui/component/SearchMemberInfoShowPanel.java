@@ -55,7 +55,6 @@ public class SearchMemberInfoShowPanel extends JPanel  {
 		
 		lblGetNo = new JLabel("");
 		GridBagConstraints gbc_lblGetNo = new GridBagConstraints();
-		gbc_lblGetNo.gridwidth = 3;
 		gbc_lblGetNo.insets = new Insets(0, 0, 5, 0);
 		gbc_lblGetNo.gridx = 1;
 		gbc_lblGetNo.gridy = 0;
@@ -73,8 +72,7 @@ public class SearchMemberInfoShowPanel extends JPanel  {
 		
 		lblGetName = new JLabel("");
 		GridBagConstraints gbc_lblGetName = new GridBagConstraints();
-		gbc_lblGetName.gridwidth = 3;
-		gbc_lblGetName.insets = new Insets(0, 0, 5, 0);
+		gbc_lblGetName.insets = new Insets(0, 0, 5, 5);
 		gbc_lblGetName.gridx = 1;
 		gbc_lblGetName.gridy = 1;
 		add(lblGetName, gbc_lblGetName);
