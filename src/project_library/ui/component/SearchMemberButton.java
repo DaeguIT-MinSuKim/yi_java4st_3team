@@ -14,6 +14,7 @@ import project_library.dto.Rent;
 import project_library.service.MemberManagementService;
 import project_library.service.SearchMemberManagementService;
 import project_library.ui.frame.SearchMemberFrame;
+import project_library.ui.component.SearchMemberTable_young;
 @SuppressWarnings("serial")
 public class SearchMemberButton extends JPanel {
 
@@ -33,7 +34,7 @@ public class SearchMemberButton extends JPanel {
 			public String memberTel;
 			public String memberCode;
 			private SearchMemberManagementService sService;
-			private ArrayList<Rent> SearchBookList;
+			private ArrayList<Rent> SearchMemberBookList;
 
 			public void actionPerformed(ActionEvent e) {
 				//System.out.println("A");
@@ -73,13 +74,14 @@ public class SearchMemberButton extends JPanel {
 					//--------------------------------------table
 					
  					sService = new SearchMemberManagementService(); 
-					SearchBookList = (ArrayList<Rent>) sService.getSelectSearchMemberByNoList(memberCode);
-					System.out.println(memberCode);
+					SearchMemberBookList = (ArrayList<Rent>) sService.getSelectSearchMemberByNoList(memberCode);
+					//System.out.println(SearchMemberBookList);
+					
 					SearchMemberFrame.table = new SearchMemberTable_young();
-					SearchMemberFrame.table.setSearchMemberManagementList(SBookList);
+					SearchMemberFrame.table.setSearchMemberManagementList(SearchMemberBookList);
 					SearchMemberFrame.scrollPane.setViewportView(SearchMemberFrame.table);
 					
-					System.out.println(SearchBookList);
+//					System.out.println(SearchMemberBookList);
 				}else {
 					JOptionPane.showMessageDialog(null, "검색한 회원이 없습니다.","오류",JOptionPane.ERROR_MESSAGE);
 					clearMemberInfo();

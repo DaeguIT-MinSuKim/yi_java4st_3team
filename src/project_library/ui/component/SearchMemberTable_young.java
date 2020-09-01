@@ -65,8 +65,8 @@ public class SearchMemberTable_young extends JTable implements MouseListener {
 	}
 	
 	
-	public void setSearchMemberManagementList(ArrayList<Rent> SBookList) {
-		model = new CustomTable(getRows(SBookList), getCols());
+	public void setSearchMemberManagementList(ArrayList<Rent> SearchMemberBookList) {
+		model = new CustomTable(getRows(SearchMemberBookList), getCols());
 		setModel(model);
 
 		// column의 폭 설정

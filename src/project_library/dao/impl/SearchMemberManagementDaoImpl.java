@@ -25,7 +25,13 @@ public class SearchMemberManagementDaoImpl implements SearchMemberManagementDao 
 
 	@Override
 	public List<Rent> selectSearchBookManagementByAll() {
-		String sql = "SELECT M.*, B.*, R.*, (CASE WHEN R.RENT_DATE+3 < R.RETURN_DATE THEN 'Y' WHEN R.RENT_DATE+3 >= R.RETURN_DATE THEN 'N' ELSE '반납하지 않음' END) AS is_Delay FROM MEMBER M, BOOK B, RENT R WHERE M.MEMBER_NO = R.MEMBER_NO AND B.BOOK_NO = R.BOOK_NO ORDER BY R.BOOK_NO";
+		String sql = "SELECT B.BOOK_NO, B.BOOK_NAME, R.RENT_DATE , R.RETURN_DATE, (" + 
+	      		"CASE WHEN R.RENT_DATE+3 < R.RETURN_DATE THEN 'Y' " + 
+	      		"WHEN R.RENT_DATE+3 >= R.RETURN_DATE THEN 'N' " + 
+	      		"ELSE '반납하지 않음' END " + 
+	      		") AS IS_DELAY " + 
+	      		"FROM MEMBER M, BOOK B, RENT R "; 
+	      		
 		try (Connection con = JdbcUtil.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
@@ -46,32 +52,17 @@ public class SearchMemberManagementDaoImpl implements SearchMemberManagementDao 
 	}
 	
 	private Rent getBook(ResultSet rs) throws SQLException {
-		String MEMBER_NO = rs.getString("MEMBER_NO");
-		String MEMBER_NAME = rs.getString("MEMBER_NAME");
-		String TEL = rs.getString("TEL");
-		int TOTAL_RENT = rs.getInt("TOTAL_RENT");
 		String BOOK_NO = rs.getString("BOOK_NO");
 		String BOOK_NAME = rs.getString("BOOK_NAME");
-		String AUTHOR = rs.getString("AUTHOR");
-		String PUBLISHER = rs.getString("PUBLISHER");
-		int PRICE = rs.getInt("PRICE");
-		int IS_RENT = rs.getInt("IS_RENT");
-		int TOTAL_COUNT = rs.getInt("TOTAL_COUNT");
-		int IDX = rs.getInt("IDX");
-		String MEMBER_NO2 = rs.getString("MEMBER_NO");
-		String BOOK_NO2 = rs.getString("BOOK_NO");
 		String RENT_DATE = rs.getString("RENT_DATE");
 		String RETURN_DATE = rs.getString("RETURN_DATE");
 		String IS_DELAY = rs.getString("IS_DELAY");
 		
-		
-		return new Rent(MEMBER_NO, MEMBER_NAME, TEL, TOTAL_RENT, BOOK_NO, BOOK_NAME,
-				AUTHOR, PUBLISHER, PRICE, IS_RENT, TOTAL_COUNT, IDX,
-				MEMBER_NO2, BOOK_NO2, RENT_DATE, RETURN_DATE, IS_DELAY);
+		return new Rent(BOOK_NO, BOOK_NAME,RENT_DATE, RETURN_DATE, IS_DELAY);
 	}
 	 @Override
 	   public List<Rent> selectSearchMemberByNo(String memberCode) {
-	      String sql = "SELECT B.BOOK_NO, B.BOOK_NAME, R.RENT_DATE , R.RETURN_DATE, ( " + 
+	      String sql = "SELECT B.BOOK_NO, B.BOOK_NAME, R.RENT_DATE , R.RETURN_DATE, (" + 
 	      		"CASE WHEN R.RENT_DATE+3 < R.RETURN_DATE THEN 'Y' " + 
 	      		"WHEN R.RENT_DATE+3 >= R.RETURN_DATE THEN 'N' " + 
 	      		"ELSE '반납하지 않음' END " + 
@@ -81,7 +72,6 @@ public class SearchMemberManagementDaoImpl implements SearchMemberManagementDao 
 	      		"AND R.MEMBER_NO = ?";
 	      try (Connection con = JdbcUtil.getConnection(); 
 	            PreparedStatement pstmt = con.prepareStatement(sql)) {
-	    	  
 	    	  	pstmt.setString(1, memberCode);
 	           
 	         try (ResultSet rs = pstmt.executeQuery()) {

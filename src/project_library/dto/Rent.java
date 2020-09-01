@@ -22,6 +22,18 @@ public class Rent {
 	public Rent() {
 	}
 
+	
+	
+	public Rent(String bookCode, String bookName, String rentDate, String returnDate, String isDelay) {
+		this.bookCode = bookCode;
+		this.bookName = bookName;
+		this.rentDate = rentDate;
+		this.returnDate = returnDate;
+		this.isDelay = isDelay;
+	}
+
+
+
 	public Rent(String returnDate) {
 		this.returnDate = returnDate;
 	}
