@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import project_library.conn.JdbcUtil;
-import project_library.dao.SearchBookManagementDao;
 import project_library.dao.SearchMemberManagementDao;
 import project_library.dto.Rent;
 
@@ -70,5 +69,28 @@ public class SearchMemberManagementDaoImpl implements SearchMemberManagementDao 
 				AUTHOR, PUBLISHER, PRICE, IS_RENT, TOTAL_COUNT, IDX,
 				MEMBER_NO2, BOOK_NO2, RENT_DATE, RETURN_DATE, IS_DELAY);
 	}
-
+	 @Override
+	   public List<Rent> selectSearchMemberByNo(String memberCode) {
+	      String sql = "";
+	      try (Connection con = JdbcUtil.getConnection(); 
+	            PreparedStatement pstmt = con.prepareStatement(sql)) {
+	    	  
+	    	  	pstmt.setString(1, memberCode);
+	           
+	         try (ResultSet rs = pstmt.executeQuery()) {
+	        	 
+	            if (rs.next()) {
+	            	List<Rent> list = new ArrayList<>();
+	            	
+	            	do {
+	            		list.add(getBook(rs));
+	            	} while(rs.next());
+	               return list;
+	            }
+	         }
+	      } catch (SQLException e) {
+	         throw new RuntimeException(e);
+	      }
+	      return null;
+	   }
 }

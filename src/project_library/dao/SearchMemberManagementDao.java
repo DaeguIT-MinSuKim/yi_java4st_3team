@@ -7,5 +7,6 @@ import project_library.dto.Rent;
 
 public interface SearchMemberManagementDao {
 	List<Rent> selectSearchBookManagementByAll();
-
+	
+	List<Rent> selectSearchMemberByNo(String memberCode);
 }

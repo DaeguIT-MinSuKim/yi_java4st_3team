@@ -32,6 +32,8 @@ public class SearchMemberButton extends JPanel {
 			public String memberName;
 			public String memberTel;
 			public String memberCode;
+			private SearchMemberManagementService sService;
+			private ArrayList<Rent> SearchBookList;
 			
 
 			public void actionPerformed(ActionEvent e) {
@@ -69,10 +71,11 @@ public class SearchMemberButton extends JPanel {
 					SearchMemberInfoShowPanel.lblGetName.setText(memberName);
 					SearchMemberInfoShowPanel.lblGetTel.setText(memberTel);
 					
+					//--------------------------------------------------------membercode를 입력해서 booklist가지고 오기 
 					
-//					SMservice = new Sea
-					sService = new SearchMemberManagementService(); // 초기화를 해야 최신값을 쓸수있다 ?
-					SearchBookList = (ArrayList<Rent>) sService.getSearchBookManagementList();
+					
+					sService = new SearchMemberManagementService(); 
+					SearchBookList = (ArrayList<Rent>) sService.getSelectSearchMemberByNoList(memberCode);
 					
 					
 					SearchMemberFrame.table = new SearchMemberTable_young();
