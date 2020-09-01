@@ -14,7 +14,6 @@ import project_library.dto.Rent;
 import project_library.service.MemberManagementService;
 import project_library.service.SearchMemberManagementService;
 import project_library.ui.frame.SearchMemberFrame;
-import project_library.ui.component.SearchMemberTable_young;
 @SuppressWarnings("serial")
 public class SearchMemberButton extends JPanel {
 
@@ -77,9 +76,10 @@ public class SearchMemberButton extends JPanel {
 					SearchMemberBookList = (ArrayList<Rent>) sService.getSelectSearchMemberByNoList(memberCode);
 					//System.out.println(SearchMemberBookList);
 					
-					SearchMemberFrame.table = new SearchMemberTable_young();
-					SearchMemberFrame.table.setSearchMemberManagementList(SearchMemberBookList);
-					SearchMemberFrame.scrollPane.setViewportView(SearchMemberFrame.table);
+					
+					
+					SearchMemberFrame.stable.setSearchMemberManagementList(SearchMemberBookList);
+					SearchMemberFrame.scrollPane.setViewportView(SearchMemberFrame.stable);
 					
 //					System.out.println(SearchMemberBookList);
 				}else {
@@ -87,19 +87,6 @@ public class SearchMemberButton extends JPanel {
 					clearMemberInfo();
 				}
 				
-			}
-			
-			
-			public String getMemberName() {
-				return memberName;
-			}
-
-			public String getMemberTel() {
-				return memberTel;
-			}
-
-			public String getMemberCode() {
-				return memberCode;
 			}
 		});
 		add(btnSearch);

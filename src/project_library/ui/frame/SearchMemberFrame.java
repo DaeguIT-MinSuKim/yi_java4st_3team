@@ -17,13 +17,14 @@ import project_library.ui.component.SearchMemberInputPanel;
 import project_library.ui.component.SearchMemberTable_young;
 import project_library.ui.component.SearchMemberTotalCountPanel;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
 public class SearchMemberFrame extends JFrame {
 
 	private JPanel contentPane;
 	public static SearchMemberInputPanel pInput;
-	public static SearchMemberTable_young table;
+	public static SearchMemberTable_young stable;
 	public static JScrollPane scrollPane;
 	/**
 	 * Launch the application.
@@ -71,8 +72,16 @@ public class SearchMemberFrame extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		pRentInfo.add(scrollPane, BorderLayout.CENTER);
 		
-		table = new SearchMemberTable_young();
-		scrollPane.setViewportView(table);
+		stable = new SearchMemberTable_young();
+		stable.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null},
+			},
+			new String[] {
+				"도서코드", "도서명", "대여일자", "반납일자", "연체여부"
+			}
+		));
+		scrollPane.setViewportView(stable);
 		
 		SearchMemberTotalCountPanel pRentInfoTotal = new SearchMemberTotalCountPanel();
 		contentPane.add(pRentInfoTotal);
