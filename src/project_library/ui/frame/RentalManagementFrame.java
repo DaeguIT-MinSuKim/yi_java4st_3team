@@ -39,8 +39,11 @@ public class RentalManagementFrame extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 			}
+			
 		});
+		
 	}
 
 	public RentalManagementFrame() {
@@ -56,7 +59,7 @@ public class RentalManagementFrame extends JFrame {
 
 	private void initComponents() {
 		setTitle("대여 관리");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

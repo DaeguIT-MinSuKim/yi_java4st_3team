@@ -27,9 +27,7 @@ public class SearchMemberFrame extends JFrame {
 	public static SearchMemberInputPanel pInput;
 	public static SearchMemberTable_young stable;
 	public static JScrollPane scrollPane;
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -39,15 +37,15 @@ public class SearchMemberFrame extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 			}
+			
 		});
+		
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public SearchMemberFrame() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 810	, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

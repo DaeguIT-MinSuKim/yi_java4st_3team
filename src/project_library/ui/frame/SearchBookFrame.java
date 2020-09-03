@@ -94,7 +94,7 @@ public class SearchBookFrame extends JFrame implements ActionListener {
 	}
 
 	private void initComponents() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -211,8 +211,7 @@ public class SearchBookFrame extends JFrame implements ActionListener {
 		}catch(Exception ee) {
 			JOptionPane.showMessageDialog(null, "형식에 맞게 입력해주세요.", "오류", JOptionPane.ERROR_MESSAGE);
 		}
-		
-		
+
 	}
 
 }
