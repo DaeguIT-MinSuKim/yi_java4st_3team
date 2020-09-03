@@ -23,6 +23,7 @@ import project_library.exception.FristCharException;
 import project_library.exception.InValidationException;
 import project_library.ui.frame.MemberManagementFrame;
 import project_library.ui.component.SearchMemberButton;
+import javax.swing.border.TitledBorder;
 
 @SuppressWarnings("serial")
 public class SearchMemberInfoShowPanel extends JPanel  {
@@ -35,7 +36,7 @@ public class SearchMemberInfoShowPanel extends JPanel  {
 	}
 
 	private void initComponents() {
-		setBorder(new EmptyBorder(20, 20, 20, 20));
+		setBorder(new TitledBorder(null, "\uD68C\uC6D0\uC815\uBCF4", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 10, 150, 150, 150 };
 		gridBagLayout.rowHeights = new int[] { 30, 30, 30 };

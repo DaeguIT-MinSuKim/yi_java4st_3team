@@ -18,6 +18,7 @@ import project_library.ui.component.SearchMemberTable_young;
 import project_library.ui.component.SearchMemberTotalCountPanel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.border.TitledBorder;
 
 @SuppressWarnings("serial")
 public class SearchMemberFrame extends JFrame {
@@ -66,6 +67,7 @@ public class SearchMemberFrame extends JFrame {
 		contentPane.add(pMemberInfo);
 		
 		JPanel pRentInfo = new JPanel();
+		pRentInfo.setBorder(new TitledBorder(null, "\uB300\uC5EC\uC815\uBCF4", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		contentPane.add(pRentInfo);
 		pRentInfo.setLayout(new BorderLayout(0, 0));
 		

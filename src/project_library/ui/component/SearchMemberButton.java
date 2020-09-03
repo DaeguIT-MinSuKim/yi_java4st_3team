@@ -70,6 +70,18 @@ public class SearchMemberButton extends JPanel {
 					SearchMemberInfoShowPanel.lblGetName.setText(memberName);
 					SearchMemberInfoShowPanel.lblGetTel.setText(memberTel);
 					
+					int count1 = SearchMemberFrame.stable.getRowCount();
+					String count2 = Integer.toString(count1);
+					
+					int stillRentCount = 0;
+					String stillRent = Integer.toString(0);
+					
+					String res = Integer.toString(count1 + stillRentCount);
+					
+					SearchMemberTotalCountPanel.tfGetLateTotalCount.setText(stillRent);
+					SearchMemberTotalCountPanel.tfGetStillRent.setText(count2);
+					SearchMemberTotalCountPanel.tfGetTotal.setText(res);
+					
 					//--------------------------------------table
 					
  					sService = new SearchMemberManagementService(); 
@@ -82,6 +94,8 @@ public class SearchMemberButton extends JPanel {
 					SearchMemberFrame.scrollPane.setViewportView(SearchMemberFrame.stable);
 					
 //					System.out.println(SearchMemberBookList);
+					
+					
 				}else {
 					JOptionPane.showMessageDialog(null, "검색한 회원이 없습니다.","오류",JOptionPane.ERROR_MESSAGE);
 					clearMemberInfo();

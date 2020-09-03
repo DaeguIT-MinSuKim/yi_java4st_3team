@@ -1,11 +1,14 @@
 package project_library.ui.component;
 
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.FlowLayout;
 
 public class SearchMemberTotalCountPanel extends JPanel {
-
+	public static JTextField tfGetLateTotalCount;
+	public static JTextField tfGetStillRent;
+	public static JTextField tfGetTotal;
 	/**
 	 * Create the panel.
 	 */
@@ -20,8 +23,9 @@ public class SearchMemberTotalCountPanel extends JPanel {
 		JLabel lblLateTotalCount = new JLabel("연체 ");
 		add(lblLateTotalCount);
 		
-		JLabel lblGetLateTotalCount = new JLabel("	");
-		add(lblGetLateTotalCount);
+		tfGetLateTotalCount = new JTextField();
+		add(tfGetLateTotalCount);
+		tfGetLateTotalCount.setColumns(10);
 		
 		JLabel lblKwon1 = new JLabel("권");
 		add(lblKwon1);
@@ -29,8 +33,9 @@ public class SearchMemberTotalCountPanel extends JPanel {
 		JLabel lblStillRent = new JLabel("대여중");
 		add(lblStillRent);
 		
-		JLabel lblGetStillRent = new JLabel("	");
-		add(lblGetStillRent);
+		tfGetStillRent = new JTextField();
+		add(tfGetStillRent);
+		tfGetStillRent.setColumns(10);
 		
 		JLabel lblKwon2 = new JLabel("권");
 		add(lblKwon2);
@@ -38,8 +43,9 @@ public class SearchMemberTotalCountPanel extends JPanel {
 		JLabel lblTotal = new JLabel("총");
 		add(lblTotal);
 		
-		JLabel lblGetTotal = new JLabel("	");
-		add(lblGetTotal);
+		tfGetTotal = new JTextField();
+		add(tfGetTotal);
+		tfGetTotal.setColumns(10);
 		
 		JLabel lblKwon3 = new JLabel("권");
 		add(lblKwon3);
