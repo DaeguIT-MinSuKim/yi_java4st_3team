@@ -47,6 +47,7 @@ public class SearchMemberFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public SearchMemberFrame() {
+		setTitle("회원 검색");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 810	, 500);
 		contentPane = new JPanel();
