@@ -96,7 +96,7 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 
 	private void initComponents() {
 		setTitle("회원 관리");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

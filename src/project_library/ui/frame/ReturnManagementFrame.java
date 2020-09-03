@@ -28,9 +28,6 @@ public class ReturnManagementFrame extends JFrame {
 	private JScrollPane scrollPane;
 	public static ArrayList<Rent> returnManagementList;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,13 +37,13 @@ public class ReturnManagementFrame extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 			}
+			
 		});
+		
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public ReturnManagementFrame() {
 		ReturnManagementService bService = new ReturnManagementService();
 		returnManagementList = (ArrayList<Rent>) bService.getReturnManagementList();
@@ -61,7 +58,7 @@ public class ReturnManagementFrame extends JFrame {
 
 	private void initComponents() {
 		setTitle("반납 관리");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -83,4 +80,5 @@ public class ReturnManagementFrame extends JFrame {
 		scrollPane = new JScrollPane();
 		pRTable.add(scrollPane, BorderLayout.CENTER);
 	}
+	
 }

@@ -28,9 +28,6 @@ public class index extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		
 		try {
@@ -47,13 +44,13 @@ public class index extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 			}
+			
 		});
+		
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public index() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 810, 500);
@@ -109,11 +106,13 @@ public class index extends JFrame {
 		
 		JButton btnBook = new JButton("도서 관리");
 		btnBook.addMouseListener(new MouseAdapter() {
+			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				BookManagementFrame f = new BookManagementFrame();
 				f.setVisible(true);
 			}
+			
 		});
 		panel_7.add(btnBook);
 		
@@ -123,11 +122,13 @@ public class index extends JFrame {
 		
 		JButton btnRental = new JButton("대여 관리");
 		btnRental.addMouseListener(new MouseAdapter() {
+			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				RentalManagementFrame f = new RentalManagementFrame();
 				f.setVisible(true);
 			}
+			
 		});
 		panel_6.add(btnRental);
 		
@@ -137,11 +138,13 @@ public class index extends JFrame {
 		
 		JButton btnSearchMember = new JButton("회원 검색");
 		btnSearchMember.addMouseListener(new MouseAdapter() {
+			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				SearchMemberFrame f = new SearchMemberFrame();
 				f.setVisible(true);
 			}
+			
 		});
 		panel_8.add(btnSearchMember);
 		
@@ -155,11 +158,13 @@ public class index extends JFrame {
 		
 		JButton btnMember = new JButton("회원 관리");
 		btnMember.addMouseListener(new MouseAdapter() {
+			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				MemberManagementFrame f = new MemberManagementFrame();
 				f.setVisible(true);
 			}
+			
 		});
 		panel_14.add(btnMember);
 		
@@ -169,11 +174,13 @@ public class index extends JFrame {
 		
 		JButton btnReturn = new JButton("반납 관리");
 		btnReturn.addMouseListener(new MouseAdapter() {
+			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ReturnManagementFrame f = new ReturnManagementFrame();
 				f.setVisible(true);
 			}
+			
 		});
 		panel_11.add(btnReturn);
 		
@@ -183,11 +190,13 @@ public class index extends JFrame {
 		
 		JButton btnSearchBook = new JButton("도서 검색");
 		btnSearchBook.addMouseListener(new MouseAdapter() {
+			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				SearchBookFrame f = new SearchBookFrame();
 				f.setVisible(true);
 			}
+			
 		});
 		panel_10.add(btnSearchBook);
 		
@@ -207,11 +216,13 @@ public class index extends JFrame {
 		
 		JButton btnBookInfo = new JButton("도서 현황");
 		btnBookInfo.addMouseListener(new MouseAdapter() {
+			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				BookStatusManagementFrame f = new BookStatusManagementFrame();
 				f.setVisible(true);
 			}
+			
 		});
 		panel_17.add(btnBookInfo);
 	}

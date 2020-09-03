@@ -98,7 +98,7 @@ public class SearchBookManagementDaoImpl implements SearchBookManagementDao {
 	public List<Rent> selectSearchBookWhere(boolean isCode, String searchKey) {
 		String sql = "SELECT M.*, B.*, R.*, (CASE WHEN R.RENT_DATE+3 < R.RETURN_DATE THEN 'Y' WHEN R.RENT_DATE+3 >= R.RETURN_DATE THEN 'N' ELSE '반납하지 않음' END) AS is_Delay " + 
 				"FROM MEMBER M, BOOK B, RENT R " + 
-				"WHERE M.MEMBER_NO = R.MEMBER_NO AND B.BOOK_NO = R.BOOK_NO ";
+				"WHERE M.MEMBER_NO = R.MEMBER_NO AND B.BOOK_NO = R.BOOK_NO OR B.BOOK_NO LIKE ? OR B.BOOK_NAME LIKE ? ";
 		
 		if (isCode) {
 			sql += "and B.book_no = ?";
@@ -109,7 +109,7 @@ public class SearchBookManagementDaoImpl implements SearchBookManagementDao {
 
 		try (Connection con = JdbcUtil.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);){
-					pstmt.setString(1, searchKey);
+					pstmt.setString(1, "%"+searchKey+"%");
 					
 					try(ResultSet rs = pstmt.executeQuery()) {
 //						System.out.println("aaaaa");
