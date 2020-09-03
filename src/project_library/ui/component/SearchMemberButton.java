@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import project_library.dto.Member;
 import project_library.dto.Rent;
+import project_library.exception.InValidationException;
 import project_library.service.MemberManagementService;
 import project_library.service.SearchMemberManagementService;
 import project_library.ui.frame.SearchMemberFrame;
@@ -37,7 +38,7 @@ public class SearchMemberButton extends JPanel {
 
 			public void actionPerformed(ActionEvent e) {
 				//System.out.println("A");
-				
+				try {
 				Member no = SearchMemberFrame.pInput.getItem();
 				
 				String getCode = no.getNo();
@@ -54,7 +55,7 @@ public class SearchMemberButton extends JPanel {
 				memberTel = "";
 				
 				for(Member M: memberDtoList) {
-						System.out.println(M.getNo());
+					//	System.out.println(M.getNo());
 					if( M.getNo().equals(getCode) ) {
 						memberChk = true;
 						memberCode=M.getNo();
@@ -91,7 +92,7 @@ public class SearchMemberButton extends JPanel {
 					
 					
 					SearchMemberFrame.stable.setSearchMemberManagementList(SearchMemberBookList);
-					SearchMemberFrame.scrollPane.setViewportView(SearchMemberFrame.stable);
+	//				SearchMemberFrame.scrollPane.setViewportView(SearchMemberFrame.stable);
 					
 //					System.out.println(SearchMemberBookList);
 					
@@ -101,7 +102,12 @@ public class SearchMemberButton extends JPanel {
 					clearMemberInfo();
 				}
 				
+				}catch(InValidationException ee) {
+					JOptionPane.showMessageDialog(null, "형식에 맞게 입력해주세요.", "오류", JOptionPane.ERROR_MESSAGE);
+				}
+				
 			}
+				
 		});
 		add(btnSearch);
 		
