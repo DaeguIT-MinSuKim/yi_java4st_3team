@@ -58,6 +58,7 @@ public class SearchMemberButton extends JPanel {
 				memberName = "";
 				memberTel = "";
 				
+				
 				for(Member M: memberDtoList) {
 					//	System.out.println(M.getNo());
 					if( M.getNo().equals(getCode) ) {
@@ -65,6 +66,7 @@ public class SearchMemberButton extends JPanel {
 						memberCode=M.getNo();
 						memberName=M.getName();
 						memberTel=M.getTel();
+						
 					}
 				}
 				
@@ -81,27 +83,33 @@ public class SearchMemberButton extends JPanel {
 					
  					sService = new SearchMemberManagementService(); 
 					SearchMemberBookList = (ArrayList<Rent>) sService.getSelectSearchMemberByNoList(memberCode);
-					//System.out.println(SearchMemberBookList);
-					
-					
-					
 					SearchMemberFrame.stable.setSearchMemberManagementList(SearchMemberBookList);
-	//				SearchMemberFrame.scrollPane.setViewportView(SearchMemberFrame.stable);
 					
-//					System.out.println(SearchMemberBookList);
+					// 연체 
+					int num = 0;
+					for( int i=0; i < SearchMemberFrame.stable.getRowCount(); i++ ) {
+						if( SearchMemberBookList.get(i).getIsDelay().equals("Y") ) {
+							num += 1;
+						}
+					}
 					
-//					int stillRentCount = 0;
-//					String stillRent = Integer.toString(0);
-//					
-//					String res = Integer.toString(count1 + stillRentCount);
+					// 대여중
+					int num2 = 0;
+					for( int i=0; i < SearchMemberFrame.stable.getRowCount(); i++ ) {
+						if( SearchMemberBookList.get(i).getReturnDate() == null ) {
+							num2 += 1;
+						}
+					}
 					
-//					System.out.println(bService.selectTotalOverdueBook()+"");
-//					SearchMemberTotalCountPanel.tfGetLateTotalCount.setText(bService.selectTotalOverdueBook()+"");
+					
+					
+					
 					int count1 = SearchMemberFrame.stable.getRowCount();
 					String count2 = Integer.toString(count1);
-					
-					SearchMemberTotalCountPanel.tfGetLateTotalCount.setText(1 + "");
-					SearchMemberTotalCountPanel.tfGetStillRent.setText(count2);
+//					
+					SearchMemberTotalCountPanel.tfGetLateTotalCount.setText(num+""); // 연체
+					SearchMemberTotalCountPanel.tfGetStillRent.setText(num2+""); // 대여중
+//					SearchMemberTotalCountPanel.tfGetStillRent.setText(count2); // 총
 //					SearchMemberTotalCountPanel.tfGetTotal.setText(res);
 					
 					
