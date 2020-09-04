@@ -30,11 +30,12 @@ public class index extends JFrame {
 
 	public static void main(String[] args) {
 		
-		try {
-			UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e1) {
-			e1.printStackTrace();
-		}
+		/*
+		 * try { UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel"); }
+		 * catch (ClassNotFoundException | InstantiationException |
+		 * IllegalAccessException | UnsupportedLookAndFeelException e1) {
+		 * e1.printStackTrace(); }
+		 */
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

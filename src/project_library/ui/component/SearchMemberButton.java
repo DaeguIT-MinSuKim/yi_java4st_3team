@@ -36,6 +36,7 @@ public class SearchMemberButton extends JPanel {
 			private SearchMemberManagementService sService;
 			private ArrayList<Rent> SearchMemberBookList;
 
+			
 			public void actionPerformed(ActionEvent e) {
 				//System.out.println("A");
 				try {
