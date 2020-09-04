@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import project_library.dto.Member;
 import project_library.dto.Rent;
 import project_library.exception.InValidationException;
+import project_library.service.BookStatusManagementService;
 import project_library.service.MemberManagementService;
 import project_library.service.SearchMemberManagementService;
 import project_library.ui.frame.SearchMemberFrame;
@@ -22,6 +23,7 @@ public class SearchMemberButton extends JPanel {
 	public String getMemberCode;
 	public String getMemberTel;
 	protected Window bFrame;
+	private BookStatusManagementService bService;
 
 	public SearchMemberButton() {
 		
@@ -35,9 +37,10 @@ public class SearchMemberButton extends JPanel {
 			public String memberCode;
 			private SearchMemberManagementService sService;
 			private ArrayList<Rent> SearchMemberBookList;
-
+			
 			
 			public void actionPerformed(ActionEvent e) {
+				bService = new BookStatusManagementService();
 				//System.out.println("A");
 				try {
 				Member no = SearchMemberFrame.pInput.getItem();
@@ -77,12 +80,13 @@ public class SearchMemberButton extends JPanel {
 					
 					int stillRentCount = 0;
 					String stillRent = Integer.toString(0);
+//					
+//					String res = Integer.toString(count1 + stillRentCount);
 					
-					String res = Integer.toString(count1 + stillRentCount);
-					
-					SearchMemberTotalCountPanel.tfGetLateTotalCount.setText(stillRent);
+//					System.out.println(bService.selectTotalOverdueBook()+"");
+//					SearchMemberTotalCountPanel.tfGetLateTotalCount.setText(bService.selectTotalOverdueBook()+"");
 					SearchMemberTotalCountPanel.tfGetStillRent.setText(count2);
-					SearchMemberTotalCountPanel.tfGetTotal.setText(res);
+//					SearchMemberTotalCountPanel.tfGetTotal.setText(res);
 					
 					//--------------------------------------table
 					
@@ -106,8 +110,10 @@ public class SearchMemberButton extends JPanel {
 				}catch(InValidationException aa) {
 					JOptionPane.showMessageDialog(null, "형식에 맞게 입력해주세요.", "오류", JOptionPane.ERROR_MESSAGE);
 				
-				} catch(NullPointerException aa) { JOptionPane.showMessageDialog(null,
+				} 
+					  catch(NullPointerException aa) { JOptionPane.showMessageDialog(null,
 					  "대여 내역이 없는 회원입니다.", "오류", JOptionPane.ERROR_MESSAGE); }
+					 
 					 
 				
 			}
