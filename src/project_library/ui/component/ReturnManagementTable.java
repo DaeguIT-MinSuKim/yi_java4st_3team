@@ -63,7 +63,7 @@ public class ReturnManagementTable extends JTable implements MouseListener {
 			Rent.getBookName(),
 			Rent.getMemberCode(),
 			Rent.getMemberName(),
-			Rent.getRentDate()
+			Rent.getReturnDate()
 		};
 	}
 	private String[] getCols() {

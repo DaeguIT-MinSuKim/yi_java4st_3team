@@ -11,8 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
 import project_library.ui.frame.BookManagementFrame;
@@ -29,6 +27,7 @@ public class index extends JFrame {
 	private JPanel contentPane;
 
 	public static void main(String[] args) {
+		
 		
 		/*
 		 * try { UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel"); }
@@ -197,7 +196,6 @@ public class index extends JFrame {
 				SearchBookFrame f = new SearchBookFrame();
 				f.setVisible(true);
 			}
-			
 		});
 		panel_10.add(btnSearchBook);
 		

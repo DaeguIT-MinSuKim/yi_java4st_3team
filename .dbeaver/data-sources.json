@@ -1,19 +1,19 @@
 {
 	"folders": {},
 	"connections": {
-		"oracle_thin-1744876d3ab-7a8ed1060f088b03": {
+		"oracle_thin-174569b201e-3139aa8aa9384820": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "orcl",
+			"name": "ORCL2",
 			"save-password": true,
 			"show-system-objects": true,
 			"read-only": false,
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
-				"database": "orcl",
-				"url": "jdbc:oracle:thin:@//localhost:1521/orcl",
-				"home": "D:\\app\\lenovo\\product\\11.2.0\\dbhome_1",
+				"database": "ORCL2",
+				"url": "jdbc:oracle:thin:@//localhost:1521/ORCL2",
+				"home": "E:\\app\\lenovo\\product\\11.2.0\\dbhome_4",
 				"type": "dev",
 				"provider-properties": {
 					"@dbeaver-check-schema-content@": "false",
@@ -30,19 +30,19 @@
 				"handlers": {}
 			}
 		},
-		"oracle_thin-174487d1e3f-4bbf1f0393db06a5": {
+		"oracle_thin-174569b5b82-6bee8d125209a246": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "ORCL-user_lib",
+			"name": "ORCL2 2",
 			"save-password": true,
 			"show-system-objects": true,
 			"read-only": false,
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
-				"database": "ORCL",
-				"url": "jdbc:oracle:thin:@//localhost:1521/ORCL",
-				"home": "D:\\app\\lenovo\\product\\11.2.0\\dbhome_1",
+				"database": "ORCL2",
+				"url": "jdbc:oracle:thin:@//localhost:1521/ORCL2",
+				"home": "E:\\app\\lenovo\\product\\11.2.0\\dbhome_4",
 				"type": "dev",
 				"provider-properties": {
 					"@dbeaver-check-schema-content@": "false",

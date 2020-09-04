@@ -1,7 +1,6 @@
 package project_library.ui.frame;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
@@ -42,7 +41,7 @@ public class BookManagementFrame extends JFrame {
 //	}
 
 	public BookManagementFrame() {
-
+		
 		BookManagementService bService = new BookManagementService();
 		bookList = (ArrayList<Book>) bService.getBookDtoList();
 		/*

@@ -17,7 +17,6 @@ import project_library.service.RentalManagementService;
 import project_library.ui.component.RentalManagementButton;
 import project_library.ui.component.RentalManagementPanel;
 import project_library.ui.component.RentalManagementTable;
-import javax.swing.JButton;
 
 @SuppressWarnings("serial")
 public class RentalManagementFrame extends JFrame {

@@ -302,7 +302,7 @@ public class ReturnManagementPanel extends JPanel {
 		tfNo.setText(bdt.getMemberCode());
 		tfName.setText(bdt.getMemberName());
 		tfTel.setText(bdt.getPhone());
-		tfBDate.setText(bdt.getRentDate().substring(0, 10));
+		tfBDate.setText(bdt.getReturnDate().substring(0, 10));
 	}
 
 	public void setEditalbeTableTrueTf() {
