@@ -1,63 +1,7 @@
 {
 	"folders": {},
 	"connections": {
-		"oracle_thin-1744876d3ab-7a8ed1060f088b03": {
-			"provider": "oracle",
-			"driver": "oracle_thin",
-			"name": "orcl",
-			"save-password": true,
-			"show-system-objects": true,
-			"read-only": false,
-			"configuration": {
-				"host": "localhost",
-				"port": "1521",
-				"database": "orcl",
-				"url": "jdbc:oracle:thin:@//localhost:1521/orcl",
-				"home": "D:\\app\\lenovo\\product\\11.2.0\\dbhome_1",
-				"type": "dev",
-				"provider-properties": {
-					"@dbeaver-check-schema-content@": "false",
-					"@dbeaver-always-show-dba@": "false",
-					"@dbeaver-always-use-dba-views@": "false",
-					"@dbeaver-meta-use-sys-schema@": "false",
-					"@dbeaver-meta-use-simple-constraints@": "false",
-					"@dbeaver-use-rule-hint@": "false",
-					"@dbeaver-use-meta-optimizer@": "false",
-					"@dbeaver-connection-type@": "BASIC",
-					"@dbeaver-sid-service@": "SERVICE"
-				},
-				"auth-model": "oracle_native"
-			}
-		},
-		"oracle_thin-174487d1e3f-4bbf1f0393db06a5": {
-			"provider": "oracle",
-			"driver": "oracle_thin",
-			"name": "ORCL-user_lib",
-			"save-password": true,
-			"show-system-objects": true,
-			"read-only": false,
-			"configuration": {
-				"host": "localhost",
-				"port": "1521",
-				"database": "ORCL",
-				"url": "jdbc:oracle:thin:@//localhost:1521/ORCL",
-				"home": "D:\\app\\lenovo\\product\\11.2.0\\dbhome_1",
-				"type": "dev",
-				"provider-properties": {
-					"@dbeaver-check-schema-content@": "false",
-					"@dbeaver-always-show-dba@": "false",
-					"@dbeaver-always-use-dba-views@": "false",
-					"@dbeaver-meta-use-sys-schema@": "false",
-					"@dbeaver-meta-use-simple-constraints@": "false",
-					"@dbeaver-use-rule-hint@": "false",
-					"@dbeaver-use-meta-optimizer@": "false",
-					"@dbeaver-connection-type@": "BASIC",
-					"@dbeaver-sid-service@": "SERVICE"
-				},
-				"auth-model": "oracle_native"
-			}
-		},
-		"oracle_thin-17456cdc0bf-5bc6f9476a3a1300": {
+		"oracle_thin-17456f1a0f2-7d1653e3a2aff1ec": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
 			"name": "orcl - system",
@@ -69,7 +13,7 @@
 				"port": "1521",
 				"database": "orcl",
 				"url": "jdbc:oracle:thin:@//localhost:1521/orcl",
-				"home": "E:\\oracle\\product\\11.2.0\\dbhome_1",
+				"home": "D:\\app\\lenovo\\product\\11.2.0\\dbhome_1",
 				"type": "dev",
 				"provider-properties": {
 					"@dbeaver-check-schema-content@": "false",
@@ -86,10 +30,10 @@
 				"handlers": {}
 			}
 		},
-		"oracle_thin-17456ce5a08-6451cc09d18d25c8": {
+		"oracle_thin-17456f26a98-3cf37067b9e09f8e": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "orcl - userlib",
+			"name": "orcl - user_lib",
 			"save-password": true,
 			"show-system-objects": true,
 			"read-only": false,
@@ -98,7 +42,7 @@
 				"port": "1521",
 				"database": "orcl",
 				"url": "jdbc:oracle:thin:@//localhost:1521/orcl",
-				"home": "E:\\oracle\\product\\11.2.0\\dbhome_1",
+				"home": "D:\\app\\lenovo\\product\\11.2.0\\dbhome_1",
 				"type": "dev",
 				"provider-properties": {
 					"@dbeaver-check-schema-content@": "false",
