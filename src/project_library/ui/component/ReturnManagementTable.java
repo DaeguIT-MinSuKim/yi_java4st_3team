@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.RowSorter;
@@ -49,12 +50,17 @@ public class ReturnManagementTable extends JTable implements MouseListener {
 	}
 	
 	private Object[][] getRows(ArrayList<Rent> returnList) {
-		//System.out.println(returnList);
-		Object[][] rows = new Object[returnList.size()][];
-		for (int i = 0; i < rows.length; i++) {
-			rows[i] = toArray(returnList.get(i));
+		if( returnList == null ) {
+			JOptionPane.showMessageDialog(null, "반납할 도서가 없습니다", "오류", JOptionPane.WARNING_MESSAGE);
+			return null;
+		}else {
+			Object[][] rows = new Object[returnList.size()][];
+			for (int i = 0; i < rows.length; i++) {
+				rows[i] = toArray(returnList.get(i));
+			}
+			return rows;
 		}
-		return rows;
+		
 	}
 	
 	private Object[] toArray(Rent Rent) {
