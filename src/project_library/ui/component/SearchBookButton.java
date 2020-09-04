@@ -131,7 +131,7 @@ public class SearchBookButton extends JPanel implements MouseListener {
 			// 대여정보의 사람의 수 = 해당도서가 총 대여한 실적 표시...!!
 			// System.out.println(SearchBookFrame.table.getRowCount());
 			// String count = Integer.toString(SearchBookFrame.table.getRowCount());
-
+			
 			int count1 = SearchBookFrame.table.getRowCount();
 			String count2 = Integer.toString(count1);
 

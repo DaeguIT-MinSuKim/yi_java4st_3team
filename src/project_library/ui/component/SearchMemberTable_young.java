@@ -21,6 +21,7 @@ public class SearchMemberTable_young extends JTable implements MouseListener {
 	
 	public SearchMemberTable_young() {
 		initComponents();
+		
 	}
 
 	private void initComponents() {

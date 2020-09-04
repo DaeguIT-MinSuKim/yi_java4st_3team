@@ -75,18 +75,7 @@ public class SearchMemberButton extends JPanel {
 					SearchMemberInfoShowPanel.lblGetName.setText(memberName);
 					SearchMemberInfoShowPanel.lblGetTel.setText(memberTel);
 					
-					int count1 = SearchMemberFrame.stable.getRowCount();
-					String count2 = Integer.toString(count1);
 					
-					int stillRentCount = 0;
-					String stillRent = Integer.toString(0);
-//					
-//					String res = Integer.toString(count1 + stillRentCount);
-					
-//					System.out.println(bService.selectTotalOverdueBook()+"");
-//					SearchMemberTotalCountPanel.tfGetLateTotalCount.setText(bService.selectTotalOverdueBook()+"");
-					SearchMemberTotalCountPanel.tfGetStillRent.setText(count2);
-//					SearchMemberTotalCountPanel.tfGetTotal.setText(res);
 					
 					//--------------------------------------table
 					
@@ -100,6 +89,20 @@ public class SearchMemberButton extends JPanel {
 	//				SearchMemberFrame.scrollPane.setViewportView(SearchMemberFrame.stable);
 					
 //					System.out.println(SearchMemberBookList);
+					
+//					int stillRentCount = 0;
+//					String stillRent = Integer.toString(0);
+//					
+//					String res = Integer.toString(count1 + stillRentCount);
+					
+//					System.out.println(bService.selectTotalOverdueBook()+"");
+//					SearchMemberTotalCountPanel.tfGetLateTotalCount.setText(bService.selectTotalOverdueBook()+"");
+					int count1 = SearchMemberFrame.stable.getRowCount();
+					String count2 = Integer.toString(count1);
+					
+					SearchMemberTotalCountPanel.tfGetLateTotalCount.setText(1 + "");
+					SearchMemberTotalCountPanel.tfGetStillRent.setText(count2);
+//					SearchMemberTotalCountPanel.tfGetTotal.setText(res);
 					
 					
 				}else {
