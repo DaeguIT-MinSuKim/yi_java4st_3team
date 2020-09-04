@@ -68,7 +68,7 @@ public class ReturnManagementButton extends JPanel implements ActionListener {
 		 int idx = ReturnManagementFrame.table.getSelectedRow();
 		 Rent bdt = ReturnManagementFrame.returnManagementList.get(idx);
 		 String ReturnDate = ReturnManagementFrame.pRPanel.getTfRDate().getText(); // 반납일
-		 String RentDate = bdt.getRentDate().substring(0, 10); // 대여일
+		 String RentDate = bdt.getReturnDate().substring(0, 10); // 대여일
 		 
 		 // 대여일과 반납일 비교
 		 int compare = ReturnDate.compareTo(RentDate);
