@@ -109,8 +109,7 @@ public class SearchMemberButton extends JPanel {
 //					
 					SearchMemberTotalCountPanel.tfGetLateTotalCount.setText(num+""); // 연체
 					SearchMemberTotalCountPanel.tfGetStillRent.setText(num2+""); // 대여중
-//					SearchMemberTotalCountPanel.tfGetStillRent.setText(count2); // 총
-//					SearchMemberTotalCountPanel.tfGetTotal.setText(res);
+					SearchMemberTotalCountPanel.tfGetTotal.setText(count2); // 총
 					
 					
 				}else {

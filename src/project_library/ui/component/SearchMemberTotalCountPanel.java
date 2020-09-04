@@ -8,6 +8,7 @@ import java.awt.FlowLayout;
 public class SearchMemberTotalCountPanel extends JPanel {
 	public static JTextField tfGetLateTotalCount;
 	public static JTextField tfGetStillRent;
+	public static JTextField tfGetTotal;
 	/**
 	 * Create the panel.
 	 */
@@ -38,6 +39,16 @@ public class SearchMemberTotalCountPanel extends JPanel {
 		
 		JLabel lblKwon2 = new JLabel("권");
 		add(lblKwon2);
+		
+		JLabel lblTotal = new JLabel("총");
+		add(lblTotal);
+		
+		tfGetTotal = new JTextField();
+		tfGetTotal.setColumns(10);
+		add(tfGetTotal);
+		
+		JLabel lblkwon3 = new JLabel("권");
+		add(lblkwon3);
 
 	}
 
