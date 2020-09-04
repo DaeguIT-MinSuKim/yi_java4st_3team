@@ -151,7 +151,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 		// 도서 코드 비활성화
 		pBPanel.getTf().setEditable(false);
 
-		int idx = BookManagementFrame.bookList.indexOf(newBto);
+		int idx = BookManagementFrame.bookList.lastIndexOf(newBto);
 		BookManagementFrame.bookTable.setRowSelectionInterval(0, idx);
 		//System.out.println(idx);
 
