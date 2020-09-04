@@ -208,9 +208,8 @@ public class SearchBookFrame extends JFrame implements ActionListener {
 				pBtns.activeBookName();
 			}
 			
-		}catch(Exception ee) {
-			JOptionPane.showMessageDialog(null, "형식에 맞게 입력해주세요.", "오류", JOptionPane.ERROR_MESSAGE);
-		}
+			  }catch(Exception ee) { JOptionPane.showMessageDialog(null, "형식에 맞게 입력해주세요.",
+			  "오류", JOptionPane.ERROR_MESSAGE); }
 
 	}
 

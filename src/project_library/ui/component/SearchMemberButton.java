@@ -103,11 +103,12 @@ public class SearchMemberButton extends JPanel {
 					clearMemberInfo();
 				}
 				
-				}catch(InValidationException ee) {
+				}catch(InValidationException aa) {
 					JOptionPane.showMessageDialog(null, "형식에 맞게 입력해주세요.", "오류", JOptionPane.ERROR_MESSAGE);
-				}catch(NullPointerException ee) {
-					JOptionPane.showMessageDialog(null, "대여 내역이 없는 회원입니다.", "오류", JOptionPane.ERROR_MESSAGE);
-				}
+				
+				} catch(NullPointerException aa) { JOptionPane.showMessageDialog(null,
+					  "대여 내역이 없는 회원입니다.", "오류", JOptionPane.ERROR_MESSAGE); }
+					 
 				
 			}
 				
