@@ -31,15 +31,17 @@ public class MemberManagementFrame extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	public static SearchMemberPanel pMember;
 	public static JPanel pBtns;
+	private JPanel pMemberl;
+	private JScrollPane scrollPane;
+	public static SearchMemberTable memberTable;
+	public static ArrayList<Member> memberList;
+	
 	public static JButton btnAdd;
 	public static JButton btnSave;
 	public static JButton btnUpdate;
 	public static JButton btnDelete;
 	public static JButton btnExit;
-	private JPanel pMemberl;
-	public static ArrayList<Member> memberList;
-	private JScrollPane scrollPane;
-	public static SearchMemberTable memberTable;
+	
 	private MemberManagementService mService;
 
 	public static void main(String[] args) {

@@ -98,9 +98,9 @@ public class SearchMemberTable extends JTable implements MouseListener {
 		model.removeRow(idx);
 	}
 
-	public void updateRow(int idx, Member uptatedMem) {
+	public void updateRow(int idx, Member updatedMem) {
 		model.removeRow(idx);
-		model.insertRow(idx, toArray(uptatedMem));
+		model.insertRow(idx, toArray(updatedMem));
 	}
 
 	public void mouseClicked(MouseEvent e) {

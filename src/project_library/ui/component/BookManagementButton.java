@@ -153,7 +153,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 
 		int idx = BookManagementFrame.bookList.lastIndexOf(newBto);
 		BookManagementFrame.bookTable.setRowSelectionInterval(0, idx);
-		//System.out.println(idx);
+		// System.out.println(idx);
 
 	}
 
@@ -172,16 +172,16 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	}
 
 	protected void actionPerformedBtnUpdate() {
-		Book updatedBoo = pBPanel.getItem();
 
-		int idx = (int) BookManagementFrame.bookList.indexOf(updatedBoo);
-		System.out.println(idx);
+		Book updatedBoo = pBPanel.getItem();
 
 		// Book DB 수정 연동
 		bService.modifyBook(updatedBoo);
 
+		int idx = BookManagementFrame.bookTable.getSelectedRow();
 		BookManagementFrame.bookTable.updateRow(idx, updatedBoo);
-		// BookManagementFrame.bookTable.setRowSelectionInterval(0, idx);
+		BookManagementFrame.bookTable.setRowSelectionInterval(0, idx);
+
 		pBPanel.clearTf();
 
 		JOptionPane.showMessageDialog(null, "수정 되었습니다.");
@@ -220,6 +220,7 @@ public class BookManagementButton extends JPanel implements ActionListener {
 	protected void actionPerformedBtnExit() {
 		bFrame.dispose();
 	}
+
 	public void setbFrame(BookManagementFrame bFrame) {
 		this.bFrame = bFrame;
 	}

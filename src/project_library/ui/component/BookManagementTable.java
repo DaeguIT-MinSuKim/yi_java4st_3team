@@ -1,33 +1,27 @@
 package project_library.ui.component;
 
-import static project_library.ui.component.BookManagementButton.btnDelete;
-import static project_library.ui.component.BookManagementButton.btnUpdate;
-import static project_library.ui.frame.BookManagementFrame.pBPanel;
-
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
-import javax.swing.RowSorter;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 
 import project_library.dto.Book;
+import project_library.dto.Member;
 import project_library.ui.frame.BookManagementFrame;
 
 @SuppressWarnings("serial")
 public class BookManagementTable extends JTable implements MouseListener {
 
 	private CustomTable model;
-	private BookManagementPanel bp;
-
+	private ArrayList<Book> bookList;
+		
 	public BookManagementTable() {
 		initComponents();
 	}
@@ -56,7 +50,7 @@ public class BookManagementTable extends JTable implements MouseListener {
 	}
 
 	public ArrayList<Book> getBookList() {
-		return BookManagementFrame.bookList;
+		return bookList;
 	}
 
 	public void setBookList(ArrayList<Book> bookList) {
@@ -80,8 +74,8 @@ public class BookManagementTable extends JTable implements MouseListener {
 		tcm.getColumn(3).setCellRenderer(dtcr);
 		tcm.getColumn(4).setCellRenderer(dtcr);
 
-//		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
-//		setRowSorter(sorter);
+		// RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+		// setRowSorter(sorter);
 
 	}
 
@@ -113,17 +107,17 @@ public class BookManagementTable extends JTable implements MouseListener {
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		pBPanel.setEditalbeTableTrueTf();
+		BookManagementFrame.pBPanel.setEditalbeTableTrueTf();
 
 		int idx = BookManagementFrame.bookTable.getSelectedRow();
 		Book bdt = BookManagementFrame.bookList.get(idx);
 
-		bp = new BookManagementPanel();
+		BookManagementPanel bp = new BookManagementPanel();
 		bp.setBookDto(bdt);
 
 		// 삭제 취소 - 수정, 삭제 버튼 활성화
-		btnUpdate.setEnabled(true);
-		btnDelete.setEnabled(true);
+		BookManagementButton.btnUpdate.setEnabled(true);
+		BookManagementButton.btnDelete.setEnabled(true);
 	}
 
 	public void mouseEntered(MouseEvent e) {
